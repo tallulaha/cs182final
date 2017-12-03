@@ -125,9 +125,28 @@ Dive into that muscle group list to get exercises
 Fill it until the time is filled
 
 """
+"""
 self.workout = {day: (time, muscle group, [list of exercises])}
-self.musclegroup = {muscle_group: (True, [list of muscles]), legs: (False, [quadriceps, hamstrings])}
+self.musclegroup = {muscle_group: True, legs: False} 6 muscle groups
+musclegroups = [all the muscle groups]
+if the muscle_group is true, you can use it, if false, then it means you have already done it
+"""
+
 def getWorkout(time):
+	import random
+	# generate a random muscle group to work on
+	rand_int = random.randint(len(musclegroups))
+	rand_musc = musclegroups[rand_int]
+	# keep picking new muscle group until you get one that is True
+	while not self.musclegroup[rand_musc]:
+		rand_int = random.randint(len(musclegroups))
+		rand_musc = musclegroups[rand_int]
+	# now you have a valid muscle group to pick exercises from
+	# set it to False so you don't choose it on next iteration
+	self.musclegroup[rand_musc] = False
+	# iterate through dataset to find appropriate exercises w/in time limits
+	
+
 
 
 
