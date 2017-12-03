@@ -167,9 +167,9 @@ def fillTime(muscgroup, timelimit):
 			num_exercises += 1
 			time_exercises.append(exercise[time])
 			name_exercises.append(exercise[name])
-	simulated_annealing()
+	simulated_annealing(timelimit, num_exercises, time_exercises, name_exercises)
 
-def initSolution(timelimit):
+def initSolution(timelimit, num_exercises, time_exercises, name_exercises):
 	cur_time = 0
 	bag = []
 	  while cur_time < timelimit:
@@ -206,15 +206,15 @@ def acceptProb(new_total, old_total, temp):
   # if the new state is better, accept it
   prob = np.exp((new_total - old_total) / temp)
   return prob
-
-def randItem(bag):
+"""
+def randItem(bag, num_exercises, time_exercises, name_exercises):
   rand_ind = np.random.randint(0, num_exercises)
   # continue generating random index until you get one not in bag
   while rand_ind in indexList(bag):
     rand_ind = np.random.randint(0, num_exercises)
   return (rand_ind, name_exercises[rand_ind], time_exercises[rand_ind])
-
-def genNeighbor(bag):
+"""
+def genNeighbor(bag, timelimit, num_exercises, time_exercises, name_exercises):
   popped_off = []
   for i in xrange(3):
     rand = np.random.randint(0, len(bag))
@@ -231,14 +231,14 @@ def genNeighbor(bag):
     bag.pop()
   return bag
 
-def simulated_annealing():
-    cur_bag = initSolution()
-    values = [valTotal(cur_bag)]
+def simulated_annealing(timelimit, num_exercises, time_exercises, name_exercises):
+    cur_bag = initSolution(timelimit, num_exercises, time_exercises, name_exercises)
+    #values = [valTotal(cur_bag)]
 
     for i in xrange(60000):
       temp = 1. / np.math.log10(i + 2)
       temp_bag = copy.deepcopy(cur_bag)
-      new_bag = genNeighbor(temp_bag)
+      new_bag = genNeighbor(temp_bag, timelimit, num_exercises, time_exercises, name_exercises)
       old_total = valTotal(cur_bag)
       new_total = valTotal(new_bag)
       prob = acceptProb(new_total, old_total, temp)
