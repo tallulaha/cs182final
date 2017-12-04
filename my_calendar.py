@@ -148,7 +148,9 @@ def main():
         last_end = end
         #print ("this is the available time calendar")
     #print (conflict_dict)
-    orderTimes(conflict_dict, 'afternoon')
+    conflict_dict = orderTimes(conflict_dict, 'afternoon')
+    conflict_dict = orderDays(conflict_dict)
+    print (conflict_dict)
 
         # {(12-03, Sunday) : [(8,10), (10-12), (12, 1)]; (12-04, Monday): [(8,10), (10-12), (12, 1)]}
         # want to split 8-3 into 8-11:59, 12-3
@@ -199,12 +201,75 @@ def orderTimes(availabledict, timepref):
             else:
                 sorttimes.append((start, end))
             totaltime += time
-        timeinpref = timeinpref.time()
-        totaltime = totaltime.time()
+        timeinpref = calcTotalTime(timeinpref.hour, timeinpref.minute, timeinpref.second)
+        totaltime = calcTotalTime(totaltime.hour, totaltime.minute, totaltime.second)
+        #timeinpref = timeinpref.time()
+        #totaltime = totaltime.time()
         sorttimes.insert(0, timeinpref)
         sorttimes.insert(0, totaltime)
         availabledict[day] = sorttimes
-    print (availabledict)
+    return availabledict
+
+def calcTotalTime(hour, minute, second):
+    # return in minutes
+    return (hour*60 + minute + second/60.)
+
+def orderDays(availabledict):
+    # self.availability looks like: 
+    # "day": [total available time, total pref time, time, time, time, time]
+    # preferences: {day: number 0-6}
+    pref_time = {}
+    ptimearray = []
+    pref_not_time = {}
+    notptimearray = []
+    mintime1 = float("inf")
+    mintime2 = float("inf")
+    for curday, timelist in availabledict.iteritems():
+        totaltime = timelist.pop(0)
+        totalpreftime = timelist.pop(0)
+        # if there is no time in preference, order by total available time
+        if totalpreftime == 0:
+            pref_not_time[curday] = totaltime
+            notptimearray.append(totaltime)
+        # if there is a time in preference, order by total time in preference
+        else:
+            pref_time[curday] = totalpreftime
+            ptimearray.append(totalpreftime)
+
+    # rank the days
+    ptimearray = sorted(ptimearray, reverse=True)
+    for rank in xrange(len(ptimearray)):
+        for day, num in pref_time.iteritems():
+            if ptimearray[rank] == num:
+                pref_time[day] = rank
+                break
+
+    # rank the days
+    notptimearray = sorted(notptimearray, reverse=True)
+    for rank in xrange(len(notptimearray)):
+        for day, num in pref_not_time.iteritems():
+            if notptimearray[rank] == num:
+                pref_not_time[day] = rank
+                break
+
+    #now you have:
+    #pref_time = {sunday: 1, tuesday: 2, wednesday: 0} 
+    #pref_not_time = {monday: 1, thursday: 2, friday: 0, saturday: 4, sunday: 3}
+    #now combine lists together so fix preferences of pref_not_time
+
+    for day, pref in pref_not_time.iteritems():
+        pref_not_time[day] = pref + len(pref_time)
+
+    pref_time.update(pref_not_time)
+    all_pref = pref_time
+
+    # make availabilitydict into a tuple with (pref, times)
+    prefavailability = {}
+    for day, timelist in availabledict.iteritems():
+        prefavailability[day] = (all_pref[day], timelist)
+
+    # looks like: {sunday: (1, [times]), monday: (6, [times])}
+    return prefavailability
 
 # def createEvent(day, time, descrip, loc):
 #     event = {}
