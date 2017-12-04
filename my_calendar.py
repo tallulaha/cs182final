@@ -151,6 +151,7 @@ def main():
     conflict_dict = orderTimes(conflict_dict, 'afternoon')
     conflict_dict = orderDays(conflict_dict)
     print (conflict_dict)
+    generateTime(conflict_dict, 3, 60)
 
         # {(12-03, Sunday) : [(8,10), (10-12), (12, 1)]; (12-04, Monday): [(8,10), (10-12), (12, 1)]}
         # want to split 8-3 into 8-11:59, 12-3
@@ -272,16 +273,37 @@ def orderDays(availabledict):
     return prefavailability
 
 # make a time from the available times for them to work out
-def generateTime():
+def generateTime(availabledict, num_days, des_time):
     # this is a number
-    for _ in desired_days:
-        pref = 0
-        for day, (p, times) in self.availability.iteritems():
+    from datetime import datetime
+    import datetime as dt
+
+    pref = 0
+    wkt_times = []
+    for _ in xrange(num_days):
+        for day, (p, times) in availabledict.iteritems():
             if p == pref:
                 pref += 1
-                # pick a random time in times that fits with how long they wanted to workout
-                # getWorkout manipulates the self.workout dictionary 
-                generateWorkout(time)
+                # bug to figure out later: if there isn't enough time in the first time interval
+                # keep moving through that same date even if it is no longer in time preference
+                # could also decide to move to a different day 
+                (start, end) = times[0]
+                starttime = datetime.strptime(start[0:8], '%H:%M:%S')
+                endtime = starttime + dt.timedelta(minutes=des_time)
+                endlimit = datetime.strptime(end[0:8], '%H:%M:%S')
+                if endtime > endlimit:
+                    print ("hello")
+                    # need to pick another time interval
+                else:
+                    starttime = str(starttime.time()) + '-05:00'
+                    endtime = str(endtime.time()) + '-05:00'
+                    wkt_times.append((starttime, endtime))
+    print ("workout times")
+    print (wkt_times)
+                    
+
+
+
 
 # def createEvent(day, time, descrip, loc):
 #     event = {}
