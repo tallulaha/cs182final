@@ -130,7 +130,6 @@ def main():
         # print (et < sleep['bedtime'])
         if et != None and ed != None:
             if (ed != day) and (et < sleep['bedtime']):
-                print ("hello")
                 breakTime(et, sleep['bedtime']+'-05:00', ed, conflict_dict)
         if day not in conflict_dict:
             conflict_dict[day] = []
@@ -144,10 +143,12 @@ def main():
         # need to check bedtime to make sure it doesnt go over
         end = event['end'].get('dateTime', event['end'].get('date'))
         ed, et = end.split("T")
-        print(start, event['summary'])
+        #print(start, event['summary'])
         # just want the end time !!
         last_end = end
-        print (conflict_dict)
+        #print ("this is the available time calendar")
+    #print (conflict_dict)
+    orderTimes(conflict_dict, 'afternoon')
 
         # {(12-03, Sunday) : [(8,10), (10-12), (12, 1)]; (12-04, Monday): [(8,10), (10-12), (12, 1)]}
         # want to split 8-3 into 8-11:59, 12-3
@@ -165,6 +166,45 @@ def breakTime(start,end,day,dic):
         dic[day].append(('17:00:00-05:00', end))
     else:
         dic[day].append((start, end))
+
+def orderTimes(availabledict, timepref):
+    # https://stackoverflow.com/questions/3096953/how-to-calculate-the-time-interval-between-two-time-strings
+    from datetime import datetime
+
+    for day, timelist in availabledict.iteritems():
+        # create a new list of sorted times
+        sorttimes = []
+        timeinpref = datetime.strptime('00:00:00', '%H:%M:%S')
+        totaltime = datetime.strptime('00:00:00', '%H:%M:%S')
+        for (start, end) in timelist:
+            startdate = datetime.strptime(start[0:8], '%H:%M:%S')
+            enddate = datetime.strptime(end[0:8], '%H:%M:%S')
+            time = enddate - startdate
+            if timepref == 'morning':
+                # should be wake time
+                scutoff = datetime.strptime('05:00:00', '%H:%M:%S')
+                ecutoff = datetime.strptime('11:59:59', '%H:%M:%S')
+            elif timepref == 'afternoon':
+                scutoff = datetime.strptime('12:00:00', '%H:%M:%S')
+                ecutoff = datetime.strptime('16:59:59', '%H:%M:%S')
+            else:
+                scutoff = datetime.strptime('17:00:00', '%H:%M:%S')
+                ecutoff = datetime.strptime('23:59:59', '%H:%M:%S')
+            # add times that fit within the workout pref time to the front
+            if scutoff <= startdate and enddate <= ecutoff:
+                sorttimes.insert(0, (start, end))
+                # get the amt of time you have in your workout pref time
+                timeinpref += time 
+            # add remaining times to the end (don't fit workout pref time)
+            else:
+                sorttimes.append((start, end))
+            totaltime += time
+        timeinpref = timeinpref.time()
+        totaltime = totaltime.time()
+        sorttimes.insert(0, timeinpref)
+        sorttimes.insert(0, totaltime)
+        availabledict[day] = sorttimes
+    print (availabledict)
 
 # def createEvent(day, time, descrip, loc):
 #     event = {}
