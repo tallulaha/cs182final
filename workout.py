@@ -101,10 +101,10 @@ def orderDays():
 	prefavailability = {}
 	for day, timelist in self.availability.iteritems():
 		prefavailability[day] = (all_pref[day], timelist)
-	
+
+	# looks like: {sunday: (1, [times]), monday: (6, [times])}
 	self.availability = prefavailability
 
-def generateTime
 
 """
 Iterate through the dictionary for the number of days they wanted to workout
@@ -112,6 +112,16 @@ Pick a time within the available times for specific duration and send to getWork
 -- is this a peak hour?
 ---- add time to finish workout (don’t put in as many workouts so that you stay under time limit)
 """
+def generateTime():
+	# this is a number
+	for _ in desired_days:
+		pref = 0
+		for day, (p, times) in self.availability.iteritems():
+			if p == pref:
+				pref += 1
+				# pick a random time in times that fits with how long they wanted to workout
+				# getWorkout manipulates the self.workout dictionary 
+				generateWorkout(time)
 
 """
 getWorkout:
@@ -124,47 +134,117 @@ Only work on muscle group that have a 0 (you haven’t worked on)
 Dive into that muscle group list to get exercises
 Fill it until the time is filled
 
-"""
 self.workout = {day: (time, muscle group, [list of exercises])}
-self.musclegroup = {muscle_group: (True, [list of muscles]), legs: (False, [quadriceps, hamstrings])}
-def getWorkout(time):
+self.musclegroup = {muscle_group: True, legs: False} 6 muscle groups
+musclegroups = [all the muscle groups]
+if the muscle_group is true, you can use it, if false, then it means you have already done it
+"""
 
+def generateWorkout(time):
+	import random
+	# generate a random muscle group to work on
+	rand_int = random.randint(len(musclegroups))
+	rand_musc = musclegroups[rand_int]
+	# keep picking new muscle group until you get one that is True
+	while not self.musclegroup[rand_musc]:
+		rand_int = random.randint(len(musclegroups))
+		rand_musc = musclegroups[rand_int]
+	# now you have a valid muscle group to pick exercises from
+	# set it to False so you don't choose it on next iteration
+	self.musclegroup[rand_musc] = False
+	# iterate through dataset to find appropriate exercises w/in time limits
+	# use simulated annealing to find the optimal bag of exercises
+	fillTime(rand_musc, time)
 
+def fillTime(muscgroup, timelimit):
+	num_exercises = 0
+	time_exercises = []
+	name_exercises = []
+	# go through each row in the dataset
+	for exercise in dataset:
+		# if that exercise is within that musclegroup
+		if muscgroup == exercise[musclegroup]:
+			num_exercises += 1
+			time_exercises.append(exercise[time])
+			name_exercises.append(exercise[name])
+	simulated_annealing(timelimit, num_exercises, time_exercises, name_exercises)
 
+def initSolution(timelimit, num_exercises, time_exercises, name_exercises):
+	cur_time = 0
+	bag = []
+	  while cur_time < timelimit:
+	    rand_ind = np.random.randint(0, num_exercises)
+	    rand_item = (rand_ind, name_exercises[rand_ind], time_exercises[rand_ind])
+	    if not rand_item in bag:
+	      bag.append(rand_item)
+	    cur_time = timeTotal(bag)
+	  if cur_time > timelimit:
+	    bag.pop()
+	  return bag
 
+# want to maximize time working out
+# minimize free time in workout
+def valTotal(bag):
+  total = 0
+  for (_, _, time) in bag:
+    total += time
+  return total
 
+def timeTotal(bag):
+  total = 0
+  for (_, _, time) in bag:
+    total += time
+  return total
 
+def indexList(bag):
+  indexes = []
+  for (i, _, _) in bag:
+    indexes.append(i)
+  return indexes
 
+def acceptProb(new_total, old_total, temp):
+  # if the new state is better, accept it
+  prob = np.exp((new_total - old_total) / temp)
+  return prob
+"""
+def randItem(bag, num_exercises, time_exercises, name_exercises):
+  rand_ind = np.random.randint(0, num_exercises)
+  # continue generating random index until you get one not in bag
+  while rand_ind in indexList(bag):
+    rand_ind = np.random.randint(0, num_exercises)
+  return (rand_ind, name_exercises[rand_ind], time_exercises[rand_ind])
+"""
+def genNeighbor(bag, timelimit, num_exercises, time_exercises, name_exercises):
+  popped_off = []
+  for i in xrange(3):
+    rand = np.random.randint(0, len(bag))
+    pop = bag.pop(rand)
+    popped_off.append(pop)
+  cur_time = timeTotal(bag)
+  while cur_time < timelimit:
+    rand_ind = np.random.randint(0, num_exercises)
+    rand_item = (rand_ind, name_exercises[rand_ind], time_exercises[rand_ind])
+    if not rand_item in bag and not rand_item in popped_off:
+      bag.append(rand_item)
+    cur_time = timeTotal(bag)
+  if cur_time > timelimit:
+    bag.pop()
+  return bag
 
+def simulated_annealing(timelimit, num_exercises, time_exercises, name_exercises):
+    cur_bag = initSolution(timelimit, num_exercises, time_exercises, name_exercises)
+    #values = [valTotal(cur_bag)]
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    for i in xrange(60000):
+      temp = 1. / np.math.log10(i + 2)
+      temp_bag = copy.deepcopy(cur_bag)
+      new_bag = genNeighbor(temp_bag, timelimit, num_exercises, time_exercises, name_exercises)
+      old_total = valTotal(cur_bag)
+      new_total = valTotal(new_bag)
+      prob = acceptProb(new_total, old_total, temp)
+      if new_total > old_total or np.random.random() <= prob:
+        cur_bag = new_bag
+      #total = valTotal(cur_bag)
+      #values.append(total)
+    return cur_bag
 
