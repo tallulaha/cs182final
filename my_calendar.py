@@ -271,6 +271,18 @@ def orderDays(availabledict):
     # looks like: {sunday: (1, [times]), monday: (6, [times])}
     return prefavailability
 
+# make a time from the available times for them to work out
+def generateTime():
+    # this is a number
+    for _ in desired_days:
+        pref = 0
+        for day, (p, times) in self.availability.iteritems():
+            if p == pref:
+                pref += 1
+                # pick a random time in times that fits with how long they wanted to workout
+                # getWorkout manipulates the self.workout dictionary 
+                generateWorkout(time)
+
 # def createEvent(day, time, descrip, loc):
 #     event = {}
 #     event = {
