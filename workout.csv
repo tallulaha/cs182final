@@ -1,0 +1,64 @@
+Exercise Type,Exercise Name,Time (mins),Reps ,Muscles,Equipment
+cardio,Jump Rope,30,1,Quadriceps,Other
+cardio,Burpee,30,1,Quadriceps,None
+cardio,Bicycle,30,1,Quadriceps,Other
+cardio,Rowing,30,1,Quadriceps,Machine
+cardio,Elliptical,30,1,Quadriceps,Machine
+cardio,StairMaster,30,1,Quadriceps,Machine
+cardio,Outdoor Running,30,1,Quadriceps,None
+cardio,Skating,30,1,Quadriceps,Other
+cardio,Treadmill Jog (5 mph),30,1,Quadriceps,Machine
+cardio,Treadmill Run (6 mph),30,1,Quadriceps,Machine
+cardio,Recumbent Bike,30,1,Quadriceps,Machine
+cardio,Butt Kicks,30,1,Quadriceps,None
+strength ,Single-Leg Press,45,,Quadriceps,Machine
+strength ,Incline Hammer Curls,45,,Biceps ,Dumbbell
+strength ,Pull-Ups,45,,Lats,Other
+strength ,Dips,45,,Triceps,None
+strength ,Barbell Squat,45,,Quadriceps,Barbell
+strength ,Wrist Curl,45,,Forearms,Barbell
+strength ,Romanian Deadlift,45,,Hamstrings,Dumbbell
+strength ,Barbell Deadlift,45,,Hamstrings,Barbell
+strength ,Standing Military Press,45,,Shoulders ,Barbell
+strength ,Plank,45,,Abdominals,None
+strength ,Standin Cable Lift,45,,Abdominals,Machine
+strength ,Quad 15,15,,Quadriceps,Machine
+strength ,Biceps 15,15,,Biceps ,Dumbbell
+strength ,Lats 15,15,,Lats,Other
+strength ,Triceps 15,15,,Triceps,None
+strength ,Forearms 15,15,,Forearms,Barbell
+strength ,Hamstrings 15,15,,Hamstrings,Dumbbell
+strength ,Shoulders 15,15,,Hamstrings,Barbell
+strength ,Abdominals 15,15,,Abdominals,None
+strength ,Quad 10,10,,Quadriceps,Machine
+strength ,Biceps 10,10,,Biceps ,Dumbbell
+strength ,Lats 10,10,,Lats,Other
+strength ,Triceps 10,10,,Triceps,None
+strength ,Forearms 10,10,,Forearms,Barbell
+strength ,Hamstrings 10,10,,Hamstrings,Dumbbell
+strength ,Shoulders 10,10,,Hamstrings,Barbell
+strength ,Abdominals 10,10,,Abdominals,None
+strength ,Quad 8,8,,Quadriceps,Machine
+strength ,Biceps 8,8,,Biceps ,Dumbbell
+strength ,Lats 8,8,,Lats,Other
+strength ,Triceps 8,8,,Triceps,None
+strength ,Forearms 8,8,,Forearms,Barbell
+strength ,Hamstrings 8,8,,Hamstrings,Dumbbell
+strength ,Shoulders 8,8,,Hamstrings,Barbell
+strength ,Abdominals 8,8,,Abdominals,None
+strength ,Quad 5,5,,Quadriceps,Machine
+strength ,Biceps 5,5,,Biceps ,Dumbbell
+strength ,Lats 5,5,,Lats,Other
+strength ,Triceps 5,5,,Triceps,None
+strength ,Forearms 5,5,,Forearms,Barbell
+strength ,Hamstrings 5,5,,Hamstrings,Dumbbell
+strength ,Shoulders 5,5,,Hamstrings,Barbell
+strength ,Abdominals 5,5,,Abdominals,None
+strength ,Quad 3,3,,Quadriceps,Machine
+strength ,Biceps 3,3,,Biceps ,Dumbbell
+strength ,Lats 3,3,,Lats,Other
+strength ,Triceps 3,3,,Triceps,None
+strength ,Forearms 3,3,,Forearms,Barbell
+strength ,Hamstrings 3,3,,Hamstrings,Dumbbell
+strength ,Shoulders 3,3,,Hamstrings,Barbell
+strength ,Abdominals 3,3,,Abdominals,None

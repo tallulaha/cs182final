@@ -11,6 +11,10 @@ from oauth2client.file import Storage
 import datetime
 import dateutil.parser
 import calendar
+import csv
+import random
+import numpy as np
+import copy
 
 try:
     import argparse
@@ -24,9 +28,6 @@ SCOPES = 'https://www.googleapis.com/auth/calendar.readonly'
 CLIENT_SECRET_FILE = 'client_secret.json'
 APPLICATION_NAME = 'Google Calendar API Python Quickstart'
 
-sleep = {'wakeup': '08:00:00', 'bedtime': '23:59:59'}
-time_preferences = ['morning', 'afternoon', 'evening']
-workout_goals = ['lose weight', 'gain muscle', 'increase endurance', 'new skills']
 
 def getDateTimeFromISO8601String(s):
     d = dateutil.parser.parse(s)
@@ -61,13 +62,18 @@ def get_credentials():
     return credentials
 
 
-
 def main():
     """Shows basic usage of the Google Calendar API.
 
     Creates a Google Calendar API service object and outputs a list of the next
     10 events on the user's calendar.
     """
+    sleep = {'wakeup': '08:00:00', 'bedtime': '23:59:59'}
+    time_preferences = ['morning', 'afternoon', 'evening']
+    workout_goals = ['lose weight', 'gain muscle', 'increase endurance', 'new skills']
+
+
+
     credentials = get_credentials()
     http = credentials.authorize(httplib2.Http())
     service = discovery.build('calendar', 'v3', http=http)
@@ -302,6 +308,24 @@ def generateTime(availabledict, num_days, des_time):
                     wkt_times.append((day, starttime, endtime))
     print ("workout times")
     print (wkt_times)
+    for day in wkt_times:
+        # not sure if this will give minutes
+
+        FMT = '%H:%M:%S'
+        if day[2].endswith('-05:00'):
+            end = day[2][:-6]
+        if day[1].endswith('-05:00'):
+            start = day[1][:-6]
+        amt_time = datetime.strptime(end,FMT) - datetime.strptime(start,FMT)
+        # need to convert to minutes
+        print ("amt of time", amt_time)
+        print (day[0])
+        # https://stackoverflow.com/questions/14190045/how-to-convert-datetime-timedelta-to-minutes-hours-in-python
+        seconds = amt_time.total_seconds()
+        print (seconds)
+        time_min = int(seconds / 60.)
+        print ("amt min", time_min)
+        generateWorkout(time_min)
          
 
 """
@@ -317,38 +341,61 @@ if the muscle_group is true, you can use it, if false, then it means you have al
 # **** this does not need the csv but we need to define muscle groups
 # **** this could be [legs, arms, shoulders, back, abdominals]???
 def generateWorkout(time):
-    import random
+    # self. wasnt working so not sure where to put this to make sure it is updated and stays 
+    ## temporary location because it will be wrong 
+    musclegroups= [('legs',True), ('arms',True), ('shoulders',True),('back',True),('abdominals',True)]
     # generate a random muscle group to work on
-    rand_int = random.randint(len(musclegroups))
-    rand_musc = musclegroups[rand_int]
+    # not sure about -1
+    rand_int = random.randint(0,len(musclegroups)-1)
+    rand_musc = musclegroups[rand_int][0]
     # keep picking new muscle group until you get one that is True
-    while not self.musclegroup[rand_musc]:
-        rand_int = random.randint(len(musclegroups))
-        rand_musc = musclegroups[rand_int]
+    # not 100% this is doing it correctly
+    while not musclegroups[rand_int][1]:
+        rand_int = random.randint(0,len(self.musclegroups)-1)
+        rand_musc = musclegroups[rand_int][0]
     # now you have a valid muscle group to pick exercises from
     # set it to False so you don't choose it on next iteration
-    self.musclegroup[rand_musc] = False
+    musclegroups[rand_int] = (rand_musc,False)
+    print (musclegroups)
     # iterate through dataset to find appropriate exercises w/in time limits
     # use simulated annealing to find the optimal bag of exercises
     workout = fillTime(rand_musc, time)
+    print (workout)
     return workout
 
 #this needs to read in things from the data file but generally should work fine
 #since not dependent on the time or anything
 #timelimit should be in minutes
+
+
+
 def fillTime(muscgroup, timelimit):
+    print ("selected muscle", muscgroup)
     num_exercises = 0
     time_exercises = []
     name_exercises = []
+    muscles = {'legs':['Quadriceps','Hamstrings'],'arms':['Biceps','Triceps','Forearms'], 'shoulders':['Shoulders'],'back':['Lats'],'abdominals':['Abdominals']}
     # go through each row in the dataset
     #***** this is where we need to read in datafile
-    for exercise in dataset:
+    workout_file = 'workout.csv'
+    with open(workout_file, 'r') as work_fh:
+        workout_csv = csv.reader(work_fh, delimiter=",", quotechar='"')
+        next(workout_csv, None)
+        for row in workout_csv:
+            musclegroup = row[4]
+            #print ("time?", row[2])
+            time = int(row[2])
+            name = row[1]
+            # if that exercise is within that musclegroup
+            if musclegroup in muscles[muscgroup]:
+                print ("plus")
+                num_exercises += 1
+                # compile the number of exercises in that group, the time they take, and their names
+                time_exercises.append(time)
+                name_exercises.append(name)
+
         # if that exercise is within that musclegroup
-        # compile the number of exercises in that group, the time they take, and their names
-        if muscgroup == exercise[musclegroup]:
-            num_exercises += 1
-            time_exercises.append(exercise[time])
-            name_exercises.append(exercise[name])
+
     return simulated_annealing(timelimit, num_exercises, time_exercises, name_exercises)
 
 
@@ -357,7 +404,9 @@ def simulated_annealing(timelimit, num_exercises, time_exercises, name_exercises
     cur_bag = initSolution(timelimit, num_exercises, time_exercises, name_exercises)
     #values = [valTotal(cur_bag)]
 
-    for i in xrange(60000):
+    #for i in xrange(60000):
+    ## CHANGED THIS FOR TESTING
+    for i in xrange(2):
       temp = 1. / np.math.log10(i + 2)
       temp_bag = copy.deepcopy(cur_bag)
       new_bag = genNeighbor(temp_bag, timelimit, num_exercises, time_exercises, name_exercises)
@@ -373,7 +422,9 @@ def simulated_annealing(timelimit, num_exercises, time_exercises, name_exercises
 def initSolution(timelimit, num_exercises, time_exercises, name_exercises):
     cur_time = 0
     bag = []
+    print ("timeL", timelimit)
     while cur_time < timelimit:
+        print ("numex", num_exercises)
         rand_ind = np.random.randint(0, num_exercises)
         rand_item = (rand_ind, name_exercises[rand_ind], time_exercises[rand_ind])
         if not rand_item in bag:
@@ -381,6 +432,7 @@ def initSolution(timelimit, num_exercises, time_exercises, name_exercises):
         cur_time = timeTotal(bag)
     if cur_time > timelimit:
         bag.pop()
+    print ("bag init", bag)
     return bag
 
 # want to maximize time working out
@@ -417,15 +469,23 @@ def randItem(bag, num_exercises, time_exercises, name_exercises):
 """
 def genNeighbor(bag, timelimit, num_exercises, time_exercises, name_exercises):
   popped_off = []
-  for i in xrange(3):
+  # this doesnt work because already empty i am guessing to change this
+  #for i in xrange(3):
+  # to this
+  while len(bag) > 0:
+    print ("bag genN", len(bag))
     rand = np.random.randint(0, len(bag))
     pop = bag.pop(rand)
     popped_off.append(pop)
   cur_time = timeTotal(bag)
+  # getting in a loop here maybe because we are not perfectly doing the exercise time
+  # or maybe not working because we dont have enough examples 
   while cur_time < timelimit:
+    print ("here")
     rand_ind = np.random.randint(0, num_exercises)
     rand_item = (rand_ind, name_exercises[rand_ind], time_exercises[rand_ind])
     if not rand_item in bag and not rand_item in popped_off:
+      print ("both conditions satisfied")
       bag.append(rand_item)
     cur_time = timeTotal(bag)
   if cur_time > timelimit:
