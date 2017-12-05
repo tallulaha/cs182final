@@ -343,11 +343,11 @@ if the muscle_group is true, you can use it, if false, then it means you have al
 """
 
 
-def generateWorkout(time):
+def generateWorkout(timelimit):
     # 4 big muscle groups
     # if True, that muscle group has not been assigned to a workout yet, so can be chosen
     # if False, that muscle group has been assigned to a workout, so cannot be chosen again
-    musclegroups= [('legs',True), ('arms',True), ('back',True),('abdominals',True)]
+    musclegroups = [('legs',True), ('arms',True), ('back',True),('abdominals',True)]
     # generate a random muscle group to work on
     rand_int = random.randint(0,len(musclegroups)-1)
     rand_musc = musclegroups[rand_int][0]
@@ -359,7 +359,7 @@ def generateWorkout(time):
     # set it to False so you don't choose it on next iteration
     musclegroups[rand_int] = (rand_musc,False)
     # iterate through dataset to find musclegroup specific exercises w/in time limits
-    workout = fillTime(rand_musc, time)
+    workout = fillTime(rand_musc, timelimit)
     return workout
 
 def fillTime(muscgroup, timelimit):
