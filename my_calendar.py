@@ -288,7 +288,7 @@ def generateTime(availabledict, num_days, des_time):
 
     pref = 0
     wkt_times = []
-    for _ in xrange(num_days):
+    for i in xrange(num_days):
         for day, (p, times) in availabledict.iteritems():
             if p == pref:
                 pref += 1
@@ -306,8 +306,10 @@ def generateTime(availabledict, num_days, des_time):
                     starttime = str(starttime.time()) + '-05:00'
                     endtime = str(endtime.time()) + '-05:00'
                     wkt_times.append((day, starttime, endtime))
-    print ("workout times")
-    print (wkt_times)
+                break
+
+    #print ("workout times")
+    #print ("WORKOUT TIMES", wkt_times)
     for day in wkt_times:
         # not sure if this will give minutes
 
@@ -318,14 +320,15 @@ def generateTime(availabledict, num_days, des_time):
             start = day[1][:-6]
         amt_time = datetime.strptime(end,FMT) - datetime.strptime(start,FMT)
         # need to convert to minutes
-        print ("amt of time", amt_time)
-        print (day[0])
+        #print ("amt of time", amt_time)
+        #print (day[0])
         # https://stackoverflow.com/questions/14190045/how-to-convert-datetime-timedelta-to-minutes-hours-in-python
         seconds = amt_time.total_seconds()
-        print (seconds)
+        #print (seconds)
         time_min = int(seconds / 60.)
-        print ("amt min", time_min)
+        #print ("amt min", time_min)
         generateWorkout(time_min)
+
          
 
 """
@@ -356,7 +359,7 @@ def generateWorkout(time):
     # now you have a valid muscle group to pick exercises from
     # set it to False so you don't choose it on next iteration
     musclegroups[rand_int] = (rand_musc,False)
-    print (musclegroups)
+    #print (musclegroups)
     # iterate through dataset to find appropriate exercises w/in time limits
     # use simulated annealing to find the optimal bag of exercises
     workout = fillTime(rand_musc, time)
@@ -370,7 +373,7 @@ def generateWorkout(time):
 
 
 def fillTime(muscgroup, timelimit):
-    print ("selected muscle", muscgroup)
+    #print ("selected muscle", muscgroup)
     num_exercises = 0
     time_exercises = []
     name_exercises = []
@@ -415,14 +418,14 @@ def simulated_annealing(timelimit, num_exercises, time_exercises, name_exercises
         cur_bag = new_bag
       #total = valTotal(cur_bag)
       #values.append(total)
+    print (timeTotal(cur_bag))
     return cur_bag
 
 def initSolution(timelimit, num_exercises, time_exercises, name_exercises):
     cur_time = 0
     bag = []
-    print ("timeL", timelimit)
+    #print ("timeL", timelimit)
     while cur_time < timelimit:
-        print ("numex", num_exercises)
         rand_ind = np.random.randint(0, num_exercises)
         rand_item = (rand_ind, name_exercises[rand_ind], time_exercises[rand_ind])
         if not rand_item in bag:
@@ -430,7 +433,6 @@ def initSolution(timelimit, num_exercises, time_exercises, name_exercises):
         cur_time = timeTotal(bag)
     if cur_time > timelimit:
         bag.pop()
-    print ("bag init", bag)
     return bag
 
 # want to maximize time working out
@@ -445,7 +447,6 @@ def timeTotal(bag):
     total = 0
     for (_, _, time) in bag:
         total += time
-    print (total)
     return total
 
 def indexList(bag):
@@ -465,19 +466,16 @@ def genNeighbor(bag, timelimit, num_exercises, time_exercises, name_exercises):
   #for i in xrange(3):
   # to this
     while len(bag) > 0:
-        print ("bag genN", len(bag))
         rand = np.random.randint(0, len(bag))
         pop = bag.pop(rand)
         popped_off.append(pop)
     cur_time = timeTotal(bag)
   # getting in a loop here maybe because we are not perfectly doing the exercise time
   # or maybe not working because we dont have enough examples 
-    while cur_time < (timelimit-10):
-        print ("here")
+    while cur_time < (timelimit):
         rand_ind = np.random.randint(0, num_exercises)
         rand_item = (rand_ind, name_exercises[rand_ind], time_exercises[rand_ind])
         if not rand_item in bag and not rand_item in popped_off:
-            print ("both conditions satisfied")
             bag.append(rand_item)
         cur_time = timeTotal(bag)
     if cur_time > timelimit:
