@@ -95,6 +95,7 @@ def main():
        calendarId='primary', timeMin=now, timeMax=stopdate, singleEvents=True,
        orderBy='startTime').execute()
     events = eventsResult.get('items', [])
+    print ("Events", events)
     #
     # events = []
 
