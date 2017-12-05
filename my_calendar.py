@@ -330,8 +330,8 @@ def generateWorkout(time):
     self.musclegroup[rand_musc] = False
     # iterate through dataset to find appropriate exercises w/in time limits
     # use simulated annealing to find the optimal bag of exercises
-    fillTime(rand_musc, time)
-
+    workout = fillTime(rand_musc, time)
+    return workout
 
 #this needs to read in things from the data file but generally should work fine
 #since not dependent on the time or anything
@@ -349,7 +349,7 @@ def fillTime(muscgroup, timelimit):
             num_exercises += 1
             time_exercises.append(exercise[time])
             name_exercises.append(exercise[name])
-    simulated_annealing(timelimit, num_exercises, time_exercises, name_exercises)
+    return simulated_annealing(timelimit, num_exercises, time_exercises, name_exercises)
 
 
 #this should all be in working order
