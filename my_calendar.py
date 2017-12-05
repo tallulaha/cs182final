@@ -314,6 +314,8 @@ musclegroups = [all the muscle groups] also hard coded
 if the muscle_group is true, you can use it, if false, then it means you have already done it
 """
 
+# **** this does not need the csv but we need to define muscle groups
+# **** this could be [legs, arms, shoulders, back, abdominals]???
 def generateWorkout(time):
     import random
     # generate a random muscle group to work on
@@ -339,8 +341,10 @@ def fillTime(muscgroup, timelimit):
     time_exercises = []
     name_exercises = []
     # go through each row in the dataset
+    #***** this is where we need to read in datafile
     for exercise in dataset:
         # if that exercise is within that musclegroup
+        # compile the number of exercises in that group, the time they take, and their names
         if muscgroup == exercise[musclegroup]:
             num_exercises += 1
             time_exercises.append(exercise[time])
