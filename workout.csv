@@ -28,7 +28,7 @@ strength ,Lats 15,15,,Lats,Other
 strength ,Triceps 15,15,,Triceps,None
 strength ,Forearms 15,15,,Forearms,Barbell
 strength ,Hamstrings 15,15,,Hamstrings,Dumbbell
-strength ,Shoulders 15,15,,Hamstrings,Barbell
+strength ,Shoulders 15,15,,Shoulders ,Barbell
 strength ,Abdominals 15,15,,Abdominals,None
 strength ,Quad 10,10,,Quadriceps,Machine
 strength ,Biceps 10,10,,Biceps ,Dumbbell
@@ -36,7 +36,7 @@ strength ,Lats 10,10,,Lats,Other
 strength ,Triceps 10,10,,Triceps,None
 strength ,Forearms 10,10,,Forearms,Barbell
 strength ,Hamstrings 10,10,,Hamstrings,Dumbbell
-strength ,Shoulders 10,10,,Hamstrings,Barbell
+strength ,Shoulders 10,10,,Shoulders ,Barbell
 strength ,Abdominals 10,10,,Abdominals,None
 strength ,Quad 8,8,,Quadriceps,Machine
 strength ,Biceps 8,8,,Biceps ,Dumbbell
@@ -44,7 +44,7 @@ strength ,Lats 8,8,,Lats,Other
 strength ,Triceps 8,8,,Triceps,None
 strength ,Forearms 8,8,,Forearms,Barbell
 strength ,Hamstrings 8,8,,Hamstrings,Dumbbell
-strength ,Shoulders 8,8,,Hamstrings,Barbell
+strength ,Shoulders 8,8,,Shoulders ,Barbell
 strength ,Abdominals 8,8,,Abdominals,None
 strength ,Quad 5,5,,Quadriceps,Machine
 strength ,Biceps 5,5,,Biceps ,Dumbbell
@@ -52,7 +52,7 @@ strength ,Lats 5,5,,Lats,Other
 strength ,Triceps 5,5,,Triceps,None
 strength ,Forearms 5,5,,Forearms,Barbell
 strength ,Hamstrings 5,5,,Hamstrings,Dumbbell
-strength ,Shoulders 5,5,,Hamstrings,Barbell
+strength ,Shoulders 5,5,,Shoulders ,Barbell
 strength ,Abdominals 5,5,,Abdominals,None
 strength ,Quad 3,3,,Quadriceps,Machine
 strength ,Biceps 3,3,,Biceps ,Dumbbell

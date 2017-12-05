@@ -343,7 +343,7 @@ if the muscle_group is true, you can use it, if false, then it means you have al
 def generateWorkout(time):
     # self. wasnt working so not sure where to put this to make sure it is updated and stays 
     ## temporary location because it will be wrong 
-    musclegroups= [('legs',True), ('arms',True), ('shoulders',True),('back',True),('abdominals',True)]
+    musclegroups= [('legs',True), ('arms',True),('back',True),('abdominals',True)]
     # generate a random muscle group to work on
     # not sure about -1
     rand_int = random.randint(0,len(musclegroups)-1)
@@ -374,7 +374,7 @@ def fillTime(muscgroup, timelimit):
     num_exercises = 0
     time_exercises = []
     name_exercises = []
-    muscles = {'legs':['Quadriceps','Hamstrings'],'arms':['Biceps','Triceps','Forearms'], 'shoulders':['Shoulders'],'back':['Lats'],'abdominals':['Abdominals']}
+    muscles = {'legs':['Quadriceps','Hamstrings'],'arms':['Biceps','Triceps','Forearms'],'back':['Lats'],'abdominals':['Abdominals']}
     # go through each row in the dataset
     #***** this is where we need to read in datafile
     workout_file = 'workout.csv'
@@ -438,27 +438,27 @@ def initSolution(timelimit, num_exercises, time_exercises, name_exercises):
 # want to maximize time working out
 # minimize free time in workout
 def valTotal(bag):
-  total = 0
-  for (_, _, time) in bag:
-    total += time
-  return total
+    total = 0
+    for (_, _, time) in bag:
+        total += time
+    return total
 
 def timeTotal(bag):
-  total = 0
-  for (_, _, time) in bag:
-    total += time
-  return total
+    total = 0
+    for (_, _, time) in bag:
+        total += time
+    return total
 
 def indexList(bag):
-  indexes = []
-  for (i, _, _) in bag:
-    indexes.append(i)
-  return indexes
+    indexes = []
+    for (i, _, _) in bag:
+        indexes.append(i)
+    return indexes
 
 def acceptProb(new_total, old_total, temp):
-  # if the new state is better, accept it
-  prob = np.exp((new_total - old_total) / temp)
-  return prob
+    # if the new state is better, accept it
+    prob = np.exp((new_total - old_total) / temp)
+    return prob
 """
 def randItem(bag, num_exercises, time_exercises, name_exercises):
   rand_ind = np.random.randint(0, num_exercises)
@@ -468,29 +468,29 @@ def randItem(bag, num_exercises, time_exercises, name_exercises):
   return (rand_ind, name_exercises[rand_ind], time_exercises[rand_ind])
 """
 def genNeighbor(bag, timelimit, num_exercises, time_exercises, name_exercises):
-  popped_off = []
-  # this doesnt work because already empty i am guessing to change this
-  #for i in xrange(3):
-  # to this
-  while len(bag) > 0:
-    print ("bag genN", len(bag))
-    rand = np.random.randint(0, len(bag))
-    pop = bag.pop(rand)
-    popped_off.append(pop)
-  cur_time = timeTotal(bag)
+    popped_off = []
+    # this doesnt work because already empty i am guessing to change this
+    #for i in xrange(3):
+    # to this
+    while len(bag) > 0:
+        print ("bag genN", len(bag))
+        rand = np.random.randint(0, len(bag))
+        pop = bag.pop(rand)
+        popped_off.append(pop)
+    cur_time = timeTotal(bag)
   # getting in a loop here maybe because we are not perfectly doing the exercise time
   # or maybe not working because we dont have enough examples 
-  while cur_time < timelimit:
-    print ("here")
-    rand_ind = np.random.randint(0, num_exercises)
-    rand_item = (rand_ind, name_exercises[rand_ind], time_exercises[rand_ind])
-    if not rand_item in bag and not rand_item in popped_off:
-      print ("both conditions satisfied")
-      bag.append(rand_item)
-    cur_time = timeTotal(bag)
-  if cur_time > timelimit:
-    bag.pop()
-  return bag
+    while cur_time < timelimit:
+        print ("here")
+        rand_ind = np.random.randint(0, num_exercises)
+        rand_item = (rand_ind, name_exercises[rand_ind], time_exercises[rand_ind])
+        if not rand_item in bag and not rand_item in popped_off:
+            print ("both conditions satisfied")
+            bag.append(rand_item)
+        cur_time = timeTotal(bag)
+    if cur_time > timelimit:
+        bag.pop()
+        return bag
 
 
 
