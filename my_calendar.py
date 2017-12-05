@@ -273,6 +273,8 @@ def orderDays(availabledict):
     return prefavailability
 
 # make a time from the available times for them to work out
+# gives you back an array of times for the entire week
+# eg gives you back (mon, 1, 3) (tue, 4, 5)
 def generateTime(availabledict, num_days, des_time):
     # this is a number
     from datetime import datetime
@@ -297,10 +299,21 @@ def generateTime(availabledict, num_days, des_time):
                 else:
                     starttime = str(starttime.time()) + '-05:00'
                     endtime = str(endtime.time()) + '-05:00'
-                    wkt_times.append((starttime, endtime))
+                    wkt_times.append((day, starttime, endtime))
     print ("workout times")
     print (wkt_times)
-                    
+         
+
+"""
+getWorkout:
+Fill it until the time is filled
+
+self.workout = {day: (time, muscle group, [list of exercises])}
+self.musclegroup = {muscle_group: True, legs: False} 6 muscle groups (muscle groups hard coded)
+musclegroups = [all the muscle groups] also hard coded
+if the muscle_group is true, you can use it, if false, then it means you have already done it
+"""
+
 def generateWorkout(time):
     import random
     # generate a random muscle group to work on
@@ -356,15 +369,15 @@ def simulated_annealing(timelimit, num_exercises, time_exercises, name_exercises
 def initSolution(timelimit, num_exercises, time_exercises, name_exercises):
     cur_time = 0
     bag = []
-      while cur_time < timelimit:
+    while cur_time < timelimit:
         rand_ind = np.random.randint(0, num_exercises)
         rand_item = (rand_ind, name_exercises[rand_ind], time_exercises[rand_ind])
         if not rand_item in bag:
           bag.append(rand_item)
         cur_time = timeTotal(bag)
-      if cur_time > timelimit:
+    if cur_time > timelimit:
         bag.pop()
-      return bag
+    return bag
 
 # want to maximize time working out
 # minimize free time in workout
