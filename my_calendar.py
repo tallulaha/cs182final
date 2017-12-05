@@ -343,7 +343,11 @@ if the muscle_group is true, you can use it, if false, then it means you have al
 def generateWorkout(time):
     # self. wasnt working so not sure where to put this to make sure it is updated and stays 
     ## temporary location because it will be wrong 
+<<<<<<< HEAD
     musclegroups= [('legs',True), ('arms',True),('back',True),('abdominals',True)]
+=======
+    musclegroups= [('legs',True), ('arms',True), ('back',True),('abdominals',True)]
+>>>>>>> 8097b9b124f1dc7e4ab2373b3a4541de60578a55
     # generate a random muscle group to work on
     # not sure about -1
     rand_int = random.randint(0,len(musclegroups)-1)
@@ -351,7 +355,7 @@ def generateWorkout(time):
     # keep picking new muscle group until you get one that is True
     # not 100% this is doing it correctly
     while not musclegroups[rand_int][1]:
-        rand_int = random.randint(0,len(self.musclegroups)-1)
+        rand_int = random.randint(0,len(musclegroups)-1)
         rand_musc = musclegroups[rand_int][0]
     # now you have a valid muscle group to pick exercises from
     # set it to False so you don't choose it on next iteration
@@ -388,12 +392,10 @@ def fillTime(muscgroup, timelimit):
             name = row[1]
             # if that exercise is within that musclegroup
             if musclegroup in muscles[muscgroup]:
-                print ("plus")
                 num_exercises += 1
                 # compile the number of exercises in that group, the time they take, and their names
                 time_exercises.append(time)
                 name_exercises.append(name)
-
         # if that exercise is within that musclegroup
 
     return simulated_annealing(timelimit, num_exercises, time_exercises, name_exercises)
@@ -447,6 +449,7 @@ def timeTotal(bag):
     total = 0
     for (_, _, time) in bag:
         total += time
+    print (total)
     return total
 
 def indexList(bag):
@@ -467,11 +470,12 @@ def randItem(bag, num_exercises, time_exercises, name_exercises):
     rand_ind = np.random.randint(0, num_exercises)
   return (rand_ind, name_exercises[rand_ind], time_exercises[rand_ind])
 """
+
 def genNeighbor(bag, timelimit, num_exercises, time_exercises, name_exercises):
     popped_off = []
-    # this doesnt work because already empty i am guessing to change this
-    #for i in xrange(3):
-    # to this
+  # this doesnt work because already empty i am guessing to change this
+  #for i in xrange(3):
+  # to this
     while len(bag) > 0:
         print ("bag genN", len(bag))
         rand = np.random.randint(0, len(bag))
@@ -480,7 +484,8 @@ def genNeighbor(bag, timelimit, num_exercises, time_exercises, name_exercises):
     cur_time = timeTotal(bag)
   # getting in a loop here maybe because we are not perfectly doing the exercise time
   # or maybe not working because we dont have enough examples 
-    while cur_time < timelimit:
+
+    while cur_time < (timelimit-10):
         print ("here")
         rand_ind = np.random.randint(0, num_exercises)
         rand_item = (rand_ind, name_exercises[rand_ind], time_exercises[rand_ind])
@@ -490,7 +495,7 @@ def genNeighbor(bag, timelimit, num_exercises, time_exercises, name_exercises):
         cur_time = timeTotal(bag)
     if cur_time > timelimit:
         bag.pop()
-        return bag
+    return bag
 
 
 
