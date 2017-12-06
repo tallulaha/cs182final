@@ -28,7 +28,6 @@ SCOPES = 'https://www.googleapis.com/auth/calendar.readonly'
 CLIENT_SECRET_FILE = 'client_secret.json'
 APPLICATION_NAME = 'Google Calendar API Python Quickstart'
 
-
 def getDateTimeFromISO8601String(s):
     d = dateutil.parser.parse(s)
     return d
@@ -146,22 +145,148 @@ def main():
             if (last_end < start) and (ed == day):
                 d,t = last_end.split("T")
                 breakTime(t,time,d,conflict_dict)
-        # need to check bedtime to make sure it doesnt go over
         end = event['end'].get('dateTime', event['end'].get('date'))
         ed, et = end.split("T")
-        #print(start, event['summary'])
-        # just want the end time !!
         last_end = end
-        #print ("this is the available time calendar")
-    #print (conflict_dict)
-    conflict_dict = orderTimes(conflict_dict, 'afternoon')
-    conflict_dict = orderDays(conflict_dict)
-    print (conflict_dict)
-    generateTime(conflict_dict, 3, 60)
 
-        # {(12-03, Sunday) : [(8,10), (10-12), (12, 1)]; (12-04, Monday): [(8,10), (10-12), (12, 1)]}
-        # want to split 8-3 into 8-11:59, 12-3
-        # calendar.day_name[my_date.weekday()]
+    personal_avail = conflict_dict
+
+    gym_sun = {
+        "Mac" : [('9:00:00', '11:59:59'), ('12:00:00', '13:00:00'), None], 
+        "Hemenway" : [None, ('14:00:00', '16:59:59'), ('17:00:00', '23:00:00')],
+        "Murr" : [('9:00:00', '11:59:59'), ('12:00:00', '16:59:59'), None],
+        "QRAC" : [None, None, None]
+    }
+    gym_mon = {
+        "Mac" : [('6:00:00', '11:59:59'), ('12:00:00', '16:59:59'), ('17:00:00', '22:00:00')], 
+        "Hemenway" : [('6:00:00', '11:59:59'), ('12:00:00', '16:59:59'), ('17:00:00', '23:00:00')],
+        "Murr" : [('7:00:00', '11:59:59'), ('12:00:00', '16:59:59'), ('17:00:00', '23:00:00')],
+        "QRAC" : [('8:00:00', '11:59:59'), ('12:00:00', '16:59:59'), ('17:00:00', '23:00:00')]
+    }
+    gym_tue = {
+        "Mac" : [('6:00:00', '11:59:59'), ('12:00:00', '16:59:59'), ('17:00:00', '22:00:00')], 
+        "Hemenway" : [('6:00:00', '11:59:59'), ('12:00:00', '16:59:59'), ('17:00:00', '23:00:00')],
+        "Murr" : [('7:00:00', '11:59:59'), ('12:00:00', '16:59:59'), ('17:00:00', '23:00:00')],
+        "QRAC" : [('8:00:00', '11:59:59'), ('12:00:00', '16:59:59'), ('17:00:00', '23:00:00')]
+    }
+    gym_wed = {
+        "Mac" : [('6:00:00', '11:59:59'), ('12:00:00', '16:59:59'), ('17:00:00', '22:00:00')], 
+        "Hemenway" : [('6:00:00', '11:59:59'), ('12:00:00', '16:59:59'), ('17:00:00', '23:00:00')],
+        "Murr" : [('7:00:00', '11:59:59'), ('12:00:00', '16:59:59'), ('17:00:00', '23:00:00')],
+        "QRAC" : [('8:00:00', '11:59:59'), ('12:00:00', '16:59:59'), ('17:00:00', '23:00:00')]
+    }
+    gym_th = {
+        "Mac" : [('6:00:00', '11:59:59'), ('12:00:00', '16:59:59'), ('17:00:00', '22:00:00')], 
+        "Hemenway" : [('6:00:00', '11:59:59'), ('12:00:00', '16:59:59'), ('17:00:00', '23:00:00')],
+        "Murr" : [('7:00:00', '11:59:59'), ('12:00:00', '16:59:59'), ('17:00:00', '23:00:00')],
+        "QRAC" : [('8:00:00', '11:59:59'), ('12:00:00', '16:59:59'), ('17:00:00', '23:00:00')]
+    }
+    gym_fri = {
+        "Mac" : [('6:00:00', '11:59:59'), ('12:00:00', '16:59:59'), ('17:00:00', '19:00:00')], 
+        "Hemenway" : [('6:00:00', '11:59:59'), ('12:00:00', '16:59:59'), ('17:00:00', '20:00:00')],
+        "Murr" : [('7:00:00', '11:59:59'), ('12:00:00', '16:59:59'), ('17:00:00', '22:30:00')],
+        "QRAC" : [('8:00:00', '11:59:59'), ('12:00:00', '16:59:59'), ('17:00:00', '21:00:00')]
+    }
+    gym_sat = {
+        "Mac" : [('9:00:00', '11:59:59'), ('12:00:00', '16:59:59'), None], 
+        "Hemenway" : [('10:00:00', '11:59:59'), ('12:00:00', '16:59:59'), ('17:00:00', '20:00:00')],
+        "Murr" : [('8:00:00', '11:59:59'), ('12:00:00', '16:59:59'), ('17:00:00', '20:00:00')],
+        "QRAC" : [None, ('12:00:00', '16:59:59'), ('17:00:00', '21:00:00')]
+    }
+
+    all_days = {
+        'sunday': gym_sun,
+        'monday': gym_mon,
+        'tuesday': gym_tue,
+        'wednesday': gym_wed,
+        'thursday': gym_th,
+        'friday': gym_fri,
+        'saturday': gym_sat
+    }
+
+    # assign the time preference (morning, afternoon, evening)
+    # fwd check the personal availability schedule
+    update_pers_avail = updateTimesPreference(personal_avail, 'morning')
+    if update_pers_avail == None:
+        print ("Your schedule does not allow for workouts in the indicated time preference (morning) due to Personal availability-- break")
+    #print (update_pers_avail)
+    # fwd check the gym hours schedule
+    update_gym_avail = updateGymHoursPreference(all_days, 'morning')
+    if update_gym_avail == None:
+        print ("Your schedule does not allow for workouts in the indicated time preference (morning) due to Gym availability -- break")
+    #print (update_gym_avail)
+    # assign the time you'd like to work out for
+    # fwd check the personal availability schedule
+    update_pers_avail = updateTimesLimit(update_pers_avail, 60)
+    if update_pers_avail == None:
+        print ("Your schedule does not allow for workouts in the indicated workout time due to Personal availability-- break")
+    #print ("sort of updated")
+    #print (update_pers_avail)
+    # fwd check the gym's hours schedule
+    update_gym_avail = updateGymHoursLimit(update_gym_avail, 60)
+    if update_pers_avail == None:
+        print ("Your schedule does not allow for workouts in the indicated workout time due to Gym availability-- break")
+    #print ("most updated")
+    #print (update_pers_avail)
+    # assign the day 
+    assigned_pers = assignPersTime(update_pers_avail, 60)
+    (day, start, end) = assigned_pers
+    if assigned_pers == None:
+        print ("Problem with interval")
+    day = weekday(day)
+    ee = updateTimesGymHours(day, start, end, update_gym_avail)
+    print (ee)
+
+    # you have your preferences (time) assigned
+    # fwd check: eliminate all times in the personal calendar's domain that aren't consistent
+    # fwd check: eliminate all times in the gym hours domain that aren't consistent
+    # assign a day to workout
+    # fwd check: eliminate all times that don't fit with the gym's hours that day
+    # assign a workout time 
+    """
+    week_days = []
+    for day, _ in personal_avail.iteritems():
+        week_days.append(day)
+
+    no_sched = False
+    time_lst = []
+    num_days = 0
+    des_days = 3
+    timelimit = 60
+
+    while num_days != des_days:
+        day = pickDay(week_days)
+        week_days.remove(day)
+        # if somehow all the days don't have available slots
+        if week_days == []:
+            no_sched = True
+            break
+        time = pickTime(personal_avail, timelimit, day)
+        # if no time works on that specific day, don't increment num_days, otherwise do
+        if time != None:
+            # check to make sure that it works with time preference
+            print(checkPreference(time, 'afternoon'))
+            print(checkGymHours(time))
+            time_lst.append(time)
+            num_days += 1
+
+    #print (time_lst)
+
+    if no_sched:
+        print ("You don't have enough available time to schedule your goals")
+    """
+def returnDate(day, conf):
+    days = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday']
+    for k,v in conf.iteritems():
+        k = getDateTimeFromISO8601String(k)
+        if days[k.weekday()] == day:
+            k = str(k)
+            k,_ = k.split(" ")
+            return k
+
+def weekday(day):
+    days = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday']
+    return days[getDateTimeFromISO8601String(day).weekday()]
 
 def breakTime(start,end,day,dic):
     if (end >= '12:00:00') and (start < '12:00:00'):
@@ -176,10 +301,16 @@ def breakTime(start,end,day,dic):
     else:
         dic[day].append((start, end))
 
-def orderTimes(availabledict, timepref):
+# timepref is always assigned because the user chose that 
+# forward check: eliminate all times that aren't consistent with the timepref
+def updateTimesPreference(availabledict, timepref):
     # https://stackoverflow.com/questions/3096953/how-to-calculate-the-time-interval-between-two-time-strings
     from datetime import datetime
 
+    #### if any of the days have 0 time preferences, then 
+    # you should you should make note not to pick those days aka eliminate from domain
+    #print ("start")
+    #print (availabledict)
     for day, timelist in availabledict.iteritems():
         # create a new list of sorted times
         sorttimes = []
@@ -199,27 +330,289 @@ def orderTimes(availabledict, timepref):
             else:
                 scutoff = datetime.strptime('17:00:00', '%H:%M:%S')
                 ecutoff = datetime.strptime('23:59:59', '%H:%M:%S')
-            # add times that fit within the workout pref time to the front
+            # within parameters, append it
             if scutoff <= startdate and enddate <= ecutoff:
-                sorttimes.insert(0, (start, end))
-                # get the amt of time you have in your workout pref time
-                timeinpref += time 
-            # add remaining times to the end (don't fit workout pref time)
-            else:
-                sorttimes.append((start, end))
-            totaltime += time
-        timeinpref = calcTotalTime(timeinpref.hour, timeinpref.minute, timeinpref.second)
-        totaltime = calcTotalTime(totaltime.hour, totaltime.minute, totaltime.second)
-        #timeinpref = timeinpref.time()
-        #totaltime = totaltime.time()
-        sorttimes.insert(0, timeinpref)
-        sorttimes.insert(0, totaltime)
+                sorttimes.append((start, end)) 
         availabledict[day] = sorttimes
+    
+    # eliminate all days that do not have any valid times
+    temp_dic = copy.deepcopy(availabledict)
+    for day, timelist in temp_dic.iteritems():
+        if not timelist:
+            availabledict.pop(day, None)
+
+    # if entire dictionary is empty, then that means there are no valid assignments
+    # therefore you need to pick a different preference (return None)
+    if not availabledict:
+        return None
+
     return availabledict
+
+# randomly assign a day to go to the gym
+def updateGymHoursPreference(all_days, timepref):
+    from datetime import datetime 
+    
+    if timepref == 'morning':
+        for day, gym_day in all_days.iteritems():
+            # now you're looking at individuals schedules for gyms
+            for gym, times in gym_day.iteritems():
+                gym_day[gym] = times[0]
+    elif timepref == 'afternoon':
+        for day, gym_day in all_days.iteritems():
+            # now you're looking at individuals schedules for gyms
+            for gym, times in gym_day.iteritems():
+                gym_day[gym] = times[1]
+    else:
+        for day, gym_day in all_days.iteritems():
+            # now you're looking at individuals schedules for gyms
+            for gym, times in gym_day.iteritems():
+                gym_day[gym] = times[2]
+    #print("FIRST")
+    #print (all_days)
+
+
+    # eliminate all gyms that do not have times within the parameters
+    temp_days = copy.deepcopy(all_days)
+    for day, gym_day in temp_days.iteritems():
+        for gym, times in gym_day.iteritems():
+            if times == None:
+                all_days[day].pop(gym, None)
+    #print("SECOND")
+    #print (all_days)
+
+    # eliminate all days that do not have times within the parameters
+    temp_days2 = copy.deepcopy(all_days)
+    for day, gym_day in temp_days2.iteritems():
+        if not gym_day:
+            all_days.pop(day, None)
+    #print("THIRD")
+    #print (all_days)
+
+    # if entire dictionary is empty, then that means there are no valid assignments
+    # therefore you need to pick a different preference (return None)
+    if not all_days:
+        return None
+
+    return all_days
+
+def updateTimesLimit(availabledict, timelimit):
+
+    print (availabledict)
+
+    # eliminate all intervals that do not have times suitable to the desired workout time
+    temp_dict = copy.deepcopy(availabledict)
+    for day, times in temp_dict.iteritems():
+        for (start, end) in times:
+            duration = calcDuration(start, end)
+            # if the interval is not as long as the workout time, remove it
+            if duration < timelimit:
+                availabledict[day].remove((start, end))
+    # eliminate all days that have empty lists
+    temp_dict2 = copy.deepcopy(availabledict)
+    for day, times in temp_dict2.iteritems():
+        if not times:
+            availabledict.pop(day)
+
+    # if entire dictionary is empty, then that means there are no valid assignments
+    # therefore you need to pick a different time limit (return None)
+    if not availabledict:
+        return None
+    return availabledict
+
+def updateGymHoursLimit(availabledict, timelimit):
+
+    # eliminate all intervals that do not have times suitable to the desired workout time
+    temp_dict = copy.deepcopy(availabledict)
+    for day, gym_dict in temp_dict.iteritems():
+        for gym, time in gym_dict.iteritems():
+            (start, end) = time
+            duration = calcDuration(start, end)
+            # if the interval is not as long as the workout time, remove it
+            if duration < timelimit:
+                availabledict[day][gym] = None
+
+    # eliminate all gyms that have empty lists 
+    temp_dict2 = copy.deepcopy(availabledict)
+    for day, gym_dict in temp_dict2.iteritems():
+        for gym, time in gym_dict.iteritems():
+            if time == None:
+                availabledict[day].pop(gym, None)
+
+    # eliminate all days that have empty lists
+    temp_dict3 = copy.deepcopy(availabledict)
+    for day, gym_dict in temp_dict3.iteritems():
+        if not gym_dict:
+            availabledict.pop(day, None)
+
+    # if entire dictionary is empty, then that means there are no valid assignments
+    # therefore you need to pick a different preference (return None)
+    if not availabledict:
+        return None
+    return availabledict
+            
+def calcDuration(start, end):
+    # https://stackoverflow.com/questions/3096953/how-to-calculate-the-time-interval-between-two-time-strings
+    from datetime import datetime
+
+    start = datetime.strptime(start[0:8], '%H:%M:%S')
+    end = datetime.strptime(end[0:8], '%H:%M:%S')
+    timediff = end - start + datetime.strptime('00:00:00', '%H:%M:%S')
+    duration = calcTotalTime(timediff.hour, timediff.minute, timediff.second)
+    return duration
+
 
 def calcTotalTime(hour, minute, second):
     # return in minutes
     return (hour*60 + minute + second/60.)
+
+
+def assignPersTime(availabledict, des_time, delta=0):
+
+    max_duration = -float("inf")
+    max_day = None
+
+    # pick least constrained day (one with most available time)
+    for day, times in availabledict.iteritems():
+        duration = 0
+        for (start, end) in times:
+            duration += calcDuration(start, end)
+            # if the interval is not as long as the workout time, remove it
+        if duration > max_duration:
+            max_duration = duration
+            max_day = day
+
+    time_ivls = availabledict[max_day]
+    # you know all the time intervals are long enough for desired workout
+    # you know each day has at least 1 time interval because of fwd checking
+    # pick the least constrained time ivl (most time)
+    max_dur = -float("inf")
+    max_ivl = time_ivls[0]
+    for (start, end) in time_ivls:
+        duration = calcDuration(start, end)
+        if duration > max_duration:
+            max_duration = duration
+            max_ivl = (start, end)
+
+    return selectTimeInInterval(max_day, max_ivl, des_time, delta)
+
+def selectTimeInInterval(max_day, max_ivl, des_time, delta):
+    from datetime import datetime
+    import datetime as dt
+    # pick a time interval within that interval 
+    (start, end) = max_ivl
+    starttime = datetime.strptime(start[0:8], '%H:%M:%S') + dt.timedelta(minutes=delta)
+    endtime = starttime + dt.timedelta(minutes=des_time)
+    start = datetime.strptime(start[0:8], '%H:%M:%S')
+    end = datetime.strptime(end[0:8], '%H:%M:%S')
+    if withinInterval(start, end, starttime, endtime):
+        #print (max_day, starttime.time(), endtime.time())
+        return (max_day, starttime.time(), endtime.time())
+    else:
+        return None
+
+def withinInterval(start, end, testst, testen):
+    from datetime import datetime 
+    # test is (date, start time, end time)
+    #start = datetime.strptime(start[0:8], '%H:%M:%S')
+    #end = datetime.strptime(end[0:8], '%H:%M:%S')
+    print (start, end)
+    print ("HELOO")
+    print (testst, testen)
+    start = start.time()
+    end = end.time()
+    testst = testst.time()
+    testen = testen.time()
+    
+    return (start <= testst and testen <= end)
+
+# consider all times within an interval to make sure it works
+# consider all intervals within the day to make sure it works
+# consider all days within the week to make sure it works
+
+def updateTimesGymHours (day, startwork, endwork, availabledict):
+    # you know that all gym hours are continuous 
+    # check if the times fit within that window
+    # eliminate times that fall outside of that window
+    # if the domain is empty, you need to return back None and pick a new day
+    #gym_time = availabledict[day]
+    from datetime import datetime 
+
+    gym_day = availabledict[day]
+    possible = {}
+    spec_gym = None
+    for gym, times in gym_day.iteritems():
+        (start, end) = times
+        start = datetime.strptime(start[0:8], '%H:%M:%S')
+        end = datetime.strptime(end[0:8], '%H:%M:%S')
+        if withinInterval(start, end, startwork, endwork):
+            possible[gym] = times
+            spec_gym = gym
+
+    if possible: #put in gym 
+        return (day, spec_gym, startwork, endwork)
+    #else:
+        # try a bunch of intervals until it works
+        
+
+# assign a day of the week to workout 
+def assignDay(week_days, all_days):
+    from datetime import datetime
+    # randomly pick a day
+    # week_days = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday']
+    rand_int = random.randint(0, len(week_days)-1)
+    day = week_days[rand_int]
+    # check to make sure you haven't done that day yet
+    while day == None:
+        rand_int = random.randint(0, len(week_days)-1)
+        day = week_days[day]
+    # choose the gym with the longest hours
+    intervals = []
+    maxi = -float("inf")
+    max_gym = "Mac"
+
+    #gym_dict = all_days[day]
+    gym_dict = all_days['sunday']
+    for gym, time in gym_dict.iteritems():
+        print (time)
+        start = datetime.strptime(time[0][0:8], '%H:%M:%S')
+        end = datetime.strptime(time[1][0:8], '%H:%M:%S')
+        timediff = end - start + datetime.strptime('00:00:00', '%H:%M:%S')
+        duration = calcTotalTime(timediff.hour, timediff.minute, timediff.second)
+        if duration > maxi:
+            maxi = duration
+            max_gym = gym
+            hours = (time[0], time[1])
+
+    return (day, max_gym, hours)
+
+
+
+
+
+
+        
+def checkPreference(time, preference):
+    from datetime import datetime 
+
+    if preference == 'morning':
+        # should be wake time
+        scutoff = datetime.strptime('05:00:00', '%H:%M:%S')
+        ecutoff = datetime.strptime('11:59:59', '%H:%M:%S')
+    elif preference == 'afternoon':
+        scutoff = datetime.strptime('12:00:00', '%H:%M:%S')
+        ecutoff = datetime.strptime('16:59:59', '%H:%M:%S')
+    else:
+        scutoff = datetime.strptime('17:00:00', '%H:%M:%S')
+        ecutoff = datetime.strptime('23:59:59', '%H:%M:%S')
+    return withinInterval(scutoff, ecutoff, time)
+
+
+
+# gone for CSP
+
+
+
+
 
 def orderDays(availabledict):
     # self.availability looks like: 
@@ -281,6 +674,10 @@ def orderDays(availabledict):
 # make a time from the available times for them to work out
 # gives you back an array of times for the entire week
 # eg gives you back (mon, 1, 3) (tue, 4, 5)
+
+# randomly assign a time
+# check if its in the wkt preference 
+# check if its in the open gym hours
 def generateTime(availabledict, num_days, des_time):
     # this is a number
     from datetime import datetime
