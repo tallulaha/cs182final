@@ -65,7 +65,7 @@ def get_credentials():
     return credentials
 
 
-def main(wake, bed, des_days, timelim, timepref,exrgl, startd, neigh):
+def main(wake, bed, des_days, timelim, timepref,exrgl, input_d, neigh):
     """Shows basic usage of the Google Calendar API.
 
     Creates a Google Calendar API service object and outputs a list of the next
@@ -84,14 +84,15 @@ def main(wake, bed, des_days, timelim, timepref,exrgl, startd, neigh):
     http = credentials.authorize(httplib2.Http())
     service = discovery.build('calendar', 'v3', http=http)
     #print(datetime.timedelta(days=7))
-    now = datetime.datetime.utcnow().isoformat() # 'Z' indicates UTC time
+    #now = datetime.datetime.utcnow().isoformat() # 'Z' indicates UTC time
+    #print ("now", now)
     #todaydate = datetime.datetime.strptime(now,"%Y-%m-%d")
-    now, nowtime = now.split("T")
-    todaydate = getDateTimeFromISO8601String(now)
+    #now, nowtime = now.split("T")
+    input_d = getDateTimeFromISO8601String(input_d)
     oneweek = datetime.timedelta(days=7)
     oneday = datetime.timedelta(days=1)
 
-    startdate = str(todaydate + oneday)
+    startdate = str(input_d + oneday)
     startdate, sp = startdate.split(" ")
     stopdate = getDateTimeFromISO8601String(startdate) + oneweek
     stopdate = stopdate.isoformat()
@@ -116,6 +117,7 @@ def main(wake, bed, des_days, timelim, timepref,exrgl, startd, neigh):
         newD = (getDateTimeFromISO8601String(startdate) + datetime.timedelta(days=i)).isoformat()
         newD, randTime = newD.split("T")
         weekdays.append(newD)
+    print ("days?", weekdays)
 
     if not events:
         print('No upcoming events found.')
@@ -301,11 +303,11 @@ def timeToCalendarForm(time):
     return time
 
 def runCSP(pers_avail, gym_avail, des_time=60, delta=0):
-    print ("running ", pers_avail)
+    #print ("running ", pers_avail)
     day_timeivl = selectTimeInterval(pers_avail)
     # base case
     if day_timeivl == None:
-        print ("daytim")
+        #print ("daytim")
         return None
     else:
         day, time_ivl = day_timeivl
@@ -329,7 +331,10 @@ def runCSP(pers_avail, gym_avail, des_time=60, delta=0):
         # run on the same gym availability
         if new_gym_avail == None:
             delta += 15
-            runCSP(pers_avail, gym_avail, des_time, delta)
+            run_ivl = runCSP(pers_avail, gym_avail, des_time, delta)
+            if run_ivl == None:
+                return None
+            return None
         return assignGymAndTime(new_gym_avail)
 
     # you have your preferences (time) assigned
@@ -621,6 +626,7 @@ def updateTimesGymHours (day, startwork, endwork, availabledict):
 
 # pick the first time interval that works
 def assignGymAndTime (availabledict):
+    print ("avail", availabledict)
     for gym, vals in availabledict.iteritems():
         (day, times, startwork, endwork) = vals
         return (gym, day, times, startwork, endwork)
@@ -811,4 +817,4 @@ def addWorkout(event):
     print ('Event created: %s' % (event.get('htmlLink')))
 
 if __name__ == '__main__':
-    main('08:00:00', '23:59:59', 3, 60, 'afternoon', 'strength', '17-12-10', 'river')
+    main('08:00:00', '23:59:59', 3, 45, 'morning', 'strength', '17-12-13', 'river')
