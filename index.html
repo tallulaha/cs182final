@@ -1,53 +1,120 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Title</title>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="css/uikit.min.css" />
-        <script src="js/uikit.min.js"></script>
-        <script src="js/uikit-icons.min.js"></script>
-    </head>
-    <body>
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Hello, world!</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    	<div class="uk-container uk-container-large">
-		<form>
-		    <fieldset class="uk-fieldset">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+  </head>
+  <body>
+  	<div class="container-fluid">
+  
+    <h1>Welcome to When2Werk!</h1>
 
-		        <legend class="uk-legend">Legend</legend>
+	<form action = "/stuff/return.cgi" method = "post">
 
-		        <div class="uk-margin">
-		            <input class="uk-input" type="text" placeholder="Input">
-		        </div>
-
-		        <div class="uk-margin">
-		            <select class="uk-select">
-		                <option>Option 01</option>
-		                <option>Option 02</option>
-		            </select>
-		        </div>
-
-		        <div class="uk-margin">
-		            <textarea class="uk-textarea" rows="5" placeholder="Textarea"></textarea>
-		        </div>
-
-		        <div class="uk-margin uk-grid-small uk-child-width-auto uk-grid">
-		            <label><input class="uk-radio" type="radio" name="radio2" checked> A</label>
-		            <label><input class="uk-radio" type="radio" name="radio2"> B</label>
-		        </div>
-
-		        <div class="uk-margin uk-grid-small uk-child-width-auto uk-grid">
-		            <label><input class="uk-checkbox" type="checkbox" checked> A</label>
-		            <label><input class="uk-checkbox" type="checkbox"> B</label>
-		        </div>
-
-		        <div class="uk-margin">
-		            <input class="uk-range" type="range" value="2" min="0" max="10" step="0.1">
-		        </div>
-
-		    </fieldset>
-		</form>
+		<div class="container">
+		<div class="row">
+		    <div class="col">
+		    	Wake Time
+			    <div class="input-group clockpicker">
+				    <input type="text" class="form-control" name="waketime" id="waketime" value="09:30">
+				    <span class="input-group-addon">
+				        <span class="glyphicon glyphicon-time"></span>
+				    </span>
+				</div>
+				<script type="text/javascript">
+				$('.clockpicker').clockpicker();
+				</script>
+		    </div>
+		    <div class="col">
+		    	Sleep Time
+				<div class="input-group clockpicker">
+				    <input type="text" class="form-control" name="sleeptime" id="sleeptime" value="09:30">
+				    <span class="input-group-addon">
+				        <span class="glyphicon glyphicon-time"></span>
+				    </span>
+				</div>
+				<script type="text/javascript">
+				$('.clockpicker').clockpicker();
+				</script>		    
+			</div>
+		</div>
 		</div>
 
-    </body>
+		<div class="row">
+		<div class="col">
+		<div class="container">
+		Preferred Time of Day
+		<div class="form-check">
+		  	<label class="form-check-label">
+		    	<input class="form-check-input" type="radio" name="timeRadios" id="radioMorning" value="morning" checked>
+		    	Mornings - 6am to Noon
+		  	</label>
+		</div>
+		<div class="form-check">
+		  	<label class="form-check-label">
+		    	<input class="form-check-input" type="radio" name="timeRadios" id="radioAfternoon" value="afternoon">
+		    	Afternoons - Noon to 5pm
+		  	</label>
+		</div>
+		<div class="form-check">
+		  	<label class="form-check-label">
+		    	<input class="form-check-input" type="radio" name="timeRadios" id="radioEvening" value="evening">
+		    	Evenings - 5pm to 10pm
+		  	</label>
+		</div>
+		</div>
+		</div>
+			<div class="col">
+			Exercise Goals
+			<div class="container">
+				<div class="form-check">
+				  	<label class="form-check-label">
+				    	<input class="form-check-input" type="radio" name="typeRadios" id="radioStrength" value="strength" checked>
+				    	Strength training
+				  	</label>
+				</div>
+				<div class="form-check">
+				  	<label class="form-check-label">
+				    	<input class="form-check-input" type="radio" name="typeRadios" id="radioCardio" value="cardio">
+				    	Cardio
+				  	</label>
+				</div>
+			</div>
+			</div>
+		</div>
+
+		<div class="container">
+			<div class="row">
+			<div class="col">
+				<div class="form-group">
+					<label for="sessionTime">Minutes per session</label>
+					<input type="text" class="form-control" id="sessionTime" name="sessionTime" placeholder="45 min">
+				</div>
+			</div>
+			<div class="col">
+				<div class="form-group">
+					<label for="sessionTime">Sessions per Week</label>
+					<input type="text" class="form-control" id="sessionDays" name="sessionDays" placeholder="3">
+				</div>
+			</div>
+			</div>
+		</div>
+		
+		
+		<button type="submit" class="btn btn-primary">Submit</button>
+	</form>
+	</div>
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+  </body>
 </html>
