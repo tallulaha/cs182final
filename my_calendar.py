@@ -625,11 +625,23 @@ def updateTimesGymHours (day, startwork, endwork, availabledict):
     return possible
 
 # pick the first time interval that works
-def assignGymAndTime (availabledict):
-    print ("avail", availabledict)
-    for gym, vals in availabledict.iteritems():
-        (day, times, startwork, endwork) = vals
-        return (gym, day, times, startwork, endwork)
+def assignGymAndTime (availabledict, nhood='yard'):
+    rvr = ['MAC', 'Hemenway', 'Murr', "QRAC"]
+    qd = ['QRAC', 'Hemenway', 'MAC', 'Murr']
+    yd = ['Hemenway', 'MAC', 'QRAC', 'Murr']
+
+    if nhood == 'river':
+        pref = rvr
+    elif nhood == 'quad':
+        pref = qd
+    else:
+        pref = yd
+
+    for gym_pref in pref:
+        for gym, vals in availabledict.iteritems():
+            if gym == gym_pref:
+                (day, times, startwork, endwork) = vals
+                return (gym, day, times, startwork, endwork)
 
 """
 getWorkout:
