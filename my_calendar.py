@@ -206,13 +206,6 @@ def main(wake, bed, des_days, timelim, timepref,exrgl, startd, neigh):
         'friday': gym_fri,
         'saturday': gym_sat
     }
-
-    # commented out because now passed in as argument
-    #timepref = 'afternoon'
-    #timelim = 90
-
-    print ("HELLO")
-    print (generateWorkout(60))
     # do all this preprocessing that does not have to be in a loop
     # assign the time preference (morning, afternoon, evening)
     # fwd check the personal availability schedule
@@ -279,7 +272,7 @@ def main(wake, bed, des_days, timelim, timepref,exrgl, startd, neigh):
         workoutdescrip = generateWorkout(time_min)
         formatted_description = ""
         print ("descr", workoutdescrip)
-        for (_, name,_, time) in workoutdescrip:
+        for (name, _, time, _) in workoutdescrip:
             formatted_description += name + ", " + str(time) + " min;"
         calWorkout = createEvent(day[2], (day[3], day[4]), ("Workout", formatted_description), day[0])
         addWorkout(calWorkout)
@@ -315,11 +308,17 @@ def runCSP(pers_avail, gym_avail, des_time=60, delta=0):
     else:
         day, time_ivl = day_timeivl
         wkt_ivl = selectTimeInInterval(time_ivl, des_time, delta)
-        # if it comes back with None, means that this time_ivl is no good
+        # if it comes back with None, means that this time_ivl is no good so remove it
         if wkt_ivl == None:
             pers_avail[day].remove(time_ivl)
+            print ("bef", pers_avail)
+            if not pers_avail[day]:
+                pers_avail.pop(day, None)
+                print ("aft", pers_avail)
             # need to rerun from the top to get a new interval with no delta to start with
-            runCSP(pers_avail, gym_avail, des_time, 0)
+            run_ivl = runCSP(pers_avail, gym_avail, des_time, 0)
+            if run_ivl == None:
+                return None
         (startwkt, endwkt) = wkt_ivl
         wkday = weekday(day)
         new_gym_avail = updateTimesGymHours(wkday, startwkt, endwkt, gym_avail)
@@ -530,6 +529,8 @@ def calcTotalTime(hour, minute, second):
 
 def selectTimeInterval(availabledict):
 
+    print (availabledict)
+
     max_duration = -float("inf")
     max_day = None
 
@@ -658,6 +659,8 @@ def generateWorkout(timelimit, goal='strength'):
 
 def fillTime(muscgroup, timelimit, goal):
     #print ("selected muscle", muscgroup)
+    print (muscgroup)
+
     num_exercises = 0
     time_exercises = []
     name_exercises = []
@@ -806,4 +809,4 @@ def addWorkout(event):
     print ('Event created: %s' % (event.get('htmlLink')))
 
 if __name__ == '__main__':
-    main('08:00:00', '11:59:59', 3, 60, 'afternoon', 'strength', '17-12-08', 'river')
+    main('08:00:00', '11:59:59', 3, 60, 'afternoon', 'strength', '17-12-10', 'river')
