@@ -607,12 +607,13 @@ musclegroups = [all the muscle groups] also hard coded
 if the muscle_group is true, you can use it, if false, then it means you have already done it
 """
 
+# 4 big muscle groups
+# if True, that muscle group has not been assigned to a workout yet, so can be chosen
+# if False, that muscle group has been assigned to a workout, so cannot be chosen again
+musclegroups = [('legs',True), ('arms',True), ('back',True),('abdominals',True)]
 ## this is where we can make conditional about certain strength or cardio activities
 def generateWorkout(timelimit, goal='strength'):
-    # 4 big muscle groups
-    # if True, that muscle group has not been assigned to a workout yet, so can be chosen
-    # if False, that muscle group has been assigned to a workout, so cannot be chosen again
-    musclegroups = [('legs',True), ('arms',True), ('back',True),('abdominals',True)]
+
     # generate a random muscle group to work on
     rand_int = random.randint(0,len(musclegroups)-1)
     rand_musc = musclegroups[rand_int][0]
