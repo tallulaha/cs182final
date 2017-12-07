@@ -113,27 +113,46 @@ def main(wake, bed, des_days, timelim, timepref,exrgl, startd, neigh):
     ed = None
     et = None
 
+    weekdays = []
+    for i in range(7):
+        newD = (getDateTimeFromISO8601String(startdate) + datetime.timedelta(days=i)).isoformat()
+        newD, randTime = newD.split("T")
+        weekdays.append(newD)
+
     if not events:
         print('No upcoming events found.')
-    for event in events:
-        #print(event)
-        start = event['start'].get('dateTime', event['start'].get('date'))
-        day, time = start.split("T")
-        if et != None and ed != None:
-            if (ed != day) and (et < sleep['bedtime']):
-                breakTime(et, sleep['bedtime']+'-05:00', ed, conflict_dict)
+    else: 
+        for event in events:
+            #print(event)
+            start = event['start'].get('dateTime', event['start'].get('date'))
+            day, time = start.split("T")
+            # want to get free time until bedtime
+            if et != None and ed != None:
+                if (ed != day) and (et < sleep['bedtime']):
+                    breakTime(et, sleep['bedtime']+'-05:00', ed, conflict_dict)
+            if day not in conflict_dict:
+                conflict_dict[day] = []
+                wakeup_format = day + 'T' + sleep['wakeup']
+                if start > wakeup_format:
+                    breakTime(sleep['wakeup']+ '-05:00', time, day, conflict_dict)
+            else:
+                if (last_end < start) and (ed == day):
+                    d,t = last_end.split("T")
+                    breakTime(t,time,d,conflict_dict)
+            # need to check bedtime to make sure it doesnt go over
+            end = event['end'].get('dateTime', event['end'].get('date'))
+            ed, et = end.split("T")
+            last_end = end
+        breakTime(et, sleep['bedtime'], day, conflict_dict)
+        #print ("this is the available time calendar")
+    #print (conflict_dict)
+    for day in weekdays:
         if day not in conflict_dict:
+            print ("len", len(conflict_dict), day)
             conflict_dict[day] = []
-            wakeup_format = day + 'T' + sleep['wakeup']
-            if start > wakeup_format:
-                breakTime(sleep['wakeup']+ '-05:00', time, day, conflict_dict)
-        else:
-            if (last_end < start) and (ed == day):
-                d,t = last_end.split("T")
-                breakTime(t,time,d,conflict_dict)
-        end = event['end'].get('dateTime', event['end'].get('date'))
-        ed, et = end.split("T")
-        last_end = end
+            breakTime(sleep['wakeup']+ '-05:00', sleep['bedtime']+ '-05:00', day, conflict_dict)
+            print("len", len(conflict_dict))
+    print (conflict_dict)
 
     personal_avail = conflict_dict
 
@@ -614,12 +633,13 @@ musclegroups = [all the muscle groups] also hard coded
 if the muscle_group is true, you can use it, if false, then it means you have already done it
 """
 
+# 4 big muscle groups
+# if True, that muscle group has not been assigned to a workout yet, so can be chosen
+# if False, that muscle group has been assigned to a workout, so cannot be chosen again
+musclegroups = [('legs',True), ('arms',True), ('back',True),('abdominals',True)]
 ## this is where we can make conditional about certain strength or cardio activities
 def generateWorkout(timelimit, goal='strength'):
-    # 4 big muscle groups
-    # if True, that muscle group has not been assigned to a workout yet, so can be chosen
-    # if False, that muscle group has been assigned to a workout, so cannot be chosen again
-    musclegroups = [('legs',True), ('arms',True), ('back',True),('abdominals',True)]
+
     # generate a random muscle group to work on
     rand_int = random.randint(0,len(musclegroups)-1)
     rand_musc = musclegroups[rand_int][0]
