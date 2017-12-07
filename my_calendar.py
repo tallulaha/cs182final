@@ -74,9 +74,6 @@ def main(wake, bed, des_days, timelim, timepref,exrgl, input_d, neigh):
     sleep = {'wakeup': wake, 'bedtime': bed}
     print ("sleep", sleep)
     print ("tp", timepref)
-    #sleep = {'wakeup': '08:00:00', 'bedtime': '23:59:59'}
-    #time_preferences = ['morning', 'afternoon', 'evening']
-    #workout_goals = ['lose weight', 'gain muscle', 'increase endurance', 'new skills']
 
 
 
@@ -88,17 +85,19 @@ def main(wake, bed, des_days, timelim, timepref,exrgl, input_d, neigh):
     #print ("now", now)
     #todaydate = datetime.datetime.strptime(now,"%Y-%m-%d")
     #now, nowtime = now.split("T")
-    input_d = getDateTimeFromISO8601String(input_d)
+    #input_d = getDateTimeFromISO8601String(input_d)
     oneweek = datetime.timedelta(days=7)
     oneday = datetime.timedelta(days=1)
 
-    startdate = str(input_d + oneday)
-    startdate, sp = startdate.split(" ")
-    stopdate = getDateTimeFromISO8601String(startdate) + oneweek
+    # startdate = str(input_d + oneday)
+    # startdate, sp = startdate.split(" ")
+    stopdate = getDateTimeFromISO8601String(input_d) + oneweek
     stopdate = stopdate.isoformat()
     stopdate, time2 = stopdate.split("T")
     stopdate = stopdate + 'T' + sleep['wakeup'] + 'Z'
-    start = str(startdate) + 'T' + sleep['wakeup'] + 'Z'
+    print ("stop", stopdate)
+    print ("start", input_d)
+    start = str(input_d) + 'T' + sleep['wakeup'] + 'Z'
 
     print('Getting the upcoming weeks events')
     # need to think about if there are multiple calendars 
@@ -114,7 +113,7 @@ def main(wake, bed, des_days, timelim, timepref,exrgl, input_d, neigh):
 
     weekdays = []
     for i in range(7):
-        newD = (getDateTimeFromISO8601String(startdate) + datetime.timedelta(days=i)).isoformat()
+        newD = (getDateTimeFromISO8601String(input_d) + datetime.timedelta(days=i)).isoformat()
         newD, randTime = newD.split("T")
         weekdays.append(newD)
     print ("days?", weekdays)
@@ -152,7 +151,7 @@ def main(wake, bed, des_days, timelim, timepref,exrgl, input_d, neigh):
             conflict_dict[day] = []
             breakTime(sleep['wakeup']+ '-05:00', sleep['bedtime']+ '-05:00', day, conflict_dict)
             print("len", len(conflict_dict))
-    print (conflict_dict)
+    #print (conflict_dict)
 
     personal_avail = conflict_dict
 
@@ -211,7 +210,7 @@ def main(wake, bed, des_days, timelim, timepref,exrgl, input_d, neigh):
     # do all this preprocessing that does not have to be in a loop
     # assign the time preference (morning, afternoon, evening)
     # fwd check the personal availability schedule
-    print ("PA", personal_avail)
+    #print ("PA", personal_avail)
     update_pers_avail = updateTimesPreference(personal_avail, timepref)
     if update_pers_avail == None:
         print ("Your schedule does not allow for workouts in the indicated time preference (morning) due to Personal availability-- break")
@@ -315,10 +314,10 @@ def runCSP(pers_avail, gym_avail, des_time=60, delta=0):
         # if it comes back with None, means that this time_ivl is no good so remove it
         if wkt_ivl == None:
             pers_avail[day].remove(time_ivl)
-            print ("bef", pers_avail)
+            #print ("bef", pers_avail)
             if not pers_avail[day]:
                 pers_avail.pop(day, None)
-                print ("aft", pers_avail)
+                #print ("aft", pers_avail)
             # need to rerun from the top to get a new interval with no delta to start with
             run_ivl = runCSP(pers_avail, gym_avail, des_time, 0)
             if run_ivl == None:
@@ -466,7 +465,7 @@ def updateGymHoursPreference(all_days, timepref):
 
 def updateTimesLimit(availabledict, timelimit):
 
-    print (availabledict)
+    #print (availabledict)
 
     # eliminate all intervals that do not have times suitable to the desired workout time
     temp_dict = copy.deepcopy(availabledict)
@@ -536,7 +535,7 @@ def calcTotalTime(hour, minute, second):
 
 def selectTimeInterval(availabledict):
 
-    print (availabledict)
+    #print (availabledict)
 
     max_duration = -float("inf")
     max_day = None
@@ -626,7 +625,7 @@ def updateTimesGymHours (day, startwork, endwork, availabledict):
 
 # pick the first time interval that works
 def assignGymAndTime (availabledict):
-    print ("avail", availabledict)
+    #print ("avail", availabledict)
     for gym, vals in availabledict.iteritems():
         (day, times, startwork, endwork) = vals
         return (gym, day, times, startwork, endwork)
@@ -817,4 +816,4 @@ def addWorkout(event):
     print ('Event created: %s' % (event.get('htmlLink')))
 
 if __name__ == '__main__':
-    main('08:00:00', '23:59:59', 3, 45, 'morning', 'strength', '17-12-13', 'river')
+    main('08:00:00', '23:59:59', 3, 45, 'morning', 'strength', '2017-12-10', 'river')
