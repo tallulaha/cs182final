@@ -86,25 +86,23 @@ def main(wake, bed, des_days, timelim, timepref,exrgl, startd, neigh):
     #print(datetime.timedelta(days=7))
     now = datetime.datetime.utcnow().isoformat() # 'Z' indicates UTC time
     #todaydate = datetime.datetime.strptime(now,"%Y-%m-%d")
-    print (now)
     now, nowtime = now.split("T")
     todaydate = getDateTimeFromISO8601String(now)
     oneweek = datetime.timedelta(days=7)
-    stopdate = todaydate + oneweek
-    print (now)
+    oneday = datetime.timedelta(days=1)
+
+    startdate = str(todaydate + oneday)
+    startdate, sp = startdate.split(" ")
+    stopdate = getDateTimeFromISO8601String(startdate) + oneweek
     stopdate = stopdate.isoformat()
-    #stopdate.replace("+00:00","")
-    print (stopdate)
     stopdate, time2 = stopdate.split("T")
-    stopdate = stopdate + 'T' + nowtime + 'Z'
-    print (stopdate)
-    now = now + 'T' + nowtime + 'Z'
-    print (now)
+    stopdate = stopdate + 'T' + sleep['wakeup'] + 'Z'
+    start = str(startdate) + 'T' + sleep['wakeup'] + 'Z'
 
     print('Getting the upcoming weeks events')
     # need to think about if there are multiple calendars 
     eventsResult = service.events().list(
-       calendarId='primary', timeMin=now, timeMax=stopdate, singleEvents=True,
+       calendarId='primary', timeMin=start, timeMax=stopdate, singleEvents=True,
        orderBy='startTime').execute()
     events = eventsResult.get('items', [])
 
