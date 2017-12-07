@@ -1,7 +1,11 @@
-#!/usr/bin/python
+# import the library
+from appJar import gui
+# create a GUI variable called app
+app = gui("Workout Preferences", "400x200")
 
-import add
+# add & configure widgets - widgets get a name, to help referencing them later
+app.addLabel("title", "Welcome to appJar")
+app.setLabelBg("title", "red")
 
-num = add.addition(4)
-
-print "Number doubled: ", num
+# start the GUI
+app.go()
