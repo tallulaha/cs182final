@@ -24,7 +24,7 @@ except ImportError:
 
 # If modifying these scopes, delete your previously saved credentials
 # at ~/.credentials/calendar-python-quickstart.json
-SCOPES = 'https://www.googleapis.com/auth/calendar.readonly'
+SCOPES = 'https://www.googleapis.com/auth/calendar'
 CLIENT_SECRET_FILE = 'client_secret.json'
 APPLICATION_NAME = 'Google Calendar API Python Quickstart'
 
@@ -61,15 +61,16 @@ def get_credentials():
     return credentials
 
 
-def main():
+def main(wake, bed, des_days, timelim, timepref,exrgl, startd, neigh):
     """Shows basic usage of the Google Calendar API.
 
     Creates a Google Calendar API service object and outputs a list of the next
     10 events on the user's calendar.
     """
-    sleep = {'wakeup': '08:00:00', 'bedtime': '23:59:59'}
+    sleep = {'wakeup': wake, 'bedtime': bed}
+    #sleep = {'wakeup': '08:00:00', 'bedtime': '23:59:59'}
     time_preferences = ['morning', 'afternoon', 'evening']
-    workout_goals = ['lose weight', 'gain muscle', 'increase endurance', 'new skills']
+    #workout_goals = ['lose weight', 'gain muscle', 'increase endurance', 'new skills']
 
 
 
@@ -100,21 +101,6 @@ def main():
        calendarId='primary', timeMin=now, timeMax=stopdate, singleEvents=True,
        orderBy='startTime').execute()
     events = eventsResult.get('items', [])
-    #
-    # events = []
-
-    # page_token = None
-    # while True:
-    #   calendar_list = service.calendarList().list(pageToken=page_token).execute()
-    #   for calendar_list_entry in calendar_list['items']:
-    #     #print (calendar_list_entry['summary'])
-    #     eventsResult = service.events().list(
-    #         calendarId=calendar_list_entry['summary'], timeMin=now, timeMax=stopdate, singleEvents=True,
-    #         orderBy='startTime').execute()
-    #     events = eventsResult.get('items', events)
-    #   page_token = calendar_list.get('nextPageToken')
-    #   if not page_token:
-    #     break
 
     conflict_dict = {}
     last_end = sleep['wakeup']
@@ -127,12 +113,6 @@ def main():
         #print(event)
         start = event['start'].get('dateTime', event['start'].get('date'))
         day, time = start.split("T")
-        # want to get free time until bedtime
-        # this isnt right yet
-        # print (ed)
-        # print (day)
-        # print (ed == day)
-        # print (et < sleep['bedtime'])
         if et != None and ed != None:
             if (ed != day) and (et < sleep['bedtime']):
                 breakTime(et, sleep['bedtime']+'-05:00', ed, conflict_dict)
@@ -204,8 +184,11 @@ def main():
         'saturday': gym_sat
     }
 
-    timepref = 'afternoon'
-    timelim = 90
+    # commented out because now passed in as argument
+    #timepref = 'afternoon'
+    #timelim = 90
+
+
     # do all this preprocessing that does not have to be in a loop
     # assign the time preference (morning, afternoon, evening)
     # fwd check the personal availability schedule
@@ -231,7 +214,9 @@ def main():
         print ("Your schedule does not allow for workouts in the indicated workout time due to Gym availability-- break")
     #print ("most updated")
     #print (update_pers_avail)
-    des_days = 3
+
+    # commented out because now a parameter argument
+    #des_days = 3
     workout = []
     for _ in xrange(des_days):
         assign = runCSP(update_pers_avail, update_gym_avail, timelim)
@@ -249,7 +234,39 @@ def main():
         print ("Given your preferences, we were only able to schedule", len(workout), "workout(s) this week")
     print (workout)
 
-    print (generateWorkout(60))
+    #print (generateWorkout(timelim))
+    for day in workout:
+        # not sure if this will give minutes
+
+        FMT = '%H:%M:%S'
+        if day[4].endswith('-05:00'):
+            end = day[4][:-6]
+        if day[3].endswith('-05:00'):
+            start = day[3][:-6]
+        amt_time = strp(end,start, FMT)
+        # need to convert to minutes
+        #print ("amt of time", amt_time)
+        #print (day[0])
+        # https://stackoverflow.com/questions/14190045/how-to-convert-datetime-timedelta-to-minutes-hours-in-python
+        seconds = amt_time.total_seconds()
+        #print (seconds)
+        time_min = int(seconds / 60.)
+        #print ("amt min", time_min)
+        if timelim < time_min:
+            workoutdescrip = generateWorkout(timelim)
+        else:
+            workoutdescrip = generateWorkout(timelim)
+        formatted_description = ""
+        print ("descr", workoutdescrip)
+        for (_, name,_, time) in workoutdescrip:
+            formatted_description += name + ", " + str(time) + " min;"
+        calWorkout = createEvent(day[2], (day[3], day[4]), ("Workout", formatted_description), day[0])
+        addWorkout(calWorkout)
+        print ("addedWorkout")
+
+def strp(end,start,FMT):
+    from datetime import datetime
+    return datetime.strptime(end,FMT) - datetime.strptime(start,FMT)        
 
 def timeToCalendarForm(time):
     hr = int(time.hour)
@@ -631,7 +648,7 @@ def fillTime(muscgroup, timelimit, goal):
             lvl = int(row[6])
             tpe = row[0]
             # if that exercise is within that musclegroup
-            if musclegroup in muscles[muscgroup] and goal == tpe:
+            if musclegroup in muscles[muscgroup] and goal == tpe.strip():
                 num_exercises += 1
                 # compile the number of exercises in that group, the time they take, and their names
                 time_exercises.append(time)
@@ -726,30 +743,33 @@ def genNeighbor(bag, timelimit, num_exercises, time_exercises, lvl_exercises, na
 
 
 
-# def createEvent(day, time, descrip, loc):
-#     event = {}
-#     event = {
-#         'summary': descrip[0],
-#         'location': loc,
-#         'description': descrip[1],
-#         'start': {
-#             'dateTime': time[0],
-#             'timeZone': 'America/New_York',
-#         },
-#         'end': {
-#             'dateTime': '2015-05-28T17:00:00-07:00',
-#             'timeZone': 'America/New_York',
-#         },
-#         'reminders':{
-#             'useDefault': True,
-#         }
-#     }
-#     return event
+def createEvent(day, time, descrip, loc):
+    event = {
+        'summary': descrip[0],
+        'location': loc,
+        'description': descrip[1],
+        'start': {
+            'dateTime': day+"T"+time[0],
+            'timeZone': 'America/New_York',
+        },
+        'end': {
+            'dateTime': day+"T"+time[1],
+            'timeZone': 'America/New_York',
+        },
+        'reminders':{
+            'useDefault': True,
+        }
+    }
+    # add invitees
+    return event
 
 
-# def addWorkout(event):
-#     event = service.events().insert(calendarId='primary', body=event).execute()
-#     print 'Event created: %s' % (event.get('htmlLink'))
+def addWorkout(event):
+    credentials = get_credentials()
+    http = credentials.authorize(httplib2.Http())
+    service = discovery.build('calendar', 'v3', http=http)
+    event = service.events().insert(calendarId='primary', body=event).execute()
+    print ('Event created: %s' % (event.get('htmlLink')))
 
 if __name__ == '__main__':
-    main()
+    main('08:00:00', '11:59:59', 3, 60, 'afternoon', 'strength', '17-12-08', 'river')

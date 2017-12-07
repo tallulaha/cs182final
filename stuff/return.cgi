@@ -2,7 +2,7 @@
 
 # Import modules for CGI handling 
 import add
-import input_cal
+#import input_cal
 import cgi, cgitb 
 
 
@@ -18,7 +18,7 @@ sessionTime  = int(form.getvalue('sessionTime'))
 sessionDays  = int(form.getvalue('sessionDays'))
 
 n = add.addition(sessionDays)
-input_cal.main()
+#input_cal.main()
 
 print "Content-type:text/html\r\n\r\n"
 print "<html>"
