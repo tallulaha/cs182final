@@ -211,7 +211,8 @@ def main(wake, bed, des_days, timelim, timepref,exrgl, startd, neigh):
     #timepref = 'afternoon'
     #timelim = 90
 
-
+    print ("HELLO")
+    print (generateWorkout(60))
     # do all this preprocessing that does not have to be in a loop
     # assign the time preference (morning, afternoon, evening)
     # fwd check the personal availability schedule
@@ -634,22 +635,25 @@ if the muscle_group is true, you can use it, if false, then it means you have al
 # 4 big muscle groups
 # if True, that muscle group has not been assigned to a workout yet, so can be chosen
 # if False, that muscle group has been assigned to a workout, so cannot be chosen again
-musclegroups = [('legs',True), ('arms',True), ('back',True),('abdominals',True)]
+musclegroups = [('legs',True), ('arms',True), ('back',True),('abdominals',True), ('chest', True), ('shoulders', True), ('glutes', True)]
+
 ## this is where we can make conditional about certain strength or cardio activities
 def generateWorkout(timelimit, goal='strength'):
-
+    # 4 big muscle groups
+    # if True, that muscle group has not been assigned to a workout yet, so can be chosen
+    # if False, that muscle group has been assigned to a workout, so cannot be chosen again
     # generate a random muscle group to work on
     rand_int = random.randint(0,len(musclegroups)-1)
-    rand_musc = musclegroups[rand_int][0]
+    rand_musc_group = musclegroups[rand_int][0]
     # keep picking new muscle group until you get one that is True
     while not musclegroups[rand_int][1]:
         rand_int = random.randint(0,len(musclegroups)-1)
-        rand_musc = musclegroups[rand_int][0]
+        rand_musc_group = musclegroups[rand_int][0]
     # now you have a valid muscle group to pick exercises from
     # set it to False so you don't choose it on next iteration
-    musclegroups[rand_int] = (rand_musc,False)
+    musclegroups[rand_int] = (rand_musc_group, False)
     # iterate through dataset to find musclegroup specific exercises w/in time limits
-    workout = fillTime(rand_musc, timelimit, goal)
+    workout = fillTime(rand_musc_group, timelimit, goal)
     return workout
 
 def fillTime(muscgroup, timelimit, goal):
@@ -658,7 +662,17 @@ def fillTime(muscgroup, timelimit, goal):
     time_exercises = []
     name_exercises = []
     lvl_exercises = []
-    muscles = {'legs':['Quadriceps','Hamstrings'],'arms':['Biceps','Triceps','Forearms'], 'back':['Lats'],'abdominals':['Abdominals']}
+    musc_exercises = []
+
+    musclegroup_dict = {
+    'legs':['Quadriceps','Hamstrings'],
+    'arms':['Biceps','Triceps','Forearms'], 
+    'back':['Upper back', 'Lower back'],
+    'abdominals':['Upper abdominals', 'Lower abdominals'],
+    'chest':['Pectoralis major', 'Pectoralis minor'],
+    'shoulders':['Trapezius', 'Deltoid'],
+    'glutes':['Gluteus maximus', 'Gluteus minimus']
+    }
     # go through each row in the dataset
     #***** this is where we need to read in datafile
     workout_file = 'workout.csv'
@@ -666,27 +680,29 @@ def fillTime(muscgroup, timelimit, goal):
         workout_csv = csv.reader(work_fh, delimiter=",", quotechar='"')
         next(workout_csv, None)
         for row in workout_csv:
-            musclegroup = row[4]
+            muscle = row[4]
             #print ("time?", row[2])
             time = int(row[2])
             name = row[1]
             lvl = int(row[6])
             tpe = row[0]
             # if that exercise is within that musclegroup
-            if musclegroup in muscles[muscgroup] and goal == tpe.strip():
+            if muscle in musclegroup_dict[muscgroup] and goal == tpe.strip():
                 num_exercises += 1
                 # compile the number of exercises in that group, the time they take, and their names
                 time_exercises.append(time)
                 name_exercises.append(name)
                 lvl_exercises.append(lvl)
+                musc_exercises.append(muscle)
+        print (num_exercises)
         # if that exercise is within that musclegroup
 
-    return simulated_annealing(timelimit, num_exercises, time_exercises, lvl_exercises, name_exercises)
+    return simulated_annealing(timelimit, num_exercises, time_exercises, lvl_exercises, name_exercises, musc_exercises)
 
 
 #this should all be in working order
-def simulated_annealing(timelimit, num_exercises, time_exercises, lvl_exercises, name_exercises):
-    cur_bag = initSolution(timelimit, num_exercises, time_exercises, lvl_exercises, name_exercises)
+def simulated_annealing(timelimit, num_exercises, time_exercises, lvl_exercises, name_exercises, musc_exercises):
+    cur_bag = initSolution(timelimit, num_exercises, time_exercises, lvl_exercises, name_exercises, musc_exercises)
     #values = [valTotal(cur_bag)]
 
     #for i in xrange(60000):
@@ -694,7 +710,7 @@ def simulated_annealing(timelimit, num_exercises, time_exercises, lvl_exercises,
     for i in xrange(2):
       temp = 1. / np.math.log10(i + 2)
       temp_bag = copy.deepcopy(cur_bag)
-      new_bag = genNeighbor(temp_bag, timelimit, num_exercises, time_exercises, lvl_exercises, name_exercises)
+      new_bag = genNeighbor(temp_bag, timelimit, num_exercises, time_exercises, lvl_exercises, name_exercises, musc_exercises)
       old_total = valTotal(cur_bag)
       new_total = valTotal(new_bag)
       prob = acceptProb(new_total, old_total, temp)
@@ -705,13 +721,13 @@ def simulated_annealing(timelimit, num_exercises, time_exercises, lvl_exercises,
     print (timeTotal(cur_bag))
     return cur_bag
 
-def initSolution(timelimit, num_exercises, time_exercises, lvl_exercises, name_exercises):
+def initSolution(timelimit, num_exercises, time_exercises, lvl_exercises, name_exercises, musc_exercises):
     cur_time = 0
     bag = []
     #print ("timeL", timelimit)
     while cur_time < timelimit:
         rand_ind = np.random.randint(0, num_exercises)
-        rand_item = (rand_ind, name_exercises[rand_ind], lvl_exercises[rand_ind], time_exercises[rand_ind])
+        rand_item = (name_exercises[rand_ind], lvl_exercises[rand_ind], time_exercises[rand_ind], musc_exercises[rand_ind])
         if not rand_item in bag:
           bag.append(rand_item)
         cur_time = timeTotal(bag)
@@ -723,28 +739,22 @@ def initSolution(timelimit, num_exercises, time_exercises, lvl_exercises, name_e
 # minimize free time in workout
 def valTotal(bag):
     total = 0
-    for (_, _, lvl, _) in bag:
+    for (_, lvl, _, _) in bag:
         total += lvl
     return total
 
 def timeTotal(bag):
     total = 0
-    for (_, _, _, time) in bag:
+    for (_, _, time, _) in bag:
         total += time
     return total
-
-def indexList(bag):
-    indexes = []
-    for (i, _, _, _) in bag:
-        indexes.append(i)
-    return indexes
 
 def acceptProb(new_total, old_total, temp):
   # if the new state is better, accept it
     prob = np.exp((new_total - old_total) / temp)
     return prob
 
-def genNeighbor(bag, timelimit, num_exercises, time_exercises, lvl_exercises, name_exercises):
+def genNeighbor(bag, timelimit, num_exercises, time_exercises, lvl_exercises, name_exercises, musc_exercises):
     popped_off = []
   # this doesnt work because already empty i am guessing to change this
   #for i in xrange(3):
@@ -758,14 +768,13 @@ def genNeighbor(bag, timelimit, num_exercises, time_exercises, lvl_exercises, na
   # or maybe not working because we dont have enough examples 
     while cur_time < (timelimit):
         rand_ind = np.random.randint(0, num_exercises)
-        rand_item = (rand_ind, name_exercises[rand_ind], lvl_exercises[rand_ind], time_exercises[rand_ind])
+        rand_item = (name_exercises[rand_ind], lvl_exercises[rand_ind], time_exercises[rand_ind], musc_exercises[rand_ind])
         if not rand_item in bag and not rand_item in popped_off:
             bag.append(rand_item)
         cur_time = timeTotal(bag)
     if cur_time > timelimit:
         bag.pop()
     return bag
-
 
 
 def createEvent(day, time, descrip, loc):
