@@ -352,36 +352,24 @@ musclegroups = [all the muscle groups] also hard coded
 if the muscle_group is true, you can use it, if false, then it means you have already done it
 """
 
-# **** this does not need the csv but we need to define muscle groups
-# **** this could be [legs, arms, shoulders, back, abdominals]???
-# generateWorkout: This function allows us to check constraints for existing muscle groups ensuring that the workouts cover a different span of muscles during the week.
-def generateWorkout(time):
-
-    # musclegroups= [('legs',True), ('arms',True),('back',True),('abdominals',True)]
-
+def generateWorkout(timelimit):
+    # 4 big muscle groups
+    # if True, that muscle group has not been assigned to a workout yet, so can be chosen
+    # if False, that muscle group has been assigned to a workout, so cannot be chosen again
+    musclegroups = [('legs',True), ('arms',True), ('back',True),('abdominals',True)]
     # generate a random muscle group to work on
     rand_int = random.randint(0,len(musclegroups)-1)
     rand_musc = musclegroups[rand_int][0]
     # keep picking new muscle group until you get one that is True
-    # not 100% this is doing it correctly
     while not musclegroups[rand_int][1]:
         rand_int = random.randint(0,len(musclegroups)-1)
         rand_musc = musclegroups[rand_int][0]
     # now you have a valid muscle group to pick exercises from
     # set it to False so you don't choose it on next iteration
     musclegroups[rand_int] = (rand_musc,False)
-    #print (musclegroups)
-    # iterate through dataset to find appropriate exercises w/in time limits
-    # use simulated annealing to find the optimal bag of exercises
-    workout = fillTime(rand_musc, time)
-    print (workout)
+    # iterate through dataset to find musclegroup specific exercises w/in time limits
+    workout = fillTime(rand_musc, timelimit)
     return workout
-
-#this needs to read in things from the data file but generally should work fine
-#since not dependent on the time or anything
-#timelimit should be in minutes
-
-
 
 def fillTime(muscgroup, timelimit):
     #print ("selected muscle", muscgroup)
