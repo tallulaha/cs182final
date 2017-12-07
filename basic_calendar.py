@@ -79,17 +79,18 @@ def weekday(day):
 
 
 
-def main():
+def main(wake, bed, dayprwk, avgwkt, wktprf,exrgl, startd):
     """Shows basic usage of the Google Calendar API.
 
     Creates a Google Calendar API service object and outputs a list of the next
     10 events on the user's calendar.
     """
+    # update to sleep = {'wakeup': wake, 'bedtime': bed}
+    # where wake and sleep are military time
+
     sleep = {'wakeup': '08:00:00', 'bedtime': '23:59:59'}
     time_preferences = ['morning', 'afternoon', 'evening']
     workout_goals = ['lose weight', 'gain muscle', 'increase endurance', 'new skills']
-
-
 
     credentials = get_credentials()
     http = credentials.authorize(httplib2.Http())
@@ -163,9 +164,9 @@ def main():
             print("len", len(conflict_dict))
     print (conflict_dict)
 
-    conflict_dict = orderTimes(conflict_dict, 'afternoon')
+    conflict_dict = orderTimes(conflict_dict, wktprf)
     conflict_dict = orderDays(conflict_dict)
-    generateTime(conflict_dict, 3, 60)
+    generateTime(conflict_dict, dayprwk, avgwkt)
 
 def breakTime(start,end,day,dic):
     if (end >= '12:00:00') and (start < '12:00:00'):
@@ -533,4 +534,4 @@ def addWorkout(event):
     print ('Event created: %s' % (event.get('htmlLink')))
 
 if __name__ == '__main__':
-    main()
+    main('8:00:00', '11:59:59', 3, 60, 'afternoon', 'strength', '17-12-08')
