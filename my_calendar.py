@@ -156,43 +156,43 @@ def main(wake, bed, des_days, timelim, timepref,exrgl, input_d, neigh):
     personal_avail = conflict_dict
 
     gym_sun = {
-        "Mac" : [('9:00:00', '11:59:59'), ('12:00:00', '13:00:00'), None], 
+        "MAC" : [('9:00:00', '11:59:59'), ('12:00:00', '13:00:00'), None], 
         "Hemenway" : [None, ('14:00:00', '16:59:59'), ('17:00:00', '23:00:00')],
         "Murr" : [('9:00:00', '11:59:59'), ('12:00:00', '16:59:59'), None],
         "QRAC" : [None, None, None]
     }
     gym_mon = {
-        "Mac" : [('6:00:00', '11:59:59'), ('12:00:00', '16:59:59'), ('17:00:00', '22:00:00')], 
+        "MAC" : [('6:00:00', '11:59:59'), ('12:00:00', '16:59:59'), ('17:00:00', '22:00:00')], 
         "Hemenway" : [('6:00:00', '11:59:59'), ('12:00:00', '16:59:59'), ('17:00:00', '23:00:00')],
         "Murr" : [('7:00:00', '11:59:59'), ('12:00:00', '16:59:59'), ('17:00:00', '23:00:00')],
         "QRAC" : [('8:00:00', '11:59:59'), ('12:00:00', '16:59:59'), ('17:00:00', '23:00:00')]
     }
     gym_tue = {
-        "Mac" : [('6:00:00', '11:59:59'), ('12:00:00', '16:59:59'), ('17:00:00', '22:00:00')], 
+        "MAC" : [('6:00:00', '11:59:59'), ('12:00:00', '16:59:59'), ('17:00:00', '22:00:00')], 
         "Hemenway" : [('6:00:00', '11:59:59'), ('12:00:00', '16:59:59'), ('17:00:00', '23:00:00')],
         "Murr" : [('7:00:00', '11:59:59'), ('12:00:00', '16:59:59'), ('17:00:00', '23:00:00')],
         "QRAC" : [('8:00:00', '11:59:59'), ('12:00:00', '16:59:59'), ('17:00:00', '23:00:00')]
     }
     gym_wed = {
-        "Mac" : [('6:00:00', '11:59:59'), ('12:00:00', '16:59:59'), ('17:00:00', '22:00:00')], 
+        "MAC" : [('6:00:00', '11:59:59'), ('12:00:00', '16:59:59'), ('17:00:00', '22:00:00')], 
         "Hemenway" : [('6:00:00', '11:59:59'), ('12:00:00', '16:59:59'), ('17:00:00', '23:00:00')],
         "Murr" : [('7:00:00', '11:59:59'), ('12:00:00', '16:59:59'), ('17:00:00', '23:00:00')],
         "QRAC" : [('8:00:00', '11:59:59'), ('12:00:00', '16:59:59'), ('17:00:00', '23:00:00')]
     }
     gym_th = {
-        "Mac" : [('6:00:00', '11:59:59'), ('12:00:00', '16:59:59'), ('17:00:00', '22:00:00')], 
+        "MAC" : [('6:00:00', '11:59:59'), ('12:00:00', '16:59:59'), ('17:00:00', '22:00:00')], 
         "Hemenway" : [('6:00:00', '11:59:59'), ('12:00:00', '16:59:59'), ('17:00:00', '23:00:00')],
         "Murr" : [('7:00:00', '11:59:59'), ('12:00:00', '16:59:59'), ('17:00:00', '23:00:00')],
         "QRAC" : [('8:00:00', '11:59:59'), ('12:00:00', '16:59:59'), ('17:00:00', '23:00:00')]
     }
     gym_fri = {
-        "Mac" : [('6:00:00', '11:59:59'), ('12:00:00', '16:59:59'), ('17:00:00', '19:00:00')], 
+        "MAC" : [('6:00:00', '11:59:59'), ('12:00:00', '16:59:59'), ('17:00:00', '19:00:00')], 
         "Hemenway" : [('6:00:00', '11:59:59'), ('12:00:00', '16:59:59'), ('17:00:00', '20:00:00')],
         "Murr" : [('7:00:00', '11:59:59'), ('12:00:00', '16:59:59'), ('17:00:00', '22:30:00')],
         "QRAC" : [('8:00:00', '11:59:59'), ('12:00:00', '16:59:59'), ('17:00:00', '21:00:00')]
     }
     gym_sat = {
-        "Mac" : [('9:00:00', '11:59:59'), ('12:00:00', '16:59:59'), None], 
+        "MAC" : [('9:00:00', '11:59:59'), ('12:00:00', '16:59:59'), None], 
         "Hemenway" : [('10:00:00', '11:59:59'), ('12:00:00', '16:59:59'), ('17:00:00', '20:00:00')],
         "Murr" : [('8:00:00', '11:59:59'), ('12:00:00', '16:59:59'), ('17:00:00', '20:00:00')],
         "QRAC" : [None, ('12:00:00', '16:59:59'), ('17:00:00', '21:00:00')]
@@ -238,7 +238,7 @@ def main(wake, bed, des_days, timelim, timepref,exrgl, input_d, neigh):
     #des_days = 3
     workout = []
     for _ in xrange(des_days):
-        assign = runCSP(update_pers_avail, update_gym_avail, timelim)
+        assign = runCSP(update_pers_avail, update_gym_avail, timelim, 0, neigh)
         if assign == None:
             break
         else:
@@ -301,7 +301,7 @@ def timeToCalendarForm(time):
     time = hr + ":" + mn + ":00-05:00"
     return time
 
-def runCSP(pers_avail, gym_avail, des_time=60, delta=0):
+def runCSP(pers_avail, gym_avail, des_time, delta, neigh):
     #print ("running ", pers_avail)
     day_timeivl = selectTimeInterval(pers_avail)
     # base case
@@ -319,7 +319,7 @@ def runCSP(pers_avail, gym_avail, des_time=60, delta=0):
                 pers_avail.pop(day, None)
                 #print ("aft", pers_avail)
             # need to rerun from the top to get a new interval with no delta to start with
-            run_ivl = runCSP(pers_avail, gym_avail, des_time, 0)
+            run_ivl = runCSP(pers_avail, gym_avail, des_time, 0, neigh)
             if run_ivl == None:
                 return None
         (startwkt, endwkt) = wkt_ivl
@@ -330,11 +330,11 @@ def runCSP(pers_avail, gym_avail, des_time=60, delta=0):
         # run on the same gym availability
         if new_gym_avail == None:
             delta += 15
-            run_ivl = runCSP(pers_avail, gym_avail, des_time, delta)
+            run_ivl = runCSP(pers_avail, gym_avail, des_time, delta, neigh)
             if run_ivl == None:
                 return None
             return None
-        return assignGymAndTime(new_gym_avail)
+        return assignGymAndTime(new_gym_avail, neigh)
 
     # you have your preferences (time) assigned
     # fwd check: eliminate all times in the personal calendar's domain that aren't consistent
@@ -624,7 +624,7 @@ def updateTimesGymHours (day, startwork, endwork, availabledict):
     return possible
 
 # pick the first time interval that works
-def assignGymAndTime (availabledict, nhood='yard'):
+def assignGymAndTime (availabledict, nhood):
     rvr = ['MAC', 'Hemenway', 'Murr', "QRAC"]
     qd = ['QRAC', 'Hemenway', 'MAC', 'Murr']
     yd = ['Hemenway', 'MAC', 'QRAC', 'Murr']
