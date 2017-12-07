@@ -107,27 +107,46 @@ def main(wake, bed, des_days, timelim, timepref,exrgl, startd, neigh):
     ed = None
     et = None
 
+    weekdays = []
+    for i in range(7):
+        newD = (getDateTimeFromISO8601String(startdate) + datetime.timedelta(days=i)).isoformat()
+        newD, randTime = newD.split("T")
+        weekdays.append(newD)
+
     if not events:
         print('No upcoming events found.')
-    for event in events:
-        #print(event)
-        start = event['start'].get('dateTime', event['start'].get('date'))
-        day, time = start.split("T")
-        if et != None and ed != None:
-            if (ed != day) and (et < sleep['bedtime']):
-                breakTime(et, sleep['bedtime']+'-05:00', ed, conflict_dict)
+    else: 
+        for event in events:
+            #print(event)
+            start = event['start'].get('dateTime', event['start'].get('date'))
+            day, time = start.split("T")
+            # want to get free time until bedtime
+            if et != None and ed != None:
+                if (ed != day) and (et < sleep['bedtime']):
+                    breakTime(et, sleep['bedtime']+'-05:00', ed, conflict_dict)
+            if day not in conflict_dict:
+                conflict_dict[day] = []
+                wakeup_format = day + 'T' + sleep['wakeup']
+                if start > wakeup_format:
+                    breakTime(sleep['wakeup']+ '-05:00', time, day, conflict_dict)
+            else:
+                if (last_end < start) and (ed == day):
+                    d,t = last_end.split("T")
+                    breakTime(t,time,d,conflict_dict)
+            # need to check bedtime to make sure it doesnt go over
+            end = event['end'].get('dateTime', event['end'].get('date'))
+            ed, et = end.split("T")
+            last_end = end
+        breakTime(et, sleep['bedtime'], day, conflict_dict)
+        #print ("this is the available time calendar")
+    #print (conflict_dict)
+    for day in weekdays:
         if day not in conflict_dict:
+            print ("len", len(conflict_dict), day)
             conflict_dict[day] = []
-            wakeup_format = day + 'T' + sleep['wakeup']
-            if start > wakeup_format:
-                breakTime(sleep['wakeup']+ '-05:00', time, day, conflict_dict)
-        else:
-            if (last_end < start) and (ed == day):
-                d,t = last_end.split("T")
-                breakTime(t,time,d,conflict_dict)
-        end = event['end'].get('dateTime', event['end'].get('date'))
-        ed, et = end.split("T")
-        last_end = end
+            breakTime(sleep['wakeup']+ '-05:00', sleep['bedtime']+ '-05:00', day, conflict_dict)
+            print("len", len(conflict_dict))
+    print (conflict_dict)
 
     personal_avail = conflict_dict
 
