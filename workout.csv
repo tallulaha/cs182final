@@ -1,540 +1,652 @@
-Exercise Type,Exercise Name,Time (mins),Reps ,Muscles,Equipment,Strength level,,,,,,,,,,
-strength ,Quad 1,3,,Quadriceps,Machine,1,,,,,,,,,,
-strength ,Quad 2,3,,Quadriceps,Machine,2,,,,,,,,,,
-strength ,Quad 3,3,,Quadriceps,Machine,3,,,,,,,,,,
-strength ,Quad 4,3,,Quadriceps,Machine,4,,,,,,,,,,
-strength ,Quad 5,3,,Quadriceps,Machine,5,,,,,,,,,,
-strength ,Quad 6,3,,Quadriceps,Machine,6,,,,,,,,,,
-strength ,Quad 7,3,,Quadriceps,Machine,7,,,,,,,,,,
-strength ,Quad 8,3,,Quadriceps,Machine,8,,,,,,,,,,
-strength ,Quad 9,5,,Quadriceps,Machine,1,,,,,,,,,,
-strength ,Quad 10,5,,Quadriceps,Machine,2,,,,,,,,,,
-strength ,Quad 11,5,,Quadriceps,Machine,3,,,,,,,,,,
-strength ,Quad 12,5,,Quadriceps,Machine,4,,,,,,,,,,
-strength ,Quad 13,5,,Quadriceps,Machine,5,,,,,,,,,,
-strength ,Quad 14,5,,Quadriceps,Machine,6,,,,,,,,,,
-strength ,Quad 15,5,,Quadriceps,Machine,7,,,,,,,,,,
-strength ,Quad 16,5,,Quadriceps,Machine,8,,,,,,,,,,
-strength ,Quad 17,8,,Quadriceps,Machine,1,,,,,,,,,,
-strength ,Quad 18,8,,Quadriceps,Machine,2,,,,,,,,,,
-strength ,Quad 19,8,,Quadriceps,Machine,3,,,,,,,,,,
-strength ,Quad 20,8,,Quadriceps,Machine,4,,,,,,,,,,
-strength ,Quad 21,8,,Quadriceps,Machine,5,,,,,,,,,,
-strength ,Quad 22,8,,Quadriceps,Machine,6,,,,,,,,,,
-strength ,Quad 23,8,,Quadriceps,Machine,7,,,,,,,,,,
-strength ,Quad 24,8,,Quadriceps,Machine,8,,,,,,,,,,
-strength ,Quad 25,10,,Quadriceps,Machine,1,,,,,,,,,,
-strength ,Quad 26,10,,Quadriceps,Machine,2,,,,,,,,,,
-strength ,Quad 27,10,,Quadriceps,Machine,3,,,,,,,,,,
-strength ,Quad 28,10,,Quadriceps,Machine,4,,,,,,,,,,
-strength ,Quad 29,10,,Quadriceps,Machine,5,,,,,,,,,,
-strength ,Quad 30,10,,Quadriceps,Machine,6,,,,,,,,,,
-strength ,Quad 31,10,,Quadriceps,Machine,7,,,,,,,,,,
-strength ,Quad 32,10,,Quadriceps,Machine,8,,,,,,,,,,
-strength ,Quad 33,15,,Quadriceps,Machine,1,,,,,,,,,,
-strength ,Quad 34,15,,Quadriceps,Machine,2,,,,,,,,,,
-strength ,Quad 35,15,,Quadriceps,Machine,3,,,,,,,,,,
-strength ,Quad 36,15,,Quadriceps,Machine,4,,,,,,,,,,
-strength ,Quad 37,15,,Quadriceps,Machine,5,,,,,,,,,,
-strength ,Quad 38,15,,Quadriceps,Machine,6,,,,,,,,,,
-strength ,Quad 39,15,,Quadriceps,Machine,7,,,,,,,,,,
-strength ,Quad 40,15,,Quadriceps,Machine,8,,,,,,,,,,
-strength ,Quad 41,20,,Quadriceps,Machine,1,,,,,,,,,,
-strength ,Quad 42,20,,Quadriceps,Machine,2,,,,,,,,,,
-strength ,Quad 43,20,,Quadriceps,Machine,3,,,,,,,,,,
-strength ,Quad 44,20,,Quadriceps,Machine,4,,,,,,,,,,
-strength ,Quad 45,20,,Quadriceps,Machine,5,,,,,,,,,,
-strength ,Quad 46,20,,Quadriceps,Machine,6,,,,,,,,,,
-strength ,Quad 47,20,,Quadriceps,Machine,7,,,,,,,,,,
-strength ,Quad 48,20,,Quadriceps,Machine,8,,,,,,,,,,
-strength ,Quad 49,25,,Quadriceps,Machine,1,,,,,,,,,,
-strength ,Quad 50,25,,Quadriceps,Machine,2,,,,,,,,,,
-strength ,Quad 51,25,,Quadriceps,Machine,3,,,,,,,,,,
-strength ,Quad 52,25,,Quadriceps,Machine,4,,,,,,,,,,
-strength ,Quad 53,25,,Quadriceps,Machine,5,,,,,,,,,,
-strength ,Quad 54,25,,Quadriceps,Machine,6,,,,,,,,,,
-strength ,Quad 55,25,,Quadriceps,Machine,7,,,,,,,,,,
-strength ,Quad 56,25,,Quadriceps,Machine,8,,,,,,,,,,
-strength ,Biceps 1,3,,Biceps,Dumbbell,1,,,,,,,,,,
-strength ,Biceps 2,3,,Biceps,Dumbbell,2,,,,,,,,,,
-strength ,Biceps 3,3,,Biceps,Dumbbell,3,,,,,,,,,,
-strength ,Biceps 4,3,,Biceps,Dumbbell,4,,,,,,,,,,
-strength ,Biceps 5,3,,Biceps,Dumbbell,5,,,,,,,,,,
-strength ,Biceps 6,3,,Biceps,Dumbbell,6,,,,,,,,,,
-strength ,Biceps 7,3,,Biceps,Dumbbell,7,,,,,,,,,,
-strength ,Biceps 8,3,,Biceps,Dumbbell,8,,,,,,,,,,
-strength ,Biceps 9,5,,Biceps,Dumbbell,1,,,,,,,,,,
-strength ,Biceps 10,5,,Biceps,Dumbbell,2,,,,,,,,,,
-strength ,Biceps 11,5,,Biceps,Dumbbell,3,,,,,,,,,,
-strength ,Biceps 12,5,,Biceps,Dumbbell,4,,,,,,,,,,
-strength ,Biceps 13,5,,Biceps,Dumbbell,5,,,,,,,,,,
-strength ,Biceps 14,5,,Biceps,Dumbbell,6,,,,,,,,,,
-strength ,Biceps 15,5,,Biceps,Dumbbell,7,,,,,,,,,,
-strength ,Biceps 16,5,,Biceps,Dumbbell,8,,,,,,,,,,
-strength ,Biceps 17,8,,Biceps,Dumbbell,1,,,,,,,,,,
-strength ,Biceps 18,8,,Biceps,Dumbbell,2,,,,,,,,,,
-strength ,Biceps 19,8,,Biceps,Dumbbell,3,,,,,,,,,,
-strength ,Biceps 20,8,,Biceps,Dumbbell,4,,,,,,,,,,
-strength ,Biceps 21,8,,Biceps,Dumbbell,5,,,,,,,,,,
-strength ,Biceps 22,8,,Biceps,Dumbbell,6,,,,,,,,,,
-strength ,Biceps 23,8,,Biceps,Dumbbell,7,,,,,,,,,,
-strength ,Biceps 24,8,,Biceps,Dumbbell,8,,,,,,,,,,
-strength ,Biceps 25,10,,Biceps,Dumbbell,1,,,,,,,,,,
-strength ,Biceps 26,10,,Biceps,Dumbbell,2,,,,,,,,,,
-strength ,Biceps 27,10,,Biceps,Dumbbell,3,,,,,,,,,,
-strength ,Biceps 28,10,,Biceps,Dumbbell,4,,,,,,,,,,
-strength ,Biceps 29,10,,Biceps,Dumbbell,5,,,,,,,,,,
-strength ,Biceps 30,10,,Biceps,Dumbbell,6,,,,,,,,,,
-strength ,Biceps 31,10,,Biceps,Dumbbell,7,,,,,,,,,,
-strength ,Biceps 32,10,,Biceps,Dumbbell,8,,,,,,,,,,
-strength ,Biceps 33,15,,Biceps,Dumbbell,1,,,,,,,,,,
-strength ,Biceps 34,15,,Biceps,Dumbbell,2,,,,,,,,,,
-strength ,Biceps 35,15,,Biceps,Dumbbell,3,,,,,,,,,,
-strength ,Biceps 36,15,,Biceps,Dumbbell,4,,,,,,,,,,
-strength ,Biceps 37,15,,Biceps,Dumbbell,5,,,,,,,,,,
-strength ,Biceps 38,15,,Biceps,Dumbbell,6,,,,,,,,,,
-strength ,Biceps 39,15,,Biceps,Dumbbell,7,,,,,,,,,,
-strength ,Biceps 40,15,,Biceps,Dumbbell,8,,,,,,,,,,
-strength ,Biceps 41,20,,Biceps,Dumbbell,1,,,,,,,,,,
-strength ,Biceps 42,20,,Biceps,Dumbbell,2,,,,,,,,,,
-strength ,Biceps 43,20,,Biceps,Dumbbell,3,,,,,,,,,,
-strength ,Biceps 44,20,,Biceps,Dumbbell,4,,,,,,,,,,
-strength ,Biceps 45,20,,Biceps,Dumbbell,5,,,,,,,,,,
-strength ,Biceps 46,20,,Biceps,Dumbbell,6,,,,,,,,,,
-strength ,Biceps 47,20,,Biceps,Dumbbell,7,,,,,,,,,,
-strength ,Biceps 48,20,,Biceps,Dumbbell,8,,,,,,,,,,
-strength ,Biceps 49,25,,Biceps,Dumbbell,1,,,,,,,,,,
-strength ,Biceps 50,25,,Biceps,Dumbbell,2,,,,,,,,,,
-strength ,Biceps 51,25,,Biceps,Dumbbell,3,,,,,,,,,,
-strength ,Biceps 52,25,,Biceps,Dumbbell,4,,,,,,,,,,
-strength ,Biceps 53,25,,Biceps,Dumbbell,5,,,,,,,,,,
-strength ,Biceps 54,25,,Biceps,Dumbbell,6,,,,,,,,,,
-strength ,Biceps 55,25,,Biceps,Dumbbell,7,,,,,,,,,,
-strength ,Biceps 56,25,,Biceps,Dumbbell,8,,,,,,,,,,
-strength ,Lats 1,3,,Lats,Other,1,,,,,,,,,,
-strength ,Lats 2,3,,Lats,Other,2,,,,,,,,,,
-strength ,Lats 3,3,,Lats,Other,3,,,,,,,,,,
-strength ,Lats 4,3,,Lats,Other,4,,,,,,,,,,
-strength ,Lats 5,3,,Lats,Other,5,,,,,,,,,,
-strength ,Lats 6,3,,Lats,Other,6,,,,,,,,,,
-strength ,Lats 7,3,,Lats,Other,7,,,,,,,,,,
-strength ,Lats 8,3,,Lats,Other,8,,,,,,,,,,
-strength ,Lats 9,5,,Lats,Other,1,,,,,,,,,,
-strength ,Lats 10,5,,Lats,Other,2,,,,,,,,,,
-strength ,Lats 11,5,,Lats,Other,3,,,,,,,,,,
-strength ,Lats 12,5,,Lats,Other,4,,,,,,,,,,
-strength ,Lats 13,5,,Lats,Other,5,,,,,,,,,,
-strength ,Lats 14,5,,Lats,Other,6,,,,,,,,,,
-strength ,Lats 15,5,,Lats,Other,7,,,,,,,,,,
-strength ,Lats 16,5,,Lats,Other,8,,,,,,,,,,
-strength ,Lats 17,8,,Lats,Other,1,,,,,,,,,,
-strength ,Lats 18,8,,Lats,Other,2,,,,,,,,,,
-strength ,Lats 19,8,,Lats,Other,3,,,,,,,,,,
-strength ,Lats 20,8,,Lats,Other,4,,,,,,,,,,
-strength ,Lats 21,8,,Lats,Other,5,,,,,,,,,,
-strength ,Lats 22,8,,Lats,Other,6,,,,,,,,,,
-strength ,Lats 23,8,,Lats,Other,7,,,,,,,,,,
-strength ,Lats 24,8,,Lats,Other,8,,,,,,,,,,
-strength ,Lats 25,10,,Lats,Other,1,,,,,,,,,,
-strength ,Lats 26,10,,Lats,Other,2,,,,,,,,,,
-strength ,Lats 27,10,,Lats,Other,3,,,,,,,,,,
-strength ,Lats 28,10,,Lats,Other,4,,,,,,,,,,
-strength ,Lats 29,10,,Lats,Other,5,,,,,,,,,,
-strength ,Lats 30,10,,Lats,Other,6,,,,,,,,,,
-strength ,Lats 31,10,,Lats,Other,7,,,,,,,,,,
-strength ,Lats 32,10,,Lats,Other,8,,,,,,,,,,
-strength ,Lats 33,15,,Lats,Other,1,,,,,,,,,,
-strength ,Lats 34,15,,Lats,Other,2,,,,,,,,,,
-strength ,Lats 35,15,,Lats,Other,3,,,,,,,,,,
-strength ,Lats 36,15,,Lats,Other,4,,,,,,,,,,
-strength ,Lats 37,15,,Lats,Other,5,,,,,,,,,,
-strength ,Lats 38,15,,Lats,Other,6,,,,,,,,,,
-strength ,Lats 39,15,,Lats,Other,7,,,,,,,,,,
-strength ,Lats 40,15,,Lats,Other,8,,,,,,,,,,
-strength ,Lats 41,20,,Lats,Other,1,,,,,,,,,,
-strength ,Lats 42,20,,Lats,Other,2,,,,,,,,,,
-strength ,Lats 43,20,,Lats,Other,3,,,,,,,,,,
-strength ,Lats 44,20,,Lats,Other,4,,,,,,,,,,
-strength ,Lats 45,20,,Lats,Other,5,,,,,,,,,,
-strength ,Lats 46,20,,Lats,Other,6,,,,,,,,,,
-strength ,Lats 47,20,,Lats,Other,7,,,,,,,,,,
-strength ,Lats 48,20,,Lats,Other,8,,,,,,,,,,
-strength ,Lats 49,25,,Lats,Other,1,,,,,,,,,,
-strength ,Lats 50,25,,Lats,Other,2,,,,,,,,,,
-strength ,Lats 51,25,,Lats,Other,3,,,,,,,,,,
-strength ,Lats 52,25,,Lats,Other,4,,,,,,,,,,
-strength ,Lats 53,25,,Lats,Other,5,,,,,,,,,,
-strength ,Lats 54,25,,Lats,Other,6,,,,,,,,,,
-strength ,Lats 55,25,,Lats,Other,7,,,,,,,,,,
-strength ,Lats 56,25,,Lats,Other,8,,,,,,,,,,
-strength ,Triceps 1,3,,Triceps,None,1,,,,,,,,,,
-strength ,Triceps 2,3,,Triceps,None,2,,,,,,,,,,
-strength ,Triceps 3,3,,Triceps,None,3,,,,,,,,,,
-strength ,Triceps 4,3,,Triceps,None,4,,,,,,,,,,
-strength ,Triceps 5,3,,Triceps,None,5,,,,,,,,,,
-strength ,Triceps 6,3,,Triceps,None,6,,,,,,,,,,
-strength ,Triceps 7,3,,Triceps,None,7,,,,,,,,,,
-strength ,Triceps 8,3,,Triceps,None,8,,,,,,,,,,
-strength ,Triceps 9,5,,Triceps,None,1,,,,,,,,,,
-strength ,Triceps 10,5,,Triceps,None,2,,,,,,,,,,
-strength ,Triceps 11,5,,Triceps,None,3,,,,,,,,,,
-strength ,Triceps 12,5,,Triceps,None,4,,,,,,,,,,
-strength ,Triceps 13,5,,Triceps,None,5,,,,,,,,,,
-strength ,Triceps 14,5,,Triceps,None,6,,,,,,,,,,
-strength ,Triceps 15,5,,Triceps,None,7,,,,,,,,,,
-strength ,Triceps 16,5,,Triceps,None,8,,,,,,,,,,
-strength ,Triceps 17,8,,Triceps,None,1,,,,,,,,,,
-strength ,Triceps 18,8,,Triceps,None,2,,,,,,,,,,
-strength ,Triceps 19,8,,Triceps,None,3,,,,,,,,,,
-strength ,Triceps 20,8,,Triceps,None,4,,,,,,,,,,
-strength ,Triceps 21,8,,Triceps,None,5,,,,,,,,,,
-strength ,Triceps 22,8,,Triceps,None,6,,,,,,,,,,
-strength ,Triceps 23,8,,Triceps,None,7,,,,,,,,,,
-strength ,Triceps 24,8,,Triceps,None,8,,,,,,,,,,
-strength ,Triceps 25,10,,Triceps,None,1,,,,,,,,,,
-strength ,Triceps 26,10,,Triceps,None,2,,,,,,,,,,
-strength ,Triceps 27,10,,Triceps,None,3,,,,,,,,,,
-strength ,Triceps 28,10,,Triceps,None,4,,,,,,,,,,
-strength ,Triceps 29,10,,Triceps,None,5,,,,,,,,,,
-strength ,Triceps 30,10,,Triceps,None,6,,,,,,,,,,
-strength ,Triceps 31,10,,Triceps,None,7,,,,,,,,,,
-strength ,Triceps 32,10,,Triceps,None,8,,,,,,,,,,
-strength ,Triceps 33,15,,Triceps,None,1,,,,,,,,,,
-strength ,Triceps 34,15,,Triceps,None,2,,,,,,,,,,
-strength ,Triceps 35,15,,Triceps,None,3,,,,,,,,,,
-strength ,Triceps 36,15,,Triceps,None,4,,,,,,,,,,
-strength ,Triceps 37,15,,Triceps,None,5,,,,,,,,,,
-strength ,Triceps 38,15,,Triceps,None,6,,,,,,,,,,
-strength ,Triceps 39,15,,Triceps,None,7,,,,,,,,,,
-strength ,Triceps 40,15,,Triceps,None,8,,,,,,,,,,
-strength ,Triceps 41,20,,Triceps,None,1,,,,,,,,,,
-strength ,Triceps 42,20,,Triceps,None,2,,,,,,,,,,
-strength ,Triceps 43,20,,Triceps,None,3,,,,,,,,,,
-strength ,Triceps 44,20,,Triceps,None,4,,,,,,,,,,
-strength ,Triceps 45,20,,Triceps,None,5,,,,,,,,,,
-strength ,Triceps 46,20,,Triceps,None,6,,,,,,,,,,
-strength ,Triceps 47,20,,Triceps,None,7,,,,,,,,,,
-strength ,Triceps 48,20,,Triceps,None,8,,,,,,,,,,
-strength ,Triceps 49,25,,Triceps,None,1,,,,,,,,,,
-strength ,Triceps 50,25,,Triceps,None,2,,,,,,,,,,
-strength ,Triceps 51,25,,Triceps,None,3,,,,,,,,,,
-strength ,Triceps 52,25,,Triceps,None,4,,,,,,,,,,
-strength ,Triceps 53,25,,Triceps,None,5,,,,,,,,,,
-strength ,Triceps 54,25,,Triceps,None,6,,,,,,,,,,
-strength ,Triceps 55,25,,Triceps,None,7,,,,,,,,,,
-strength ,Triceps 56,25,,Triceps,None,8,,,,,,,,,,
-strength ,Forearms 1,3,,Forearms,Barbell,1,,,,,,,,,,
-strength ,Forearms 2,3,,Forearms,Barbell,2,,,,,,,,,,
-strength ,Forearms 3,3,,Forearms,Barbell,3,,,,,,,,,,
-strength ,Forearms 4,3,,Forearms,Barbell,4,,,,,,,,,,
-strength ,Forearms 5,3,,Forearms,Barbell,5,,,,,,,,,,
-strength ,Forearms 6,3,,Forearms,Barbell,6,,,,,,,,,,
-strength ,Forearms 7,3,,Forearms,Barbell,7,,,,,,,,,,
-strength ,Forearms 8,3,,Forearms,Barbell,8,,,,,,,,,,
-strength ,Forearms 9,5,,Forearms,Barbell,1,,,,,,,,,,
-strength ,Forearms 10,5,,Forearms,Barbell,2,,,,,,,,,,
-strength ,Forearms 11,5,,Forearms,Barbell,3,,,,,,,,,,
-strength ,Forearms 12,5,,Forearms,Barbell,4,,,,,,,,,,
-strength ,Forearms 13,5,,Forearms,Barbell,5,,,,,,,,,,
-strength ,Forearms 14,5,,Forearms,Barbell,6,,,,,,,,,,
-strength ,Forearms 15,5,,Forearms,Barbell,7,,,,,,,,,,
-strength ,Forearms 16,5,,Forearms,Barbell,8,,,,,,,,,,
-strength ,Forearms 17,8,,Forearms,Barbell,1,,,,,,,,,,
-strength ,Forearms 18,8,,Forearms,Barbell,2,,,,,,,,,,
-strength ,Forearms 19,8,,Forearms,Barbell,3,,,,,,,,,,
-strength ,Forearms 20,8,,Forearms,Barbell,4,,,,,,,,,,
-strength ,Forearms 21,8,,Forearms,Barbell,5,,,,,,,,,,
-strength ,Forearms 22,8,,Forearms,Barbell,6,,,,,,,,,,
-strength ,Forearms 23,8,,Forearms,Barbell,7,,,,,,,,,,
-strength ,Forearms 24,8,,Forearms,Barbell,8,,,,,,,,,,
-strength ,Forearms 25,10,,Forearms,Barbell,1,,,,,,,,,,
-strength ,Forearms 26,10,,Forearms,Barbell,2,,,,,,,,,,
-strength ,Forearms 27,10,,Forearms,Barbell,3,,,,,,,,,,
-strength ,Forearms 28,10,,Forearms,Barbell,4,,,,,,,,,,
-strength ,Forearms 29,10,,Forearms,Barbell,5,,,,,,,,,,
-strength ,Forearms 30,10,,Forearms,Barbell,6,,,,,,,,,,
-strength ,Forearms 31,10,,Forearms,Barbell,7,,,,,,,,,,
-strength ,Forearms 32,10,,Forearms,Barbell,8,,,,,,,,,,
-strength ,Forearms 33,15,,Forearms,Barbell,1,,,,,,,,,,
-strength ,Forearms 34,15,,Forearms,Barbell,2,,,,,,,,,,
-strength ,Forearms 35,15,,Forearms,Barbell,3,,,,,,,,,,
-strength ,Forearms 36,15,,Forearms,Barbell,4,,,,,,,,,,
-strength ,Forearms 37,15,,Forearms,Barbell,5,,,,,,,,,,
-strength ,Forearms 38,15,,Forearms,Barbell,6,,,,,,,,,,
-strength ,Forearms 39,15,,Forearms,Barbell,7,,,,,,,,,,
-strength ,Forearms 40,15,,Forearms,Barbell,8,,,,,,,,,,
-strength ,Forearms 41,20,,Forearms,Barbell,1,,,,,,,,,,
-strength ,Forearms 42,20,,Forearms,Barbell,2,,,,,,,,,,
-strength ,Forearms 43,20,,Forearms,Barbell,3,,,,,,,,,,
-strength ,Forearms 44,20,,Forearms,Barbell,4,,,,,,,,,,
-strength ,Forearms 45,20,,Forearms,Barbell,5,,,,,,,,,,
-strength ,Forearms 46,20,,Forearms,Barbell,6,,,,,,,,,,
-strength ,Forearms 47,20,,Forearms,Barbell,7,,,,,,,,,,
-strength ,Forearms 48,20,,Forearms,Barbell,8,,,,,,,,,,
-strength ,Forearms 49,25,,Forearms,Barbell,1,,,,,,,,,,
-strength ,Forearms 50,25,,Forearms,Barbell,2,,,,,,,,,,
-strength ,Forearms 51,25,,Forearms,Barbell,3,,,,,,,,,,
-strength ,Forearms 52,25,,Forearms,Barbell,4,,,,,,,,,,
-strength ,Forearms 53,25,,Forearms,Barbell,5,,,,,,,,,,
-strength ,Forearms 54,25,,Forearms,Barbell,6,,,,,,,,,,
-strength ,Forearms 55,25,,Forearms,Barbell,7,,,,,,,,,,
-strength ,Forearms 56,25,,Forearms,Barbell,8,,,,,,,,,,
-strength ,Hamstrings 1,3,,Hamstrings,Dumbbell,1,,,,,,,,,,
-strength ,Hamstrings 2,3,,Hamstrings,Dumbbell,2,,,,,,,,,,
-strength ,Hamstrings 3,3,,Hamstrings,Dumbbell,3,,,,,,,,,,
-strength ,Hamstrings 4,3,,Hamstrings,Dumbbell,4,,,,,,,,,,
-strength ,Hamstrings 5,3,,Hamstrings,Dumbbell,5,,,,,,,,,,
-strength ,Hamstrings 6,3,,Hamstrings,Dumbbell,6,,,,,,,,,,
-strength ,Hamstrings 7,3,,Hamstrings,Dumbbell,7,,,,,,,,,,
-strength ,Hamstrings 8,3,,Hamstrings,Dumbbell,8,,,,,,,,,,
-strength ,Hamstrings 9,5,,Hamstrings,Dumbbell,1,,,,,,,,,,
-strength ,Hamstrings 10,5,,Hamstrings,Dumbbell,2,,,,,,,,,,
-strength ,Hamstrings 11,5,,Hamstrings,Dumbbell,3,,,,,,,,,,
-strength ,Hamstrings 12,5,,Hamstrings,Dumbbell,4,,,,,,,,,,
-strength ,Hamstrings 13,5,,Hamstrings,Dumbbell,5,,,,,,,,,,
-strength ,Hamstrings 14,5,,Hamstrings,Dumbbell,6,,,,,,,,,,
-strength ,Hamstrings 15,5,,Hamstrings,Dumbbell,7,,,,,,,,,,
-strength ,Hamstrings 16,5,,Hamstrings,Dumbbell,8,,,,,,,,,,
-strength ,Hamstrings 17,8,,Hamstrings,Dumbbell,1,,,,,,,,,,
-strength ,Hamstrings 18,8,,Hamstrings,Dumbbell,2,,,,,,,,,,
-strength ,Hamstrings 19,8,,Hamstrings,Dumbbell,3,,,,,,,,,,
-strength ,Hamstrings 20,8,,Hamstrings,Dumbbell,4,,,,,,,,,,
-strength ,Hamstrings 21,8,,Hamstrings,Dumbbell,5,,,,,,,,,,
-strength ,Hamstrings 22,8,,Hamstrings,Dumbbell,6,,,,,,,,,,
-strength ,Hamstrings 23,8,,Hamstrings,Dumbbell,7,,,,,,,,,,
-strength ,Hamstrings 24,8,,Hamstrings,Dumbbell,8,,,,,,,,,,
-strength ,Hamstrings 25,10,,Hamstrings,Dumbbell,1,,,,,,,,,,
-strength ,Hamstrings 26,10,,Hamstrings,Dumbbell,2,,,,,,,,,,
-strength ,Hamstrings 27,10,,Hamstrings,Dumbbell,3,,,,,,,,,,
-strength ,Hamstrings 28,10,,Hamstrings,Dumbbell,4,,,,,,,,,,
-strength ,Hamstrings 29,10,,Hamstrings,Dumbbell,5,,,,,,,,,,
-strength ,Hamstrings 30,10,,Hamstrings,Dumbbell,6,,,,,,,,,,
-strength ,Hamstrings 31,10,,Hamstrings,Dumbbell,7,,,,,,,,,,
-strength ,Hamstrings 32,10,,Hamstrings,Dumbbell,8,,,,,,,,,,
-strength ,Hamstrings 33,15,,Hamstrings,Dumbbell,1,,,,,,,,,,
-strength ,Hamstrings 34,15,,Hamstrings,Dumbbell,2,,,,,,,,,,
-strength ,Hamstrings 35,15,,Hamstrings,Dumbbell,3,,,,,,,,,,
-strength ,Hamstrings 36,15,,Hamstrings,Dumbbell,4,,,,,,,,,,
-strength ,Hamstrings 37,15,,Hamstrings,Dumbbell,5,,,,,,,,,,
-strength ,Hamstrings 38,15,,Hamstrings,Dumbbell,6,,,,,,,,,,
-strength ,Hamstrings 39,15,,Hamstrings,Dumbbell,7,,,,,,,,,,
-strength ,Hamstrings 40,15,,Hamstrings,Dumbbell,8,,,,,,,,,,
-strength ,Hamstrings 41,20,,Hamstrings,Dumbbell,1,,,,,,,,,,
-strength ,Hamstrings 42,20,,Hamstrings,Dumbbell,2,,,,,,,,,,
-strength ,Hamstrings 43,20,,Hamstrings,Dumbbell,3,,,,,,,,,,
-strength ,Hamstrings 44,20,,Hamstrings,Dumbbell,4,,,,,,,,,,
-strength ,Hamstrings 45,20,,Hamstrings,Dumbbell,5,,,,,,,,,,
-strength ,Hamstrings 46,20,,Hamstrings,Dumbbell,6,,,,,,,,,,
-strength ,Hamstrings 47,20,,Hamstrings,Dumbbell,7,,,,,,,,,,
-strength ,Hamstrings 48,20,,Hamstrings,Dumbbell,8,,,,,,,,,,
-strength ,Hamstrings 49,25,,Hamstrings,Dumbbell,1,,,,,,,,,,
-strength ,Hamstrings 50,25,,Hamstrings,Dumbbell,2,,,,,,,,,,
-strength ,Hamstrings 51,25,,Hamstrings,Dumbbell,3,,,,,,,,,,
-strength ,Hamstrings 52,25,,Hamstrings,Dumbbell,4,,,,,,,,,,
-strength ,Hamstrings 53,25,,Hamstrings,Dumbbell,5,,,,,,,,,,
-strength ,Hamstrings 54,25,,Hamstrings,Dumbbell,6,,,,,,,,,,
-strength ,Hamstrings 55,25,,Hamstrings,Dumbbell,7,,,,,,,,,,
-strength ,Hamstrings 56,25,,Hamstrings,Dumbbell,8,,,,,,,,,,
-strength ,Shoulders 1,3,,Shoulders,Barbell,1,,,,,,,,,,
-strength ,Shoulders 2,3,,Shoulders,Barbell,2,,,,,,,,,,
-strength ,Shoulders 3,3,,Shoulders,Barbell,3,,,,,,,,,,
-strength ,Shoulders 4,3,,Shoulders,Barbell,4,,,,,,,,,,
-strength ,Shoulders 5,3,,Shoulders,Barbell,5,,,,,,,,,,
-strength ,Shoulders 6,3,,Shoulders,Barbell,6,,,,,,,,,,
-strength ,Shoulders 7,3,,Shoulders,Barbell,7,,,,,,,,,,
-strength ,Shoulders 8,3,,Shoulders,Barbell,8,,,,,,,,,,
-strength ,Shoulders 9,5,,Shoulders,Barbell,1,,,,,,,,,,
-strength ,Shoulders 10,5,,Shoulders,Barbell,2,,,,,,,,,,
-strength ,Shoulders 11,5,,Shoulders,Barbell,3,,,,,,,,,,
-strength ,Shoulders 12,5,,Shoulders,Barbell,4,,,,,,,,,,
-strength ,Shoulders 13,5,,Shoulders,Barbell,5,,,,,,,,,,
-strength ,Shoulders 14,5,,Shoulders,Barbell,6,,,,,,,,,,
-strength ,Shoulders 15,5,,Shoulders,Barbell,7,,,,,,,,,,
-strength ,Shoulders 16,5,,Shoulders,Barbell,8,,,,,,,,,,
-strength ,Shoulders 17,8,,Shoulders,Barbell,1,,,,,,,,,,
-strength ,Shoulders 18,8,,Shoulders,Barbell,2,,,,,,,,,,
-strength ,Shoulders 19,8,,Shoulders,Barbell,3,,,,,,,,,,
-strength ,Shoulders 20,8,,Shoulders,Barbell,4,,,,,,,,,,
-strength ,Shoulders 21,8,,Shoulders,Barbell,5,,,,,,,,,,
-strength ,Shoulders 22,8,,Shoulders,Barbell,6,,,,,,,,,,
-strength ,Shoulders 23,8,,Shoulders,Barbell,7,,,,,,,,,,
-strength ,Shoulders 24,8,,Shoulders,Barbell,8,,,,,,,,,,
-strength ,Shoulders 25,10,,Shoulders,Barbell,1,,,,,,,,,,
-strength ,Shoulders 26,10,,Shoulders,Barbell,2,,,,,,,,,,
-strength ,Shoulders 27,10,,Shoulders,Barbell,3,,,,,,,,,,
-strength ,Shoulders 28,10,,Shoulders,Barbell,4,,,,,,,,,,
-strength ,Shoulders 29,10,,Shoulders,Barbell,5,,,,,,,,,,
-strength ,Shoulders 30,10,,Shoulders,Barbell,6,,,,,,,,,,
-strength ,Shoulders 31,10,,Shoulders,Barbell,7,,,,,,,,,,
-strength ,Shoulders 32,10,,Shoulders,Barbell,8,,,,,,,,,,
-strength ,Shoulders 33,15,,Shoulders,Barbell,1,,,,,,,,,,
-strength ,Shoulders 34,15,,Shoulders,Barbell,2,,,,,,,,,,
-strength ,Shoulders 35,15,,Shoulders,Barbell,3,,,,,,,,,,
-strength ,Shoulders 36,15,,Shoulders,Barbell,4,,,,,,,,,,
-strength ,Shoulders 37,15,,Shoulders,Barbell,5,,,,,,,,,,
-strength ,Shoulders 38,15,,Shoulders,Barbell,6,,,,,,,,,,
-strength ,Shoulders 39,15,,Shoulders,Barbell,7,,,,,,,,,,
-strength ,Shoulders 40,15,,Shoulders,Barbell,8,,,,,,,,,,
-strength ,Shoulders 41,20,,Shoulders,Barbell,1,,,,,,,,,,
-strength ,Shoulders 42,20,,Shoulders,Barbell,2,,,,,,,,,,
-strength ,Shoulders 43,20,,Shoulders,Barbell,3,,,,,,,,,,
-strength ,Shoulders 44,20,,Shoulders,Barbell,4,,,,,,,,,,
-strength ,Shoulders 45,20,,Shoulders,Barbell,5,,,,,,,,,,
-strength ,Shoulders 46,20,,Shoulders,Barbell,6,,,,,,,,,,
-strength ,Shoulders 47,20,,Shoulders,Barbell,7,,,,,,,,,,
-strength ,Shoulders 48,20,,Shoulders,Barbell,8,,,,,,,,,,
-strength ,Shoulders 49,25,,Shoulders,Barbell,1,,,,,,,,,,
-strength ,Shoulders 50,25,,Shoulders,Barbell,2,,,,,,,,,,
-strength ,Shoulders 51,25,,Shoulders,Barbell,3,,,,,,,,,,
-strength ,Shoulders 52,25,,Shoulders,Barbell,4,,,,,,,,,,
-strength ,Shoulders 53,25,,Shoulders,Barbell,5,,,,,,,,,,
-strength ,Shoulders 54,25,,Shoulders,Barbell,6,,,,,,,,,,
-strength ,Shoulders 55,25,,Shoulders,Barbell,7,,,,,,,,,,
-strength ,Shoulders 56,25,,Shoulders,Barbell,8,,,,,,,,,,
-strength ,Abdominals 1,3,,Abdominals,None,1,,,,,,,,,,
-strength ,Abdominals 2,3,,Abdominals,None,2,,,,,,,,,,
-strength ,Abdominals 3,3,,Abdominals,None,3,,,,,,,,,,
-strength ,Abdominals 4,3,,Abdominals,None,4,,,,,,,,,,
-strength ,Abdominals 5,3,,Abdominals,None,5,,,,,,,,,,
-strength ,Abdominals 6,3,,Abdominals,None,6,,,,,,,,,,
-strength ,Abdominals 7,3,,Abdominals,None,7,,,,,,,,,,
-strength ,Abdominals 8,3,,Abdominals,None,8,,,,,,,,,,
-strength ,Abdominals 9,5,,Abdominals,None,1,,,,,,,,,,
-strength ,Abdominals 10,5,,Abdominals,None,2,,,,,,,,,,
-strength ,Abdominals 11,5,,Abdominals,None,3,,,,,,,,,,
-strength ,Abdominals 12,5,,Abdominals,None,4,,,,,,,,,,
-strength ,Abdominals 13,5,,Abdominals,None,5,,,,,,,,,,
-strength ,Abdominals 14,5,,Abdominals,None,6,,,,,,,,,,
-strength ,Abdominals 15,5,,Abdominals,None,7,,,,,,,,,,
-strength ,Abdominals 16,5,,Abdominals,None,8,,,,,,,,,,
-strength ,Abdominals 17,8,,Abdominals,None,1,,,,,,,,,,
-strength ,Abdominals 18,8,,Abdominals,None,2,,,,,,,,,,
-strength ,Abdominals 19,8,,Abdominals,None,3,,,,,,,,,,
-strength ,Abdominals 20,8,,Abdominals,None,4,,,,,,,,,,
-strength ,Abdominals 21,8,,Abdominals,None,5,,,,,,,,,,
-strength ,Abdominals 22,8,,Abdominals,None,6,,,,,,,,,,
-strength ,Abdominals 23,8,,Abdominals,None,7,,,,,,,,,,
-strength ,Abdominals 24,8,,Abdominals,None,8,,,,,,,,,,
-strength ,Abdominals 25,10,,Abdominals,None,1,,,,,,,,,,
-strength ,Abdominals 26,10,,Abdominals,None,2,,,,,,,,,,
-strength ,Abdominals 27,10,,Abdominals,None,3,,,,,,,,,,
-strength ,Abdominals 28,10,,Abdominals,None,4,,,,,,,,,,
-strength ,Abdominals 29,10,,Abdominals,None,5,,,,,,,,,,
-strength ,Abdominals 30,10,,Abdominals,None,6,,,,,,,,,,
-strength ,Abdominals 31,10,,Abdominals,None,7,,,,,,,,,,
-strength ,Abdominals 32,10,,Abdominals,None,8,,,,,,,,,,
-strength ,Abdominals 33,15,,Abdominals,None,1,,,,,,,,,,
-strength ,Abdominals 34,15,,Abdominals,None,2,,,,,,,,,,
-strength ,Abdominals 35,15,,Abdominals,None,3,,,,,,,,,,
-strength ,Abdominals 36,15,,Abdominals,None,4,,,,,,,,,,
-strength ,Abdominals 37,15,,Abdominals,None,5,,,,,,,,,,
-strength ,Abdominals 38,15,,Abdominals,None,6,,,,,,,,,,
-strength ,Abdominals 39,15,,Abdominals,None,7,,,,,,,,,,
-strength ,Abdominals 40,15,,Abdominals,None,8,,,,,,,,,,
-strength ,Abdominals 41,20,,Abdominals,None,1,,,,,,,,,,
-strength ,Abdominals 42,20,,Abdominals,None,2,,,,,,,,,,
-strength ,Abdominals 43,20,,Abdominals,None,3,,,,,,,,,,
-strength ,Abdominals 44,20,,Abdominals,None,4,,,,,,,,,,
-strength ,Abdominals 45,20,,Abdominals,None,5,,,,,,,,,,
-strength ,Abdominals 46,20,,Abdominals,None,6,,,,,,,,,,
-strength ,Abdominals 47,20,,Abdominals,None,7,,,,,,,,,,
-strength ,Abdominals 48,20,,Abdominals,None,8,,,,,,,,,,
-strength ,Abdominals 49,25,,Abdominals,None,1,,,,,,,,,,
-strength ,Abdominals 50,25,,Abdominals,None,2,,,,,,,,,,
-strength ,Abdominals 51,25,,Abdominals,None,3,,,,,,,,,,
-strength ,Abdominals 52,25,,Abdominals,None,4,,,,,,,,,,
-strength ,Abdominals 53,25,,Abdominals,None,5,,,,,,,,,,
-strength ,Abdominals 54,25,,Abdominals,None,6,,,,,,,,,,
-strength ,Abdominals 55,25,,Abdominals,None,7,,,,,,,,,,
-strength ,Abdominals 56,25,,Abdominals,None,8,,,,,,,,,,
-cardio,Jump Rope,30,1,Quadriceps,Other,1,,,,,,,,,,
-cardio,Jump Rope,25,1,Quadriceps,Other,1,,,,,,,,,,
-cardio,Jump Rope,20,1,Quadriceps,Other,1,,,,,,,,,,
-cardio,Jump Rope,15,1,Quadriceps,Other,1,,,,,,,,,,
-cardio,Jump Rope,10,1,Quadriceps,Other,1,,,,,,,,,,
-cardio,Jump Rope,5,1,Quadriceps,Other,1,,,,,,,,,,
-cardio,Jump Rope,1,1,Quadriceps,Other,1,,,,,,,,,,
-cardio,Burpee,30,1,Quadriceps,None,1,,,,,,,,,,
-cardio,Burpee,25,1,Quadriceps,None,1,,,,,,,,,,
-cardio,Burpee,20,1,Quadriceps,None,1,,,,,,,,,,
-cardio,Burpee,15,1,Quadriceps,None,1,,,,,,,,,,
-cardio,Burpee,10,1,Quadriceps,None,1,,,,,,,,,,
-cardio,Burpee,5,1,Quadriceps,None,1,,,,,,,,,,
-cardio,Burpee,1,1,Quadriceps,None,1,,,,,,,,,,
-cardio,Bicycle,30,1,Quadriceps,Machine,1,,,,,,,,,,
-cardio,Bicycle,25,1,Quadriceps,Machine,1,,,,,,,,,,
-cardio,Bicycle,20,1,Quadriceps,Machine,1,,,,,,,,,,
-cardio,Bicycle,15,1,Quadriceps,Machine,1,,,,,,,,,,
-cardio,Bicycle,10,1,Quadriceps,Machine,1,,,,,,,,,,
-cardio,Bicycle,5,1,Quadriceps,Machine,1,,,,,,,,,,
-cardio,Bicycle,1,1,Quadriceps,Machine,1,,,,,,,,,,
-cardio,Rowing,30,1,Quadriceps,Machine,1,,,,,,,,,,
-cardio,Rowing,25,1,Quadriceps,Machine,1,,,,,,,,,,
-cardio,Rowing,20,1,Quadriceps,Machine,1,,,,,,,,,,
-cardio,Rowing,15,1,Quadriceps,Machine,1,,,,,,,,,,
-cardio,Rowing,10,1,Quadriceps,Machine,1,,,,,,,,,,
-cardio,Rowing,5,1,Quadriceps,Machine,1,,,,,,,,,,
-cardio,Rowing,1,1,Quadriceps,Machine,1,,,,,,,,,,
-cardio,Elliptical,30,1,Quadriceps,Machine,1,,,,,,,,,,
-cardio,Elliptical,25,1,Quadriceps,Machine,1,,,,,,,,,,
-cardio,Elliptical,20,1,Quadriceps,Machine,1,,,,,,,,,,
-cardio,Elliptical,15,1,Quadriceps,Machine,1,,,,,,,,,,
-cardio,Elliptical,10,1,Quadriceps,Machine,1,,,,,,,,,,
-cardio,Elliptical,5,1,Quadriceps,Machine,1,,,,,,,,,,
-cardio,Elliptical,1,1,Quadriceps,Machine,1,,,,,,,,,,
-cardio,StairMaster,30,1,Quadriceps,Machine,1,,,,,,,,,,
-cardio,StairMaster,25,1,Quadriceps,Machine,1,,,,,,,,,,
-cardio,StairMaster,20,1,Quadriceps,Machine,1,,,,,,,,,,
-cardio,StairMaster,15,1,Quadriceps,Machine,1,,,,,,,,,,
-cardio,StairMaster,10,1,Quadriceps,Machine,1,,,,,,,,,,
-cardio,StairMaster,5,1,Quadriceps,Machine,1,,,,,,,,,,
-cardio,StairMaster,1,1,Quadriceps,Machine,1,,,,,,,,,,
-cardio,Outdoor Run,30,1,Quadriceps,None,1,,,,,,,,,,
-cardio,Outdoor Run,25,1,Quadriceps,None,1,,,,,,,,,,
-cardio,Outdoor Run,20,1,Quadriceps,None,1,,,,,,,,,,
-cardio,Outdoor Run,15,1,Quadriceps,None,1,,,,,,,,,,
-cardio,Outdoor Run,10,1,Quadriceps,None,1,,,,,,,,,,
-cardio,Outdoor Run,5,1,Quadriceps,None,1,,,,,,,,,,
-cardio,Outdoor Run,1,1,Quadriceps,None,1,,,,,,,,,,
-cardio,Skating,30,1,Quadriceps,Other,1,,,,,,,,,,
-cardio,Skating,25,1,Quadriceps,Other,1,,,,,,,,,,
-cardio,Skating,20,1,Quadriceps,Other,1,,,,,,,,,,
-cardio,Skating,15,1,Quadriceps,Other,1,,,,,,,,,,
-cardio,Skating,10,1,Quadriceps,Other,1,,,,,,,,,,
-cardio,Skating,5,1,Quadriceps,Other,1,,,,,,,,,,
-cardio,Skating,1,1,Quadriceps,Other,1,,,,,,,,,,
-cardio,Treadmill Jog (5 mph),30,1,Quadriceps,Machine,1,,,,,,,,,,
-cardio,Treadmill Jog (5 mph),25,1,Quadriceps,Machine,1,,,,,,,,,,
-cardio,Treadmill Jog (5 mph),20,1,Quadriceps,Machine,1,,,,,,,,,,
-cardio,Treadmill Jog (5 mph),15,1,Quadriceps,Machine,1,,,,,,,,,,
-cardio,Treadmill Jog (5 mph),10,1,Quadriceps,Machine,1,,,,,,,,,,
-cardio,Treadmill Jog (5 mph),5,1,Quadriceps,Machine,1,,,,,,,,,,
-cardio,Treadmill Jog (5 mph),1,1,Quadriceps,Machine,1,,,,,,,,,,
-cardio,Treadmill Run (6 mph),30,1,Quadriceps,Machine,1,,,,,,,,,,
-cardio,Treadmill Run (6 mph),25,1,Quadriceps,Machine,1,,,,,,,,,,
-cardio,Treadmill Run (6 mph),20,1,Quadriceps,Machine,1,,,,,,,,,,
-cardio,Treadmill Run (6 mph),15,1,Quadriceps,Machine,1,,,,,,,,,,
-cardio,Treadmill Run (6 mph),10,1,Quadriceps,Machine,1,,,,,,,,,,
-cardio,Treadmill Run (6 mph),5,1,Quadriceps,Machine,1,,,,,,,,,,
-cardio,Treadmill Run (6 mph),1,1,Quadriceps,Machine,1,,,,,,,,,,
-cardio,Recumbent,30,1,Quadriceps,Machine,1,,,,,,,,,,
-cardio,Recumbent,25,1,Quadriceps,Machine,1,,,,,,,,,,
-cardio,Recumbent,20,1,Quadriceps,Machine,1,,,,,,,,,,
-cardio,Recumbent,15,1,Quadriceps,Machine,1,,,,,,,,,,
-cardio,Recumbent,10,1,Quadriceps,Machine,1,,,,,,,,,,
-cardio,Recumbent,5,1,Quadriceps,Machine,1,,,,,,,,,,
-cardio,Recumbent,1,1,Quadriceps,Machine,1,,,,,,,,,,
-cardio,Butt Kicks,30,1,Quadriceps,None,1,,,,,,,,,,
-cardio,Butt Kicks,25,1,Quadriceps,None,1,,,,,,,,,,
-cardio,Butt Kicks,20,1,Quadriceps,None,1,,,,,,,,,,
-cardio,Butt Kicks,15,1,Quadriceps,None,1,,,,,,,,,,
-cardio,Butt Kicks,10,1,Quadriceps,None,1,,,,,,,,,,
-cardio,Butt Kicks,5,1,Quadriceps,None,1,,,,,,,,,,
-cardio,Butt Kicks,1,1,Quadriceps,None,1,,,,,,,,,,
-cardio,Single-Leg Press,30,1,Quadriceps,Machine,1,,,,,,,,,,
-cardio,Single-Leg Press,25,1,Quadriceps,Machine,1,,,,,,,,,,
-cardio,Single-Leg Press,20,1,Quadriceps,Machine,1,,,,,,,,,,
-cardio,Single-Leg Press,15,1,Quadriceps,Machine,1,,,,,,,,,,
-cardio,Single-Leg Press,10,1,Quadriceps,Machine,1,,,,,,,,,,
-cardio,Single-Leg Press,5,1,Quadriceps,Machine,1,,,,,,,,,,
-cardio,Single-Leg Press,1,1,Quadriceps,Machine,1,,,,,,,,,,
+Exercise Type,Exercise Name,Time (mins),Reps ,Muscles,Equipment,Strength level
+strength ,Quad 1,3,,Quadriceps,Machine,1
+strength ,Quad 2,3,,Quadriceps,Machine,2
+strength ,Quad 3,3,,Quadriceps,Machine,3
+strength ,Quad 4,3,,Quadriceps,Machine,4
+strength ,Quad 5,3,,Quadriceps,Machine,5
+strength ,Quad 6,3,,Quadriceps,Machine,6
+strength ,Quad 7,3,,Quadriceps,Machine,7
+strength ,Quad 8,3,,Quadriceps,Machine,8
+strength ,Quad 9,5,,Quadriceps,Machine,1
+strength ,Quad 10,5,,Quadriceps,Machine,2
+strength ,Quad 11,5,,Quadriceps,Machine,3
+strength ,Quad 12,5,,Quadriceps,Machine,4
+strength ,Quad 13,5,,Quadriceps,Machine,5
+strength ,Quad 14,5,,Quadriceps,Machine,6
+strength ,Quad 15,5,,Quadriceps,Machine,7
+strength ,Quad 16,5,,Quadriceps,Machine,8
+strength ,Quad 17,8,,Quadriceps,Machine,1
+strength ,Quad 18,8,,Quadriceps,Machine,2
+strength ,Quad 19,8,,Quadriceps,Machine,3
+strength ,Quad 20,8,,Quadriceps,Machine,4
+strength ,Quad 21,8,,Quadriceps,Machine,5
+strength ,Quad 22,8,,Quadriceps,Machine,6
+strength ,Quad 23,8,,Quadriceps,Machine,7
+strength ,Quad 24,8,,Quadriceps,Machine,8
+strength ,Quad 25,10,,Quadriceps,Machine,1
+strength ,Quad 26,10,,Quadriceps,Machine,2
+strength ,Quad 27,10,,Quadriceps,Machine,3
+strength ,Quad 28,10,,Quadriceps,Machine,4
+strength ,Quad 29,10,,Quadriceps,Machine,5
+strength ,Quad 30,10,,Quadriceps,Machine,6
+strength ,Quad 31,10,,Quadriceps,Machine,7
+strength ,Quad 32,10,,Quadriceps,Machine,8
+strength ,Quad 33,15,,Quadriceps,Machine,1
+strength ,Quad 34,15,,Quadriceps,Machine,2
+strength ,Quad 35,15,,Quadriceps,Machine,3
+strength ,Quad 36,15,,Quadriceps,Machine,4
+strength ,Quad 37,15,,Quadriceps,Machine,5
+strength ,Quad 38,15,,Quadriceps,Machine,6
+strength ,Quad 39,15,,Quadriceps,Machine,7
+strength ,Quad 40,15,,Quadriceps,Machine,8
+strength ,Quad 41,20,,Quadriceps,Machine,1
+strength ,Quad 42,20,,Quadriceps,Machine,2
+strength ,Quad 43,20,,Quadriceps,Machine,3
+strength ,Quad 44,20,,Quadriceps,Machine,4
+strength ,Quad 45,20,,Quadriceps,Machine,5
+strength ,Quad 46,20,,Quadriceps,Machine,6
+strength ,Quad 47,20,,Quadriceps,Machine,7
+strength ,Quad 48,20,,Quadriceps,Machine,8
+strength ,Quad 49,25,,Quadriceps,Machine,1
+strength ,Quad 50,25,,Quadriceps,Machine,2
+strength ,Quad 51,25,,Quadriceps,Machine,3
+strength ,Quad 52,25,,Quadriceps,Machine,4
+strength ,Quad 53,25,,Quadriceps,Machine,5
+strength ,Quad 54,25,,Quadriceps,Machine,6
+strength ,Quad 55,25,,Quadriceps,Machine,7
+strength ,Quad 56,25,,Quadriceps,Machine,8
+strength ,Biceps 1,3,,Biceps,Dumbbell,1
+strength ,Biceps 2,3,,Biceps,Dumbbell,2
+strength ,Biceps 3,3,,Biceps,Dumbbell,3
+strength ,Biceps 4,3,,Biceps,Dumbbell,4
+strength ,Biceps 5,3,,Biceps,Dumbbell,5
+strength ,Biceps 6,3,,Biceps,Dumbbell,6
+strength ,Biceps 7,3,,Biceps,Dumbbell,7
+strength ,Biceps 8,3,,Biceps,Dumbbell,8
+strength ,Biceps 9,5,,Biceps,Dumbbell,1
+strength ,Biceps 10,5,,Biceps,Dumbbell,2
+strength ,Biceps 11,5,,Biceps,Dumbbell,3
+strength ,Biceps 12,5,,Biceps,Dumbbell,4
+strength ,Biceps 13,5,,Biceps,Dumbbell,5
+strength ,Biceps 14,5,,Biceps,Dumbbell,6
+strength ,Biceps 15,5,,Biceps,Dumbbell,7
+strength ,Biceps 16,5,,Biceps,Dumbbell,8
+strength ,Biceps 17,8,,Biceps,Dumbbell,1
+strength ,Biceps 18,8,,Biceps,Dumbbell,2
+strength ,Biceps 19,8,,Biceps,Dumbbell,3
+strength ,Biceps 20,8,,Biceps,Dumbbell,4
+strength ,Biceps 21,8,,Biceps,Dumbbell,5
+strength ,Biceps 22,8,,Biceps,Dumbbell,6
+strength ,Biceps 23,8,,Biceps,Dumbbell,7
+strength ,Biceps 24,8,,Biceps,Dumbbell,8
+strength ,Biceps 25,10,,Biceps,Dumbbell,1
+strength ,Biceps 26,10,,Biceps,Dumbbell,2
+strength ,Biceps 27,10,,Biceps,Dumbbell,3
+strength ,Biceps 28,10,,Biceps,Dumbbell,4
+strength ,Biceps 29,10,,Biceps,Dumbbell,5
+strength ,Biceps 30,10,,Biceps,Dumbbell,6
+strength ,Biceps 31,10,,Biceps,Dumbbell,7
+strength ,Biceps 32,10,,Biceps,Dumbbell,8
+strength ,Biceps 33,15,,Biceps,Dumbbell,1
+strength ,Biceps 34,15,,Biceps,Dumbbell,2
+strength ,Biceps 35,15,,Biceps,Dumbbell,3
+strength ,Biceps 36,15,,Biceps,Dumbbell,4
+strength ,Biceps 37,15,,Biceps,Dumbbell,5
+strength ,Biceps 38,15,,Biceps,Dumbbell,6
+strength ,Biceps 39,15,,Biceps,Dumbbell,7
+strength ,Biceps 40,15,,Biceps,Dumbbell,8
+strength ,Biceps 41,20,,Biceps,Dumbbell,1
+strength ,Biceps 42,20,,Biceps,Dumbbell,2
+strength ,Biceps 43,20,,Biceps,Dumbbell,3
+strength ,Biceps 44,20,,Biceps,Dumbbell,4
+strength ,Biceps 45,20,,Biceps,Dumbbell,5
+strength ,Biceps 46,20,,Biceps,Dumbbell,6
+strength ,Biceps 47,20,,Biceps,Dumbbell,7
+strength ,Biceps 48,20,,Biceps,Dumbbell,8
+strength ,Biceps 49,25,,Biceps,Dumbbell,1
+strength ,Biceps 50,25,,Biceps,Dumbbell,2
+strength ,Biceps 51,25,,Biceps,Dumbbell,3
+strength ,Biceps 52,25,,Biceps,Dumbbell,4
+strength ,Biceps 53,25,,Biceps,Dumbbell,5
+strength ,Biceps 54,25,,Biceps,Dumbbell,6
+strength ,Biceps 55,25,,Biceps,Dumbbell,7
+strength ,Biceps 56,25,,Biceps,Dumbbell,8
+strength ,Lats 1,3,,Lats,Other,1
+strength ,Lats 2,3,,Lats,Other,2
+strength ,Lats 3,3,,Lats,Other,3
+strength ,Lats 4,3,,Lats,Other,4
+strength ,Lats 5,3,,Lats,Other,5
+strength ,Lats 6,3,,Lats,Other,6
+strength ,Lats 7,3,,Lats,Other,7
+strength ,Lats 8,3,,Lats,Other,8
+strength ,Lats 9,5,,Lats,Other,1
+strength ,Lats 10,5,,Lats,Other,2
+strength ,Lats 11,5,,Lats,Other,3
+strength ,Lats 12,5,,Lats,Other,4
+strength ,Lats 13,5,,Lats,Other,5
+strength ,Lats 14,5,,Lats,Other,6
+strength ,Lats 15,5,,Lats,Other,7
+strength ,Lats 16,5,,Lats,Other,8
+strength ,Lats 17,8,,Lats,Other,1
+strength ,Lats 18,8,,Lats,Other,2
+strength ,Lats 19,8,,Lats,Other,3
+strength ,Lats 20,8,,Lats,Other,4
+strength ,Lats 21,8,,Lats,Other,5
+strength ,Lats 22,8,,Lats,Other,6
+strength ,Lats 23,8,,Lats,Other,7
+strength ,Lats 24,8,,Lats,Other,8
+strength ,Lats 25,10,,Lats,Other,1
+strength ,Lats 26,10,,Lats,Other,2
+strength ,Lats 27,10,,Lats,Other,3
+strength ,Lats 28,10,,Lats,Other,4
+strength ,Lats 29,10,,Lats,Other,5
+strength ,Lats 30,10,,Lats,Other,6
+strength ,Lats 31,10,,Lats,Other,7
+strength ,Lats 32,10,,Lats,Other,8
+strength ,Lats 33,15,,Lats,Other,1
+strength ,Lats 34,15,,Lats,Other,2
+strength ,Lats 35,15,,Lats,Other,3
+strength ,Lats 36,15,,Lats,Other,4
+strength ,Lats 37,15,,Lats,Other,5
+strength ,Lats 38,15,,Lats,Other,6
+strength ,Lats 39,15,,Lats,Other,7
+strength ,Lats 40,15,,Lats,Other,8
+strength ,Lats 41,20,,Lats,Other,1
+strength ,Lats 42,20,,Lats,Other,2
+strength ,Lats 43,20,,Lats,Other,3
+strength ,Lats 44,20,,Lats,Other,4
+strength ,Lats 45,20,,Lats,Other,5
+strength ,Lats 46,20,,Lats,Other,6
+strength ,Lats 47,20,,Lats,Other,7
+strength ,Lats 48,20,,Lats,Other,8
+strength ,Lats 49,25,,Lats,Other,1
+strength ,Lats 50,25,,Lats,Other,2
+strength ,Lats 51,25,,Lats,Other,3
+strength ,Lats 52,25,,Lats,Other,4
+strength ,Lats 53,25,,Lats,Other,5
+strength ,Lats 54,25,,Lats,Other,6
+strength ,Lats 55,25,,Lats,Other,7
+strength ,Lats 56,25,,Lats,Other,8
+strength ,Triceps 1,3,,Triceps,None,1
+strength ,Triceps 2,3,,Triceps,None,2
+strength ,Triceps 3,3,,Triceps,None,3
+strength ,Triceps 4,3,,Triceps,None,4
+strength ,Triceps 5,3,,Triceps,None,5
+strength ,Triceps 6,3,,Triceps,None,6
+strength ,Triceps 7,3,,Triceps,None,7
+strength ,Triceps 8,3,,Triceps,None,8
+strength ,Triceps 9,5,,Triceps,None,1
+strength ,Triceps 10,5,,Triceps,None,2
+strength ,Triceps 11,5,,Triceps,None,3
+strength ,Triceps 12,5,,Triceps,None,4
+strength ,Triceps 13,5,,Triceps,None,5
+strength ,Triceps 14,5,,Triceps,None,6
+strength ,Triceps 15,5,,Triceps,None,7
+strength ,Triceps 16,5,,Triceps,None,8
+strength ,Triceps 17,8,,Triceps,None,1
+strength ,Triceps 18,8,,Triceps,None,2
+strength ,Triceps 19,8,,Triceps,None,3
+strength ,Triceps 20,8,,Triceps,None,4
+strength ,Triceps 21,8,,Triceps,None,5
+strength ,Triceps 22,8,,Triceps,None,6
+strength ,Triceps 23,8,,Triceps,None,7
+strength ,Triceps 24,8,,Triceps,None,8
+strength ,Triceps 25,10,,Triceps,None,1
+strength ,Triceps 26,10,,Triceps,None,2
+strength ,Triceps 27,10,,Triceps,None,3
+strength ,Triceps 28,10,,Triceps,None,4
+strength ,Triceps 29,10,,Triceps,None,5
+strength ,Triceps 30,10,,Triceps,None,6
+strength ,Triceps 31,10,,Triceps,None,7
+strength ,Triceps 32,10,,Triceps,None,8
+strength ,Triceps 33,15,,Triceps,None,1
+strength ,Triceps 34,15,,Triceps,None,2
+strength ,Triceps 35,15,,Triceps,None,3
+strength ,Triceps 36,15,,Triceps,None,4
+strength ,Triceps 37,15,,Triceps,None,5
+strength ,Triceps 38,15,,Triceps,None,6
+strength ,Triceps 39,15,,Triceps,None,7
+strength ,Triceps 40,15,,Triceps,None,8
+strength ,Triceps 41,20,,Triceps,None,1
+strength ,Triceps 42,20,,Triceps,None,2
+strength ,Triceps 43,20,,Triceps,None,3
+strength ,Triceps 44,20,,Triceps,None,4
+strength ,Triceps 45,20,,Triceps,None,5
+strength ,Triceps 46,20,,Triceps,None,6
+strength ,Triceps 47,20,,Triceps,None,7
+strength ,Triceps 48,20,,Triceps,None,8
+strength ,Triceps 49,25,,Triceps,None,1
+strength ,Triceps 50,25,,Triceps,None,2
+strength ,Triceps 51,25,,Triceps,None,3
+strength ,Triceps 52,25,,Triceps,None,4
+strength ,Triceps 53,25,,Triceps,None,5
+strength ,Triceps 54,25,,Triceps,None,6
+strength ,Triceps 55,25,,Triceps,None,7
+strength ,Triceps 56,25,,Triceps,None,8
+strength ,Forearms 1,3,,Forearms,Barbell,1
+strength ,Forearms 2,3,,Forearms,Barbell,2
+strength ,Forearms 3,3,,Forearms,Barbell,3
+strength ,Forearms 4,3,,Forearms,Barbell,4
+strength ,Forearms 5,3,,Forearms,Barbell,5
+strength ,Forearms 6,3,,Forearms,Barbell,6
+strength ,Forearms 7,3,,Forearms,Barbell,7
+strength ,Forearms 8,3,,Forearms,Barbell,8
+strength ,Forearms 9,5,,Forearms,Barbell,1
+strength ,Forearms 10,5,,Forearms,Barbell,2
+strength ,Forearms 11,5,,Forearms,Barbell,3
+strength ,Forearms 12,5,,Forearms,Barbell,4
+strength ,Forearms 13,5,,Forearms,Barbell,5
+strength ,Forearms 14,5,,Forearms,Barbell,6
+strength ,Forearms 15,5,,Forearms,Barbell,7
+strength ,Forearms 16,5,,Forearms,Barbell,8
+strength ,Forearms 17,8,,Forearms,Barbell,1
+strength ,Forearms 18,8,,Forearms,Barbell,2
+strength ,Forearms 19,8,,Forearms,Barbell,3
+strength ,Forearms 20,8,,Forearms,Barbell,4
+strength ,Forearms 21,8,,Forearms,Barbell,5
+strength ,Forearms 22,8,,Forearms,Barbell,6
+strength ,Forearms 23,8,,Forearms,Barbell,7
+strength ,Forearms 24,8,,Forearms,Barbell,8
+strength ,Forearms 25,10,,Forearms,Barbell,1
+strength ,Forearms 26,10,,Forearms,Barbell,2
+strength ,Forearms 27,10,,Forearms,Barbell,3
+strength ,Forearms 28,10,,Forearms,Barbell,4
+strength ,Forearms 29,10,,Forearms,Barbell,5
+strength ,Forearms 30,10,,Forearms,Barbell,6
+strength ,Forearms 31,10,,Forearms,Barbell,7
+strength ,Forearms 32,10,,Forearms,Barbell,8
+strength ,Forearms 33,15,,Forearms,Barbell,1
+strength ,Forearms 34,15,,Forearms,Barbell,2
+strength ,Forearms 35,15,,Forearms,Barbell,3
+strength ,Forearms 36,15,,Forearms,Barbell,4
+strength ,Forearms 37,15,,Forearms,Barbell,5
+strength ,Forearms 38,15,,Forearms,Barbell,6
+strength ,Forearms 39,15,,Forearms,Barbell,7
+strength ,Forearms 40,15,,Forearms,Barbell,8
+strength ,Forearms 41,20,,Forearms,Barbell,1
+strength ,Forearms 42,20,,Forearms,Barbell,2
+strength ,Forearms 43,20,,Forearms,Barbell,3
+strength ,Forearms 44,20,,Forearms,Barbell,4
+strength ,Forearms 45,20,,Forearms,Barbell,5
+strength ,Forearms 46,20,,Forearms,Barbell,6
+strength ,Forearms 47,20,,Forearms,Barbell,7
+strength ,Forearms 48,20,,Forearms,Barbell,8
+strength ,Forearms 49,25,,Forearms,Barbell,1
+strength ,Forearms 50,25,,Forearms,Barbell,2
+strength ,Forearms 51,25,,Forearms,Barbell,3
+strength ,Forearms 52,25,,Forearms,Barbell,4
+strength ,Forearms 53,25,,Forearms,Barbell,5
+strength ,Forearms 54,25,,Forearms,Barbell,6
+strength ,Forearms 55,25,,Forearms,Barbell,7
+strength ,Forearms 56,25,,Forearms,Barbell,8
+strength ,Hamstrings 1,3,,Hamstrings,Dumbbell,1
+strength ,Hamstrings 2,3,,Hamstrings,Dumbbell,2
+strength ,Hamstrings 3,3,,Hamstrings,Dumbbell,3
+strength ,Hamstrings 4,3,,Hamstrings,Dumbbell,4
+strength ,Hamstrings 5,3,,Hamstrings,Dumbbell,5
+strength ,Hamstrings 6,3,,Hamstrings,Dumbbell,6
+strength ,Hamstrings 7,3,,Hamstrings,Dumbbell,7
+strength ,Hamstrings 8,3,,Hamstrings,Dumbbell,8
+strength ,Hamstrings 9,5,,Hamstrings,Dumbbell,1
+strength ,Hamstrings 10,5,,Hamstrings,Dumbbell,2
+strength ,Hamstrings 11,5,,Hamstrings,Dumbbell,3
+strength ,Hamstrings 12,5,,Hamstrings,Dumbbell,4
+strength ,Hamstrings 13,5,,Hamstrings,Dumbbell,5
+strength ,Hamstrings 14,5,,Hamstrings,Dumbbell,6
+strength ,Hamstrings 15,5,,Hamstrings,Dumbbell,7
+strength ,Hamstrings 16,5,,Hamstrings,Dumbbell,8
+strength ,Hamstrings 17,8,,Hamstrings,Dumbbell,1
+strength ,Hamstrings 18,8,,Hamstrings,Dumbbell,2
+strength ,Hamstrings 19,8,,Hamstrings,Dumbbell,3
+strength ,Hamstrings 20,8,,Hamstrings,Dumbbell,4
+strength ,Hamstrings 21,8,,Hamstrings,Dumbbell,5
+strength ,Hamstrings 22,8,,Hamstrings,Dumbbell,6
+strength ,Hamstrings 23,8,,Hamstrings,Dumbbell,7
+strength ,Hamstrings 24,8,,Hamstrings,Dumbbell,8
+strength ,Hamstrings 25,10,,Hamstrings,Dumbbell,1
+strength ,Hamstrings 26,10,,Hamstrings,Dumbbell,2
+strength ,Hamstrings 27,10,,Hamstrings,Dumbbell,3
+strength ,Hamstrings 28,10,,Hamstrings,Dumbbell,4
+strength ,Hamstrings 29,10,,Hamstrings,Dumbbell,5
+strength ,Hamstrings 30,10,,Hamstrings,Dumbbell,6
+strength ,Hamstrings 31,10,,Hamstrings,Dumbbell,7
+strength ,Hamstrings 32,10,,Hamstrings,Dumbbell,8
+strength ,Hamstrings 33,15,,Hamstrings,Dumbbell,1
+strength ,Hamstrings 34,15,,Hamstrings,Dumbbell,2
+strength ,Hamstrings 35,15,,Hamstrings,Dumbbell,3
+strength ,Hamstrings 36,15,,Hamstrings,Dumbbell,4
+strength ,Hamstrings 37,15,,Hamstrings,Dumbbell,5
+strength ,Hamstrings 38,15,,Hamstrings,Dumbbell,6
+strength ,Hamstrings 39,15,,Hamstrings,Dumbbell,7
+strength ,Hamstrings 40,15,,Hamstrings,Dumbbell,8
+strength ,Hamstrings 41,20,,Hamstrings,Dumbbell,1
+strength ,Hamstrings 42,20,,Hamstrings,Dumbbell,2
+strength ,Hamstrings 43,20,,Hamstrings,Dumbbell,3
+strength ,Hamstrings 44,20,,Hamstrings,Dumbbell,4
+strength ,Hamstrings 45,20,,Hamstrings,Dumbbell,5
+strength ,Hamstrings 46,20,,Hamstrings,Dumbbell,6
+strength ,Hamstrings 47,20,,Hamstrings,Dumbbell,7
+strength ,Hamstrings 48,20,,Hamstrings,Dumbbell,8
+strength ,Hamstrings 49,25,,Hamstrings,Dumbbell,1
+strength ,Hamstrings 50,25,,Hamstrings,Dumbbell,2
+strength ,Hamstrings 51,25,,Hamstrings,Dumbbell,3
+strength ,Hamstrings 52,25,,Hamstrings,Dumbbell,4
+strength ,Hamstrings 53,25,,Hamstrings,Dumbbell,5
+strength ,Hamstrings 54,25,,Hamstrings,Dumbbell,6
+strength ,Hamstrings 55,25,,Hamstrings,Dumbbell,7
+strength ,Hamstrings 56,25,,Hamstrings,Dumbbell,8
+strength ,Shoulders 1,3,,Trapezius,Barbell,1
+strength ,Shoulders 2,3,,Deltoid,Barbell,2
+strength ,Shoulders 3,3,,Trapezius,Barbell,3
+strength ,Shoulders 4,3,,Deltoid,Barbell,4
+strength ,Shoulders 5,3,,Trapezius,Barbell,5
+strength ,Shoulders 6,3,,Deltoid,Barbell,6
+strength ,Shoulders 7,3,,Trapezius,Barbell,7
+strength ,Shoulders 8,3,,Deltoid,Barbell,8
+strength ,Shoulders 9,5,,Trapezius,Barbell,1
+strength ,Shoulders 10,5,,Deltoid,Barbell,2
+strength ,Shoulders 11,5,,Trapezius,Barbell,3
+strength ,Shoulders 12,5,,Deltoid,Barbell,4
+strength ,Shoulders 13,5,,Trapezius,Barbell,5
+strength ,Shoulders 14,5,,Deltoid,Barbell,6
+strength ,Shoulders 15,5,,Trapezius,Barbell,7
+strength ,Shoulders 16,5,,Deltoid,Barbell,8
+strength ,Shoulders 17,8,,Trapezius,Barbell,1
+strength ,Shoulders 18,8,,Deltoid,Barbell,2
+strength ,Shoulders 19,8,,Trapezius,Barbell,3
+strength ,Shoulders 20,8,,Deltoid,Barbell,4
+strength ,Shoulders 21,8,,Trapezius,Barbell,5
+strength ,Shoulders 22,8,,Deltoid,Barbell,6
+strength ,Shoulders 23,8,,Trapezius,Barbell,7
+strength ,Shoulders 24,8,,Deltoid,Barbell,8
+strength ,Shoulders 25,10,,Trapezius,Barbell,1
+strength ,Shoulders 26,10,,Deltoid,Barbell,2
+strength ,Shoulders 27,10,,Trapezius,Barbell,3
+strength ,Shoulders 28,10,,Deltoid,Barbell,4
+strength ,Shoulders 29,10,,Trapezius,Barbell,5
+strength ,Shoulders 30,10,,Deltoid,Barbell,6
+strength ,Shoulders 31,10,,Trapezius,Barbell,7
+strength ,Shoulders 32,10,,Deltoid,Barbell,8
+strength ,Shoulders 33,15,,Trapezius,Barbell,1
+strength ,Shoulders 34,15,,Deltoid,Barbell,2
+strength ,Shoulders 35,15,,Trapezius,Barbell,3
+strength ,Shoulders 36,15,,Deltoid,Barbell,4
+strength ,Shoulders 37,15,,Trapezius,Barbell,5
+strength ,Shoulders 38,15,,Deltoid,Barbell,6
+strength ,Shoulders 39,15,,Trapezius,Barbell,7
+strength ,Shoulders 40,15,,Deltoid,Barbell,8
+strength ,Shoulders 41,20,,Trapezius,Barbell,1
+strength ,Shoulders 42,20,,Deltoid,Barbell,2
+strength ,Shoulders 43,20,,Trapezius,Barbell,3
+strength ,Shoulders 44,20,,Deltoid,Barbell,4
+strength ,Shoulders 45,20,,Trapezius,Barbell,5
+strength ,Shoulders 46,20,,Deltoid,Barbell,6
+strength ,Shoulders 47,20,,Trapezius,Barbell,7
+strength ,Shoulders 48,20,,Deltoid,Barbell,8
+strength ,Shoulders 49,25,,Trapezius,Barbell,1
+strength ,Shoulders 50,25,,Deltoid,Barbell,2
+strength ,Shoulders 51,25,,Trapezius,Barbell,3
+strength ,Shoulders 52,25,,Deltoid,Barbell,4
+strength ,Shoulders 53,25,,Trapezius,Barbell,5
+strength ,Shoulders 54,25,,Deltoid,Barbell,6
+strength ,Shoulders 55,25,,Trapezius,Barbell,7
+strength ,Shoulders 56,25,,Deltoid,Barbell,8
+strength ,Abdominals 1,3,,Upper abdominals,None,1
+strength ,Abdominals 2,3,,Lower abdominals,None,2
+strength ,Abdominals 3,3,,Upper abdominals,None,3
+strength ,Abdominals 4,3,,Lower abdominals,None,4
+strength ,Abdominals 5,3,,Upper abdominals,None,5
+strength ,Abdominals 6,3,,Lower abdominals,None,6
+strength ,Abdominals 7,3,,Upper abdominals,None,7
+strength ,Abdominals 8,3,,Lower abdominals,None,8
+strength ,Abdominals 9,5,,Upper abdominals,None,1
+strength ,Abdominals 10,5,,Lower abdominals,None,2
+strength ,Abdominals 11,5,,Upper abdominals,None,3
+strength ,Abdominals 12,5,,Lower abdominals,None,4
+strength ,Abdominals 13,5,,Upper abdominals,None,5
+strength ,Abdominals 14,5,,Lower abdominals,None,6
+strength ,Abdominals 15,5,,Upper abdominals,None,7
+strength ,Abdominals 16,5,,Lower abdominals,None,8
+strength ,Abdominals 17,8,,Upper abdominals,None,1
+strength ,Abdominals 18,8,,Lower abdominals,None,2
+strength ,Abdominals 19,8,,Upper abdominals,None,3
+strength ,Abdominals 20,8,,Lower abdominals,None,4
+strength ,Abdominals 21,8,,Upper abdominals,None,5
+strength ,Abdominals 22,8,,Lower abdominals,None,6
+strength ,Abdominals 23,8,,Upper abdominals,None,7
+strength ,Abdominals 24,8,,Lower abdominals,None,8
+strength ,Abdominals 25,10,,Upper abdominals,None,1
+strength ,Abdominals 26,10,,Lower abdominals,None,2
+strength ,Abdominals 27,10,,Upper abdominals,None,3
+strength ,Abdominals 28,10,,Lower abdominals,None,4
+strength ,Abdominals 29,10,,Upper abdominals,None,5
+strength ,Abdominals 30,10,,Lower abdominals,None,6
+strength ,Abdominals 31,10,,Upper abdominals,None,7
+strength ,Abdominals 32,10,,Lower abdominals,None,8
+strength ,Abdominals 33,15,,Upper abdominals,None,1
+strength ,Abdominals 34,15,,Lower abdominals,None,2
+strength ,Abdominals 35,15,,Upper abdominals,None,3
+strength ,Abdominals 36,15,,Lower abdominals,None,4
+strength ,Abdominals 37,15,,Upper abdominals,None,5
+strength ,Abdominals 38,15,,Lower abdominals,None,6
+strength ,Abdominals 39,15,,Upper abdominals,None,7
+strength ,Abdominals 40,15,,Lower abdominals,None,8
+strength ,Abdominals 41,20,,Upper abdominals,None,1
+strength ,Abdominals 42,20,,Lower abdominals,None,2
+strength ,Abdominals 43,20,,Upper abdominals,None,3
+strength ,Abdominals 44,20,,Lower abdominals,None,4
+strength ,Abdominals 45,20,,Upper abdominals,None,5
+strength ,Abdominals 46,20,,Lower abdominals,None,6
+strength ,Abdominals 47,20,,Upper abdominals,None,7
+strength ,Abdominals 48,20,,Lower abdominals,None,8
+strength ,Abdominals 49,25,,Upper abdominals,None,1
+strength ,Abdominals 50,25,,Lower abdominals,None,2
+strength ,Abdominals 51,25,,Upper abdominals,None,3
+strength ,Abdominals 52,25,,Lower abdominals,None,4
+strength ,Abdominals 53,25,,Upper abdominals,None,5
+strength ,Abdominals 54,25,,Lower abdominals,None,6
+strength ,Abdominals 55,25,,Upper abdominals,None,7
+strength ,Abdominals 56,25,,Lower abdominals,None,8
+cardio,Jump Rope,30,1,Quadriceps,Other,1
+cardio,Jump Rope,25,1,Quadriceps,Other,1
+cardio,Jump Rope,20,1,Quadriceps,Other,1
+cardio,Jump Rope,15,1,Quadriceps,Other,1
+cardio,Jump Rope,10,1,Quadriceps,Other,1
+cardio,Jump Rope,5,1,Quadriceps,Other,1
+cardio,Jump Rope,1,1,Quadriceps,Other,1
+cardio,Burpee,30,1,Quadriceps,None,1
+cardio,Burpee,25,1,Quadriceps,None,1
+cardio,Burpee,20,1,Quadriceps,None,1
+cardio,Burpee,15,1,Quadriceps,None,1
+cardio,Burpee,10,1,Quadriceps,None,1
+cardio,Burpee,5,1,Quadriceps,None,1
+cardio,Burpee,1,1,Quadriceps,None,1
+cardio,Bicycle,30,1,Quadriceps,Machine,1
+cardio,Bicycle,25,1,Quadriceps,Machine,1
+cardio,Bicycle,20,1,Quadriceps,Machine,1
+cardio,Bicycle,15,1,Quadriceps,Machine,1
+cardio,Bicycle,10,1,Quadriceps,Machine,1
+cardio,Bicycle,5,1,Quadriceps,Machine,1
+cardio,Bicycle,1,1,Quadriceps,Machine,1
+cardio,Rowing,30,1,Quadriceps,Machine,1
+cardio,Rowing,25,1,Quadriceps,Machine,1
+cardio,Rowing,20,1,Quadriceps,Machine,1
+cardio,Rowing,15,1,Quadriceps,Machine,1
+cardio,Rowing,10,1,Quadriceps,Machine,1
+cardio,Rowing,5,1,Quadriceps,Machine,1
+cardio,Rowing,1,1,Quadriceps,Machine,1
+cardio,Elliptical,30,1,Quadriceps,Machine,1
+cardio,Elliptical,25,1,Quadriceps,Machine,1
+cardio,Elliptical,20,1,Quadriceps,Machine,1
+cardio,Elliptical,15,1,Quadriceps,Machine,1
+cardio,Elliptical,10,1,Quadriceps,Machine,1
+cardio,Elliptical,5,1,Quadriceps,Machine,1
+cardio,Elliptical,1,1,Quadriceps,Machine,1
+cardio,StairMaster,30,1,Quadriceps,Machine,1
+cardio,StairMaster,25,1,Quadriceps,Machine,1
+cardio,StairMaster,20,1,Quadriceps,Machine,1
+cardio,StairMaster,15,1,Quadriceps,Machine,1
+cardio,StairMaster,10,1,Quadriceps,Machine,1
+cardio,StairMaster,5,1,Quadriceps,Machine,1
+cardio,StairMaster,1,1,Quadriceps,Machine,1
+cardio,Outdoor Run,30,1,Quadriceps,None,1
+cardio,Outdoor Run,25,1,Quadriceps,None,1
+cardio,Outdoor Run,20,1,Quadriceps,None,1
+cardio,Outdoor Run,15,1,Quadriceps,None,1
+cardio,Outdoor Run,10,1,Quadriceps,None,1
+cardio,Outdoor Run,5,1,Quadriceps,None,1
+cardio,Outdoor Run,1,1,Quadriceps,None,1
+cardio,Skating,30,1,Quadriceps,Other,1
+cardio,Skating,25,1,Quadriceps,Other,1
+cardio,Skating,20,1,Quadriceps,Other,1
+cardio,Skating,15,1,Quadriceps,Other,1
+cardio,Skating,10,1,Quadriceps,Other,1
+cardio,Skating,5,1,Quadriceps,Other,1
+cardio,Skating,1,1,Quadriceps,Other,1
+cardio,Treadmill Jog (5 mph),30,1,Quadriceps,Machine,1
+cardio,Treadmill Jog (5 mph),25,1,Quadriceps,Machine,1
+cardio,Treadmill Jog (5 mph),20,1,Quadriceps,Machine,1
+cardio,Treadmill Jog (5 mph),15,1,Quadriceps,Machine,1
+cardio,Treadmill Jog (5 mph),10,1,Quadriceps,Machine,1
+cardio,Treadmill Jog (5 mph),5,1,Quadriceps,Machine,1
+cardio,Treadmill Jog (5 mph),1,1,Quadriceps,Machine,1
+cardio,Treadmill Run (6 mph),30,1,Quadriceps,Machine,1
+cardio,Treadmill Run (6 mph),25,1,Quadriceps,Machine,1
+cardio,Treadmill Run (6 mph),20,1,Quadriceps,Machine,1
+cardio,Treadmill Run (6 mph),15,1,Quadriceps,Machine,1
+cardio,Treadmill Run (6 mph),10,1,Quadriceps,Machine,1
+cardio,Treadmill Run (6 mph),5,1,Quadriceps,Machine,1
+cardio,Treadmill Run (6 mph),1,1,Quadriceps,Machine,1
+cardio,Recumbent,30,1,Quadriceps,Machine,1
+cardio,Recumbent,25,1,Quadriceps,Machine,1
+cardio,Recumbent,20,1,Quadriceps,Machine,1
+cardio,Recumbent,15,1,Quadriceps,Machine,1
+cardio,Recumbent,10,1,Quadriceps,Machine,1
+cardio,Recumbent,5,1,Quadriceps,Machine,1
+cardio,Recumbent,1,1,Quadriceps,Machine,1
+cardio,Butt Kicks,30,1,Quadriceps,None,1
+cardio,Butt Kicks,25,1,Quadriceps,None,1
+cardio,Butt Kicks,20,1,Quadriceps,None,1
+cardio,Butt Kicks,15,1,Quadriceps,None,1
+cardio,Butt Kicks,10,1,Quadriceps,None,1
+cardio,Butt Kicks,5,1,Quadriceps,None,1
+cardio,Butt Kicks,1,1,Quadriceps,None,1
+cardio,Single-Leg Press,30,1,Quadriceps,Machine,1
+cardio,Single-Leg Press,25,1,Quadriceps,Machine,1
+cardio,Single-Leg Press,20,1,Quadriceps,Machine,1
+cardio,Single-Leg Press,15,1,Quadriceps,Machine,1
+cardio,Single-Leg Press,10,1,Quadriceps,Machine,1
+cardio,Single-Leg Press,5,1,Quadriceps,Machine,1
+cardio,Single-Leg Press,1,1,Quadriceps,Machine,1
+strength ,Chest 1,3,,Pectoralis major,Barbell,1
+strength ,Chest 2,3,,Pectoralis minor,Barbell,2
+strength ,Chest 3,3,,Pectoralis major,Barbell,3
+strength ,Chest 4,3,,Pectoralis minor,Barbell,4
+strength ,Chest 5,3,,Pectoralis major,Barbell,5
+strength ,Chest 6,3,,Pectoralis minor,Barbell,6
+strength ,Chest 7,3,,Pectoralis major,Barbell,7
+strength ,Chest 8,3,,Pectoralis minor,Barbell,8
+strength ,Chest 9,5,,Pectoralis major,Barbell,1
+strength ,Chest 10,5,,Pectoralis minor,Barbell,2
+strength ,Chest 11,5,,Pectoralis major,Barbell,3
+strength ,Chest 12,5,,Pectoralis minor,Barbell,4
+strength ,Chest 13,5,,Pectoralis major,Barbell,5
+strength ,Chest 14,5,,Pectoralis minor,Barbell,6
+strength ,Chest 15,5,,Pectoralis major,Barbell,7
+strength ,Chest 16,5,,Pectoralis minor,Barbell,8
+strength ,Chest 17,8,,Pectoralis major,Barbell,1
+strength ,Chest 18,8,,Pectoralis minor,Barbell,2
+strength ,Chest 19,8,,Pectoralis major,Barbell,3
+strength ,Chest 20,8,,Pectoralis minor,Barbell,4
+strength ,Chest 21,8,,Pectoralis major,Barbell,5
+strength ,Chest 22,8,,Pectoralis minor,Barbell,6
+strength ,Chest 23,8,,Pectoralis major,Barbell,7
+strength ,Chest 24,8,,Pectoralis minor,Barbell,8
+strength ,Chest 25,10,,Pectoralis major,Barbell,1
+strength ,Chest 26,10,,Pectoralis minor,Barbell,2
+strength ,Chest 27,10,,Pectoralis major,Barbell,3
+strength ,Chest 28,10,,Pectoralis minor,Barbell,4
+strength ,Chest 29,10,,Pectoralis major,Barbell,5
+strength ,Chest 30,10,,Pectoralis minor,Barbell,6
+strength ,Chest 31,10,,Pectoralis major,Barbell,7
+strength ,Chest 32,10,,Pectoralis minor,Barbell,8
+strength ,Chest 33,15,,Pectoralis major,Barbell,1
+strength ,Chest 34,15,,Pectoralis minor,Barbell,2
+strength ,Chest 35,15,,Pectoralis major,Barbell,3
+strength ,Chest 36,15,,Pectoralis minor,Barbell,4
+strength ,Chest 37,15,,Pectoralis major,Barbell,5
+strength ,Chest 38,15,,Pectoralis minor,Barbell,6
+strength ,Chest 39,15,,Pectoralis major,Barbell,7
+strength ,Chest 40,15,,Pectoralis minor,Barbell,8
+strength ,Chest 41,20,,Pectoralis major,Barbell,1
+strength ,Chest 42,20,,Pectoralis minor,Barbell,2
+strength ,Chest 43,20,,Pectoralis major,Barbell,3
+strength ,Chest 44,20,,Pectoralis minor,Barbell,4
+strength ,Chest 45,20,,Pectoralis major,Barbell,5
+strength ,Chest 46,20,,Pectoralis minor,Barbell,6
+strength ,Chest 47,20,,Pectoralis major,Barbell,7
+strength ,Chest 48,20,,Pectoralis minor,Barbell,8
+strength ,Chest 49,25,,Pectoralis major,Barbell,1
+strength ,Chest 50,25,,Pectoralis minor,Barbell,2
+strength ,Chest 51,25,,Pectoralis major,Barbell,3
+strength ,Chest 52,25,,Pectoralis minor,Barbell,4
+strength ,Chest 53,25,,Pectoralis major,Barbell,5
+strength ,Chest 54,25,,Pectoralis minor,Barbell,6
+strength ,Chest 55,25,,Pectoralis major,Barbell,7
+strength ,Chest 56,25,,Pectoralis minor,Barbell,8
+strength ,Glutes 1,3,,Gluteus maximus,Dumbbell,1
+strength ,Glutes 2,3,,Gluteus minimus,Dumbbell,2
+strength ,Glutes 3,3,,Gluteus maximus,Dumbbell,3
+strength ,Glutes 4,3,,Gluteus minimus,Dumbbell,4
+strength ,Glutes 5,3,,Gluteus maximus,Dumbbell,5
+strength ,Glutes 6,3,,Gluteus minimus,Dumbbell,6
+strength ,Glutes 7,3,,Gluteus maximus,Dumbbell,7
+strength ,Glutes 8,3,,Gluteus minimus,Dumbbell,8
+strength ,Glutes 9,5,,Gluteus maximus,Dumbbell,1
+strength ,Glutes 10,5,,Gluteus minimus,Dumbbell,2
+strength ,Glutes 11,5,,Gluteus maximus,Dumbbell,3
+strength ,Glutes 12,5,,Gluteus minimus,Dumbbell,4
+strength ,Glutes 13,5,,Gluteus maximus,Dumbbell,5
+strength ,Glutes 14,5,,Gluteus minimus,Dumbbell,6
+strength ,Glutes 15,5,,Gluteus maximus,Dumbbell,7
+strength ,Glutes 16,5,,Gluteus minimus,Dumbbell,8
+strength ,Glutes 17,8,,Gluteus maximus,Dumbbell,1
+strength ,Glutes 18,8,,Gluteus minimus,Dumbbell,2
+strength ,Glutes 19,8,,Gluteus maximus,Dumbbell,3
+strength ,Glutes 20,8,,Gluteus minimus,Dumbbell,4
+strength ,Glutes 21,8,,Gluteus maximus,Dumbbell,5
+strength ,Glutes 22,8,,Gluteus minimus,Dumbbell,6
+strength ,Glutes 23,8,,Gluteus maximus,Dumbbell,7
+strength ,Glutes 24,8,,Gluteus minimus,Dumbbell,8
+strength ,Glutes 25,10,,Gluteus maximus,Dumbbell,1
+strength ,Glutes 26,10,,Gluteus minimus,Dumbbell,2
+strength ,Glutes 27,10,,Gluteus maximus,Dumbbell,3
+strength ,Glutes 28,10,,Gluteus minimus,Dumbbell,4
+strength ,Glutes 29,10,,Gluteus maximus,Dumbbell,5
+strength ,Glutes 30,10,,Gluteus minimus,Dumbbell,6
+strength ,Glutes 31,10,,Gluteus maximus,Dumbbell,7
+strength ,Glutes 32,10,,Gluteus minimus,Dumbbell,8
+strength ,Glutes 33,15,,Gluteus maximus,Dumbbell,1
+strength ,Glutes 34,15,,Gluteus minimus,Dumbbell,2
+strength ,Glutes 35,15,,Gluteus maximus,Dumbbell,3
+strength ,Glutes 36,15,,Gluteus minimus,Dumbbell,4
+strength ,Glutes 37,15,,Gluteus maximus,Dumbbell,5
+strength ,Glutes 38,15,,Gluteus minimus,Dumbbell,6
+strength ,Glutes 39,15,,Gluteus maximus,Dumbbell,7
+strength ,Glutes 40,15,,Gluteus minimus,Dumbbell,8
+strength ,Glutes 41,20,,Gluteus maximus,Dumbbell,1
+strength ,Glutes 42,20,,Gluteus minimus,Dumbbell,2
+strength ,Glutes 43,20,,Gluteus maximus,Dumbbell,3
+strength ,Glutes 44,20,,Gluteus minimus,Dumbbell,4
+strength ,Glutes 45,20,,Gluteus maximus,Dumbbell,5
+strength ,Glutes 46,20,,Gluteus minimus,Dumbbell,6
+strength ,Glutes 47,20,,Gluteus maximus,Dumbbell,7
+strength ,Glutes 48,20,,Gluteus minimus,Dumbbell,8
+strength ,Glutes 49,25,,Gluteus maximus,Dumbbell,1
+strength ,Glutes 50,25,,Gluteus minimus,Dumbbell,2
+strength ,Glutes 51,25,,Gluteus maximus,Dumbbell,3
+strength ,Glutes 52,25,,Gluteus minimus,Dumbbell,4
+strength ,Glutes 53,25,,Gluteus maximus,Dumbbell,5
+strength ,Glutes 54,25,,Gluteus minimus,Dumbbell,6
+strength ,Glutes 55,25,,Gluteus maximus,Dumbbell,7
+strength ,Glutes 56,25,,Gluteus minimus,Dumbbell,8
