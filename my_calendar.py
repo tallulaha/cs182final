@@ -289,7 +289,8 @@ def strp(end,start,FMT):
     amt = datetime.strptime(end,FMT) - datetime.strptime(start,FMT)  
     seconds = amt.total_seconds()
         #print (seconds)
-    return time_min = int(seconds / 60.)      
+    time_min = int(seconds / 60.)  
+    return time_min    
 
 def timeToCalendarForm(time):
     hr = int(time.hour)
