@@ -204,38 +204,90 @@ def main():
         'saturday': gym_sat
     }
 
+    timepref = 'afternoon'
+    timelim = 90
+    # do all this preprocessing that does not have to be in a loop
     # assign the time preference (morning, afternoon, evening)
     # fwd check the personal availability schedule
-    update_pers_avail = updateTimesPreference(personal_avail, 'morning')
+    update_pers_avail = updateTimesPreference(personal_avail, timepref)
     if update_pers_avail == None:
         print ("Your schedule does not allow for workouts in the indicated time preference (morning) due to Personal availability-- break")
     #print (update_pers_avail)
     # fwd check the gym hours schedule
-    update_gym_avail = updateGymHoursPreference(all_days, 'morning')
+    update_gym_avail = updateGymHoursPreference(all_days, timepref)
     if update_gym_avail == None:
         print ("Your schedule does not allow for workouts in the indicated time preference (morning) due to Gym availability -- break")
     #print (update_gym_avail)
     # assign the time you'd like to work out for
     # fwd check the personal availability schedule
-    update_pers_avail = updateTimesLimit(update_pers_avail, 60)
+    update_pers_avail = updateTimesLimit(update_pers_avail, timelim)
     if update_pers_avail == None:
         print ("Your schedule does not allow for workouts in the indicated workout time due to Personal availability-- break")
     #print ("sort of updated")
     #print (update_pers_avail)
     # fwd check the gym's hours schedule
-    update_gym_avail = updateGymHoursLimit(update_gym_avail, 60)
+    update_gym_avail = updateGymHoursLimit(update_gym_avail, timelim)
     if update_pers_avail == None:
         print ("Your schedule does not allow for workouts in the indicated workout time due to Gym availability-- break")
     #print ("most updated")
     #print (update_pers_avail)
-    # assign the day 
-    assigned_pers = assignPersTime(update_pers_avail, 60)
-    (day, start, end) = assigned_pers
-    if assigned_pers == None:
-        print ("Problem with interval")
-    day = weekday(day)
-    ee = updateTimesGymHours(day, start, end, update_gym_avail)
-    print (ee)
+    des_days = 3
+    workout = []
+    for _ in xrange(des_days):
+        assign = runCSP(update_pers_avail, update_gym_avail, timelim)
+        if assign == None:
+            break
+        else:
+            # remove the assigned day so you don't pick it again
+            (gym, wkday, ivl, start, end) = assign
+            update_gym_avail.pop(wkday, None)
+            timeToCalendarForm(start)
+            day = returnDate(wkday, update_pers_avail)
+            update_pers_avail.pop(day, None)
+            workout.append((gym, wkday, day, timeToCalendarForm(start), timeToCalendarForm(end)))
+    if len(workout) < des_days:
+        print ("Given your preferences, we were only able to schedule", len(workout), "workout(s) this week")
+    print (workout)
+
+    print (generateWorkout(60))
+
+def timeToCalendarForm(time):
+    hr = int(time.hour)
+    if hr < 10:
+        hr = "0" + str(hr)
+    else:
+        hr = str(hr)
+    mn = int(time.minute)
+    if mn < 10:
+        mn = "0" + str(mn)
+    else:
+        mn = str(mn)
+    time = hr + ":" + mn + ":00-05:00"
+    return time
+
+def runCSP(pers_avail, gym_avail, des_time=60, delta=0):
+    day_timeivl = selectTimeInterval(pers_avail)
+    # base case
+    if day_timeivl == None:
+        return None
+    else:
+        day, time_ivl = day_timeivl
+        wkt_ivl = selectTimeInInterval(time_ivl, des_time, delta)
+        # if it comes back with None, means that this time_ivl is no good
+        if wkt_ivl == None:
+            pers_avail[day].remove(time_ivl)
+            # need to rerun from the top to get a new interval with no delta to start with
+            runCSP(pers_avail, gym_avail, des_time, 0)
+        (startwkt, endwkt) = wkt_ivl
+        wkday = weekday(day)
+        new_gym_avail = updateTimesGymHours(wkday, startwkt, endwkt, gym_avail)
+        # rerun with new delta if None (will always choose same day bc still least constrained)
+        # hopefully get a new interval to keep trying
+        # run on the same gym availability
+        if new_gym_avail == None:
+            delta += 15
+            runCSP(pers_avail, gym_avail, des_time, delta)
+        return assignGymAndTime(new_gym_avail)
 
     # you have your preferences (time) assigned
     # fwd check: eliminate all times in the personal calendar's domain that aren't consistent
@@ -243,38 +295,7 @@ def main():
     # assign a day to workout
     # fwd check: eliminate all times that don't fit with the gym's hours that day
     # assign a workout time 
-    """
-    week_days = []
-    for day, _ in personal_avail.iteritems():
-        week_days.append(day)
 
-    no_sched = False
-    time_lst = []
-    num_days = 0
-    des_days = 3
-    timelimit = 60
-
-    while num_days != des_days:
-        day = pickDay(week_days)
-        week_days.remove(day)
-        # if somehow all the days don't have available slots
-        if week_days == []:
-            no_sched = True
-            break
-        time = pickTime(personal_avail, timelimit, day)
-        # if no time works on that specific day, don't increment num_days, otherwise do
-        if time != None:
-            # check to make sure that it works with time preference
-            print(checkPreference(time, 'afternoon'))
-            print(checkGymHours(time))
-            time_lst.append(time)
-            num_days += 1
-
-    #print (time_lst)
-
-    if no_sched:
-        print ("You don't have enough available time to schedule your goals")
-    """
 def returnDate(day, conf):
     days = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday']
     for k,v in conf.iteritems():
@@ -465,11 +486,13 @@ def calcTotalTime(hour, minute, second):
     # return in minutes
     return (hour*60 + minute + second/60.)
 
-
-def assignPersTime(availabledict, des_time, delta=0):
+def selectTimeInterval(availabledict):
 
     max_duration = -float("inf")
     max_day = None
+
+    if not availabledict:
+        return None
 
     # pick least constrained day (one with most available time)
     for day, times in availabledict.iteritems():
@@ -482,6 +505,7 @@ def assignPersTime(availabledict, des_time, delta=0):
             max_day = day
 
     time_ivls = availabledict[max_day]
+
     # you know all the time intervals are long enough for desired workout
     # you know each day has at least 1 time interval because of fwd checking
     # pick the least constrained time ivl (most time)
@@ -493,9 +517,9 @@ def assignPersTime(availabledict, des_time, delta=0):
             max_duration = duration
             max_ivl = (start, end)
 
-    return selectTimeInInterval(max_day, max_ivl, des_time, delta)
+    return (max_day, max_ivl)
 
-def selectTimeInInterval(max_day, max_ivl, des_time, delta):
+def selectTimeInInterval(max_ivl, des_time, delta):
     from datetime import datetime
     import datetime as dt
     # pick a time interval within that interval 
@@ -506,7 +530,7 @@ def selectTimeInInterval(max_day, max_ivl, des_time, delta):
     end = datetime.strptime(end[0:8], '%H:%M:%S')
     if withinInterval(start, end, starttime, endtime):
         #print (max_day, starttime.time(), endtime.time())
-        return (max_day, starttime.time(), endtime.time())
+        return (starttime.time(), endtime.time())
     else:
         return None
 
@@ -515,9 +539,6 @@ def withinInterval(start, end, testst, testen):
     # test is (date, start time, end time)
     #start = datetime.strptime(start[0:8], '%H:%M:%S')
     #end = datetime.strptime(end[0:8], '%H:%M:%S')
-    print (start, end)
-    print ("HELOO")
-    print (testst, testen)
     start = start.time()
     end = end.time()
     testst = testst.time()
@@ -544,189 +565,20 @@ def updateTimesGymHours (day, startwork, endwork, availabledict):
         (start, end) = times
         start = datetime.strptime(start[0:8], '%H:%M:%S')
         end = datetime.strptime(end[0:8], '%H:%M:%S')
-        if withinInterval(start, end, startwork, endwork):
-            possible[gym] = times
+        if start.time() <= startwork and endwork <= end.time():
+        #withinInterval(start, end, startwork, endwork):
+            possible[gym] = (day, times, startwork, endwork)
             spec_gym = gym
 
-    if possible: #put in gym 
-        return (day, spec_gym, startwork, endwork)
-    #else:
-        # try a bunch of intervals until it works
-        
+    if not possible:
+        return None
+    return possible
 
-# assign a day of the week to workout 
-def assignDay(week_days, all_days):
-    from datetime import datetime
-    # randomly pick a day
-    # week_days = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday']
-    rand_int = random.randint(0, len(week_days)-1)
-    day = week_days[rand_int]
-    # check to make sure you haven't done that day yet
-    while day == None:
-        rand_int = random.randint(0, len(week_days)-1)
-        day = week_days[day]
-    # choose the gym with the longest hours
-    intervals = []
-    maxi = -float("inf")
-    max_gym = "Mac"
-
-    #gym_dict = all_days[day]
-    gym_dict = all_days['sunday']
-    for gym, time in gym_dict.iteritems():
-        print (time)
-        start = datetime.strptime(time[0][0:8], '%H:%M:%S')
-        end = datetime.strptime(time[1][0:8], '%H:%M:%S')
-        timediff = end - start + datetime.strptime('00:00:00', '%H:%M:%S')
-        duration = calcTotalTime(timediff.hour, timediff.minute, timediff.second)
-        if duration > maxi:
-            maxi = duration
-            max_gym = gym
-            hours = (time[0], time[1])
-
-    return (day, max_gym, hours)
-
-
-
-
-
-
-        
-def checkPreference(time, preference):
-    from datetime import datetime 
-
-    if preference == 'morning':
-        # should be wake time
-        scutoff = datetime.strptime('05:00:00', '%H:%M:%S')
-        ecutoff = datetime.strptime('11:59:59', '%H:%M:%S')
-    elif preference == 'afternoon':
-        scutoff = datetime.strptime('12:00:00', '%H:%M:%S')
-        ecutoff = datetime.strptime('16:59:59', '%H:%M:%S')
-    else:
-        scutoff = datetime.strptime('17:00:00', '%H:%M:%S')
-        ecutoff = datetime.strptime('23:59:59', '%H:%M:%S')
-    return withinInterval(scutoff, ecutoff, time)
-
-
-
-# gone for CSP
-
-
-
-
-
-def orderDays(availabledict):
-    # self.availability looks like: 
-    # "day": [total available time, total pref time, time, time, time, time]
-    # preferences: {day: number 0-6}
-    pref_time = {}
-    ptimearray = []
-    pref_not_time = {}
-    notptimearray = []
-    mintime1 = float("inf")
-    mintime2 = float("inf")
-    for curday, timelist in availabledict.iteritems():
-        totaltime = timelist.pop(0)
-        totalpreftime = timelist.pop(0)
-        # if there is no time in preference, order by total available time
-        if totalpreftime == 0:
-            pref_not_time[curday] = totaltime
-            notptimearray.append(totaltime)
-        # if there is a time in preference, order by total time in preference
-        else:
-            pref_time[curday] = totalpreftime
-            ptimearray.append(totalpreftime)
-
-    # rank the days
-    ptimearray = sorted(ptimearray, reverse=True)
-    for rank in xrange(len(ptimearray)):
-        for day, num in pref_time.iteritems():
-            if ptimearray[rank] == num:
-                pref_time[day] = rank
-                break
-
-    # rank the days
-    notptimearray = sorted(notptimearray, reverse=True)
-    for rank in xrange(len(notptimearray)):
-        for day, num in pref_not_time.iteritems():
-            if notptimearray[rank] == num:
-                pref_not_time[day] = rank
-                break
-
-    #now you have:
-    #pref_time = {sunday: 1, tuesday: 2, wednesday: 0} 
-    #pref_not_time = {monday: 1, thursday: 2, friday: 0, saturday: 4, sunday: 3}
-    #now combine lists together so fix preferences of pref_not_time
-
-    for day, pref in pref_not_time.iteritems():
-        pref_not_time[day] = pref + len(pref_time)
-
-    pref_time.update(pref_not_time)
-    all_pref = pref_time
-
-    # make availabilitydict into a tuple with (pref, times)
-    prefavailability = {}
-    for day, timelist in availabledict.iteritems():
-        prefavailability[day] = (all_pref[day], timelist)
-
-    # looks like: {sunday: (1, [times]), monday: (6, [times])}
-    return prefavailability
-
-# make a time from the available times for them to work out
-# gives you back an array of times for the entire week
-# eg gives you back (mon, 1, 3) (tue, 4, 5)
-
-# randomly assign a time
-# check if its in the wkt preference 
-# check if its in the open gym hours
-def generateTime(availabledict, num_days, des_time):
-    # this is a number
-    from datetime import datetime
-    import datetime as dt
-
-    pref = 0
-    wkt_times = []
-    for i in xrange(num_days):
-        for day, (p, times) in availabledict.iteritems():
-            if p == pref:
-                pref += 1
-                # bug to figure out later: if there isn't enough time in the first time interval
-                # keep moving through that same date even if it is no longer in time preference
-                # could also decide to move to a different day 
-                (start, end) = times[0]
-                starttime = datetime.strptime(start[0:8], '%H:%M:%S')
-                endtime = starttime + dt.timedelta(minutes=des_time)
-                endlimit = datetime.strptime(end[0:8], '%H:%M:%S')
-                if endtime > endlimit:
-                    print ("hello")
-                    # need to pick another time interval
-                else:
-                    starttime = str(starttime.time()) + '-05:00'
-                    endtime = str(endtime.time()) + '-05:00'
-                    wkt_times.append((day, starttime, endtime))
-                break
-
-    #print ("workout times")
-    #print ("WORKOUT TIMES", wkt_times)
-    for day in wkt_times:
-        # not sure if this will give minutes
-
-        FMT = '%H:%M:%S'
-        if day[2].endswith('-05:00'):
-            end = day[2][:-6]
-        if day[1].endswith('-05:00'):
-            start = day[1][:-6]
-        amt_time = datetime.strptime(end,FMT) - datetime.strptime(start,FMT)
-        # need to convert to minutes
-        #print ("amt of time", amt_time)
-        #print (day[0])
-        # https://stackoverflow.com/questions/14190045/how-to-convert-datetime-timedelta-to-minutes-hours-in-python
-        seconds = amt_time.total_seconds()
-        #print (seconds)
-        time_min = int(seconds / 60.)
-        #print ("amt min", time_min)
-        generateWorkout(time_min)
-
-         
+# pick the first time interval that works
+def assignGymAndTime (availabledict):
+    for gym, vals in availabledict.iteritems():
+        (day, times, startwork, endwork) = vals
+        return (gym, day, times, startwork, endwork)
 
 """
 getWorkout:
@@ -738,8 +590,8 @@ musclegroups = [all the muscle groups] also hard coded
 if the muscle_group is true, you can use it, if false, then it means you have already done it
 """
 
-
-def generateWorkout(timelimit):
+## this is where we can make conditional about certain strength or cardio activities
+def generateWorkout(timelimit, goal='strength'):
     # 4 big muscle groups
     # if True, that muscle group has not been assigned to a workout yet, so can be chosen
     # if False, that muscle group has been assigned to a workout, so cannot be chosen again
@@ -755,14 +607,15 @@ def generateWorkout(timelimit):
     # set it to False so you don't choose it on next iteration
     musclegroups[rand_int] = (rand_musc,False)
     # iterate through dataset to find musclegroup specific exercises w/in time limits
-    workout = fillTime(rand_musc, timelimit)
+    workout = fillTime(rand_musc, timelimit, goal)
     return workout
 
-def fillTime(muscgroup, timelimit):
+def fillTime(muscgroup, timelimit, goal):
     #print ("selected muscle", muscgroup)
     num_exercises = 0
     time_exercises = []
     name_exercises = []
+    lvl_exercises = []
     muscles = {'legs':['Quadriceps','Hamstrings'],'arms':['Biceps','Triceps','Forearms'], 'back':['Lats'],'abdominals':['Abdominals']}
     # go through each row in the dataset
     #***** this is where we need to read in datafile
@@ -775,20 +628,23 @@ def fillTime(muscgroup, timelimit):
             #print ("time?", row[2])
             time = int(row[2])
             name = row[1]
+            lvl = int(row[6])
+            tpe = row[0]
             # if that exercise is within that musclegroup
-            if musclegroup in muscles[muscgroup]:
+            if musclegroup in muscles[muscgroup] and goal == tpe:
                 num_exercises += 1
                 # compile the number of exercises in that group, the time they take, and their names
                 time_exercises.append(time)
                 name_exercises.append(name)
+                lvl_exercises.append(lvl)
         # if that exercise is within that musclegroup
 
-    return simulated_annealing(timelimit, num_exercises, time_exercises, name_exercises)
+    return simulated_annealing(timelimit, num_exercises, time_exercises, lvl_exercises, name_exercises)
 
 
 #this should all be in working order
-def simulated_annealing(timelimit, num_exercises, time_exercises, name_exercises):
-    cur_bag = initSolution(timelimit, num_exercises, time_exercises, name_exercises)
+def simulated_annealing(timelimit, num_exercises, time_exercises, lvl_exercises, name_exercises):
+    cur_bag = initSolution(timelimit, num_exercises, time_exercises, lvl_exercises, name_exercises)
     #values = [valTotal(cur_bag)]
 
     #for i in xrange(60000):
@@ -796,7 +652,7 @@ def simulated_annealing(timelimit, num_exercises, time_exercises, name_exercises
     for i in xrange(2):
       temp = 1. / np.math.log10(i + 2)
       temp_bag = copy.deepcopy(cur_bag)
-      new_bag = genNeighbor(temp_bag, timelimit, num_exercises, time_exercises, name_exercises)
+      new_bag = genNeighbor(temp_bag, timelimit, num_exercises, time_exercises, lvl_exercises, name_exercises)
       old_total = valTotal(cur_bag)
       new_total = valTotal(new_bag)
       prob = acceptProb(new_total, old_total, temp)
@@ -807,13 +663,13 @@ def simulated_annealing(timelimit, num_exercises, time_exercises, name_exercises
     print (timeTotal(cur_bag))
     return cur_bag
 
-def initSolution(timelimit, num_exercises, time_exercises, name_exercises):
+def initSolution(timelimit, num_exercises, time_exercises, lvl_exercises, name_exercises):
     cur_time = 0
     bag = []
     #print ("timeL", timelimit)
     while cur_time < timelimit:
         rand_ind = np.random.randint(0, num_exercises)
-        rand_item = (rand_ind, name_exercises[rand_ind], time_exercises[rand_ind])
+        rand_item = (rand_ind, name_exercises[rand_ind], lvl_exercises[rand_ind], time_exercises[rand_ind])
         if not rand_item in bag:
           bag.append(rand_item)
         cur_time = timeTotal(bag)
@@ -825,19 +681,19 @@ def initSolution(timelimit, num_exercises, time_exercises, name_exercises):
 # minimize free time in workout
 def valTotal(bag):
     total = 0
-    for (_, _, time) in bag:
-        total += time
+    for (_, _, lvl, _) in bag:
+        total += lvl
     return total
 
 def timeTotal(bag):
     total = 0
-    for (_, _, time) in bag:
+    for (_, _, _, time) in bag:
         total += time
     return total
 
 def indexList(bag):
     indexes = []
-    for (i, _, _) in bag:
+    for (i, _, _, _) in bag:
         indexes.append(i)
     return indexes
 
@@ -846,7 +702,7 @@ def acceptProb(new_total, old_total, temp):
     prob = np.exp((new_total - old_total) / temp)
     return prob
 
-def genNeighbor(bag, timelimit, num_exercises, time_exercises, name_exercises):
+def genNeighbor(bag, timelimit, num_exercises, time_exercises, lvl_exercises, name_exercises):
     popped_off = []
   # this doesnt work because already empty i am guessing to change this
   #for i in xrange(3):
@@ -860,16 +716,13 @@ def genNeighbor(bag, timelimit, num_exercises, time_exercises, name_exercises):
   # or maybe not working because we dont have enough examples 
     while cur_time < (timelimit):
         rand_ind = np.random.randint(0, num_exercises)
-        rand_item = (rand_ind, name_exercises[rand_ind], time_exercises[rand_ind])
+        rand_item = (rand_ind, name_exercises[rand_ind], lvl_exercises[rand_ind], time_exercises[rand_ind])
         if not rand_item in bag and not rand_item in popped_off:
             bag.append(rand_item)
         cur_time = timeTotal(bag)
     if cur_time > timelimit:
         bag.pop()
     return bag
-
-
-
 
 
 
