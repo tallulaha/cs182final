@@ -62,7 +62,7 @@ def get_credentials():
             credentials = tools.run_flow(flow, store, flags)
         else: # Needed only for compatibility with Python 2.6
             credentials = tools.run(flow, store)
-        print('Storing credentials to ' + credential_path)
+        #print('Storing credentials to ' + credential_path)
     return credentials
 
 def returnDate(day, conf):
@@ -80,17 +80,18 @@ def weekday(day):
 
 
 
-def main():
+def main(wake, bed, dayprwk, avgwkt, wktprf,exrgl, startd):
     """Shows basic usage of the Google Calendar API.
 
     Creates a Google Calendar API service object and outputs a list of the next
     10 events on the user's calendar.
     """
+    # update to sleep = {'wakeup': wake, 'bedtime': bed}
+    # where wake and sleep are military time
+
     sleep = {'wakeup': '08:00:00', 'bedtime': '23:59:59'}
     time_preferences = ['morning', 'afternoon', 'evening']
     workout_goals = ['lose weight', 'gain muscle', 'increase endurance', 'new skills']
-
-
 
     credentials = get_credentials()
     http = credentials.authorize(httplib2.Http())
@@ -111,7 +112,7 @@ def main():
     stopdate = stopdate + 'T' + sleep['wakeup'] + 'Z'
     start = str(startdate) + 'T' + sleep['wakeup'] + 'Z'
 
-    print('Getting the upcoming weeks events')
+    #print('Getting the upcoming weeks events')
     # need to think about if there are multiple calendars 
     eventsResult = service.events().list(
        calendarId='primary', timeMin=start, timeMax=stopdate, singleEvents=True,
@@ -130,7 +131,8 @@ def main():
         weekdays.append(newD)
 
     if not events:
-        print('No upcoming events found.')
+        #print('No upcoming events found.')
+        uit = 1+1
     else: 
         for event in events:
             #print(event)
@@ -158,15 +160,15 @@ def main():
     #print (conflict_dict)
     for day in weekdays:
         if day not in conflict_dict:
-            print ("len", len(conflict_dict), day)
+            #print ("len", len(conflict_dict), day)
             conflict_dict[day] = []
             breakTime(sleep['wakeup']+ '-05:00', sleep['bedtime']+ '-05:00', day, conflict_dict)
-            print("len", len(conflict_dict))
-    print (conflict_dict)
+            #print("len", len(conflict_dict))
+    #print (conflict_dict)
 
-    conflict_dict = orderTimes(conflict_dict, 'afternoon')
+    conflict_dict = orderTimes(conflict_dict, wktprf)
     conflict_dict = orderDays(conflict_dict)
-    generateTime(conflict_dict, 3, 60)
+    generateTime(conflict_dict, dayprwk, avgwkt)
 
 def breakTime(start,end,day,dic):
     if (end >= '12:00:00') and (start < '12:00:00'):
@@ -306,8 +308,9 @@ def generateTime(availabledict, num_days, des_time):
                 endtime = starttime + dt.timedelta(minutes=des_time)
                 endlimit = datetime.strptime(end[0:8], '%H:%M:%S')
                 if endtime > endlimit:
-                    print ("hello")
+                    #print ("hello")
                     # need to pick another time interval
+                    iii = 1+1
                 else:
                     starttime = str(starttime.time()) + '-05:00'
                     endtime = str(endtime.time()) + '-05:00'
@@ -339,7 +342,7 @@ def generateTime(availabledict, num_days, des_time):
             formatted_description += name + ", " + str(time) + " min;"
         calWorkout = createEvent(day[0], (day[1], day[2]), ("Workout", formatted_description), "MAC")
         addWorkout(calWorkout)
-        print ("addedWorkout")
+        #print ("addedWorkout")
 
    
 
@@ -375,7 +378,7 @@ def generateWorkout(time):
     # iterate through dataset to find appropriate exercises w/in time limits
     # use simulated annealing to find the optimal bag of exercises
     workout = fillTime(rand_musc, time)
-    print (workout)
+    #print (workout)
     return workout
 
 #this needs to read in things from the data file but generally should work fine
@@ -432,7 +435,7 @@ def simulated_annealing(timelimit, num_exercises, time_exercises, name_exercises
         cur_bag = new_bag
       #total = valTotal(cur_bag)
       #values.append(total)
-    print (timeTotal(cur_bag))
+    #print (timeTotal(cur_bag))
     return cur_bag
 
 def initSolution(timelimit, num_exercises, time_exercises, name_exercises):
@@ -531,7 +534,7 @@ def addWorkout(event):
     http = credentials.authorize(httplib2.Http())
     service = discovery.build('calendar', 'v3', http=http)
     event = service.events().insert(calendarId='primary', body=event).execute()
-    print ('Event created: %s' % (event.get('htmlLink')))
+    #print ('Event created: %s' % (event.get('htmlLink')))
 
 if __name__ == '__main__':
-    main()
+    main('8:00:00', '11:59:59', 3, 60, 'afternoon', 'strength', '17-12-08')
