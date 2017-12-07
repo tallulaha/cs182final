@@ -267,19 +267,15 @@ def main(wake, bed, des_days, timelim, timepref,exrgl, startd, neigh):
             end = day[4][:-6]
         if day[3].endswith('-05:00'):
             start = day[3][:-6]
-        amt_time = strp(end,start, FMT)
+        time_min = strp(end,start, FMT)
         # need to convert to minutes
         #print ("amt of time", amt_time)
         #print (day[0])
         # https://stackoverflow.com/questions/14190045/how-to-convert-datetime-timedelta-to-minutes-hours-in-python
-        seconds = amt_time.total_seconds()
-        #print (seconds)
-        time_min = int(seconds / 60.)
+
         #print ("amt min", time_min)
-        if timelim < time_min:
-            workoutdescrip = generateWorkout(timelim)
-        else:
-            workoutdescrip = generateWorkout(timelim)
+
+        workoutdescrip = generateWorkout(time_min)
         formatted_description = ""
         print ("descr", workoutdescrip)
         for (_, name,_, time) in workoutdescrip:
@@ -290,7 +286,10 @@ def main(wake, bed, des_days, timelim, timepref,exrgl, startd, neigh):
 
 def strp(end,start,FMT):
     from datetime import datetime
-    return datetime.strptime(end,FMT) - datetime.strptime(start,FMT)        
+    amt = datetime.strptime(end,FMT) - datetime.strptime(start,FMT)  
+    seconds = amt.total_seconds()
+        #print (seconds)
+    return time_min = int(seconds / 60.)      
 
 def timeToCalendarForm(time):
     hr = int(time.hour)
