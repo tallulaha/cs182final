@@ -301,9 +301,11 @@ def timeToCalendarForm(time):
     return time
 
 def runCSP(pers_avail, gym_avail, des_time=60, delta=0):
+    print ("running ", pers_avail)
     day_timeivl = selectTimeInterval(pers_avail)
     # base case
     if day_timeivl == None:
+        print ("daytim")
         return None
     else:
         day, time_ivl = day_timeivl
@@ -809,4 +811,4 @@ def addWorkout(event):
     print ('Event created: %s' % (event.get('htmlLink')))
 
 if __name__ == '__main__':
-    main('08:00:00', '11:59:59', 3, 60, 'afternoon', 'strength', '17-12-10', 'river')
+    main('08:00:00', '23:59:59', 3, 60, 'afternoon', 'strength', '17-12-10', 'river')
