@@ -1,124 +1,124 @@
-Exercise Type,Exercise Name,Time (mins),Reps ,Muscles,Equipment
-cardio,Jump Rope,30,1,Quadriceps,Other
-cardio,Burpee,30,1,Quadriceps,None
-cardio,Bicycle,30,1,Quadriceps,Other
-cardio,Rowing,30,1,Quadriceps,Machine
-cardio,Elliptical,30,1,Quadriceps,Machine
-cardio,StairMaster,30,1,Quadriceps,Machine
-cardio,Outdoor Running,30,1,Quadriceps,None
-cardio,Skating,30,1,Quadriceps,Other
-cardio,Treadmill Jog (5 mph),30,1,Quadriceps,Machine
-cardio,Treadmill Run (6 mph),30,1,Quadriceps,Machine
-cardio,Recumbent Bike,30,1,Quadriceps,Machine
-cardio,Butt Kicks,30,1,Quadriceps,None
-strength ,Single-Leg Press,45,,Quadriceps,Machine
-strength ,Incline Hammer Curls,45,,Biceps ,Dumbbell
-strength ,Pull-Ups,45,,Lats,Other
-strength ,Dips,45,,Triceps,None
-strength ,Barbell Squat,45,,Quadriceps,Barbell
-strength ,Wrist Curl,45,,Forearms,Barbell
-strength ,Romanian Deadlift,45,,Hamstrings,Dumbbell
-strength ,Barbell Deadlift,45,,Hamstrings,Barbell
-strength ,Standing Military Press,45,,Shoulders ,Barbell
-strength ,Plank,45,,Abdominals,None
-strength ,Standin Cable Lift,45,,Abdominals,Machine
-strength ,Quad 15,15,,Quadriceps,Machine
-strength ,Biceps 15,15,,Biceps ,Dumbbell
-strength ,Lats 15,15,,Lats,Other
-strength ,Triceps 15,15,,Triceps,None
-strength ,Forearms 15,15,,Forearms,Barbell
-strength ,Hamstrings 15,15,,Hamstrings,Dumbbell
-strength ,Shoulders 15,15,,Shoulders ,Barbell
-strength ,Abdominals 15,15,,Abdominals,None
-strength ,Quad 10,10,,Quadriceps,Machine
-strength ,Biceps 10,10,,Biceps ,Dumbbell
-strength ,Lats 10,10,,Lats,Other
-strength ,Triceps 10,10,,Triceps,None
-strength ,Forearms 10,10,,Forearms,Barbell
-strength ,Hamstrings 10,10,,Hamstrings,Dumbbell
-strength ,Shoulders 10,10,,Shoulders ,Barbell
-strength ,Abdominals 10,10,,Abdominals,None
-strength ,Quad 8,8,,Quadriceps,Machine
-strength ,Biceps 8,8,,Biceps ,Dumbbell
-strength ,Lats 8,8,,Lats,Other
-strength ,Triceps 8,8,,Triceps,None
-strength ,Forearms 8,8,,Forearms,Barbell
-strength ,Hamstrings 8,8,,Hamstrings,Dumbbell
-strength ,Shoulders 8,8,,Shoulders ,Barbell
-strength ,Abdominals 8,8,,Abdominals,None
-strength ,Quad 5,5,,Quadriceps,Machine
-strength ,Biceps 5,5,,Biceps ,Dumbbell
-strength ,Lats 5,5,,Lats,Other
-strength ,Triceps 5,5,,Triceps,None
-strength ,Forearms 5,5,,Forearms,Barbell
-strength ,Hamstrings 5,5,,Hamstrings,Dumbbell
-strength ,Shoulders 5,5,,Shoulders ,Barbell
-strength ,Abdominals 5,5,,Abdominals,None
-strength ,Quad 3,3,,Quadriceps,Machine
-strength ,Biceps 3,3,,Biceps ,Dumbbell
-strength ,Lats 3,3,,Lats,Other
-strength ,Triceps 3,3,,Triceps,None
-strength ,Forearms 3,3,,Forearms,Barbell
-strength ,Hamstrings 3,3,,Hamstrings,Dumbbell
-strength ,Shoulders 3,3,,Hamstrings,Barbell
-strength ,Abdominals 3,3,,Abdominals,None
-strength ,Lats 11,1,,Lats,
-strength ,Lats 12,1,,Lats,
-strength ,Lats 13,8,,Lats,
-strength ,Lats 14,8,,Lats,
-strength ,Lats 15,2,,Lats,
-strength ,Lats 16,2,,Lats,
-strength ,Lats 17,2,,Lats,
-strength ,Lats 18,2,,Lats,
-strength ,Lats 19,2,,Lats,
-strength ,Lats 20,5,,Lats,
-strength ,Lats 21,5,,Lats,
-strength ,Lats 22,5,,Lats,
-strength ,Lats 23,5,,Lats,
-strength ,Lats 24,5,,Lats,
-strength ,Abdominals 11,1,,Abdominals,
-strength ,Abdominals 12,1,,Abdominals,
-strength ,Abdominals 13,8,,Abdominals,
-strength ,Abdominals 14,8,,Abdominals,
-strength ,Abdominals 15,2,,Abdominals,
-strength ,Abdominals 16,2,,Abdominals,
-strength ,Abdominals 17,2,,Abdominals,
-strength ,Abdominals 18,2,,Abdominals,
-strength ,Abdominals 19,2,,Abdominals,
-strength ,Abdominals 20,5,,Abdominals,
-strength ,Abdominals 21,5,,Abdominals,
-strength ,Abdominals 22,5,,Abdominals,
-strength ,Abdominals 23,5,,Abdominals,
-strength ,Abdominals 24,5,,Abdominals,
-strength ,Triceps 11,1,,Forearms,
-strength ,Triceps 12,1,,Forearms,
-strength ,Triceps 13,8,,Forearms,
-strength ,Triceps 14,8,,Forearms,
-strength ,Triceps 15,2,,Forearms,
-strength ,Triceps 16,2,,Forearms,
-strength ,Triceps 17,2,,Forearms,
-strength ,Triceps 18,2,,Forearms,
-strength ,Triceps 19,2,,Forearms,
-strength ,Triceps 20,5,,Forearms,
-strength ,Biceps 11,5,,Forearms,
-strength ,Biceps 12,5,,Forearms,
-strength ,Biceps 13,5,,Forearms,
-strength ,Biceps 14,5,,Forearms,
-strength ,Biceps 15,1,,Forearms,
-strength ,Biceps 16,1,,Forearms,
-strength ,Biceps 17,8,,Forearms,
-strength ,Quad 11,8,,Quadriceps,
-strength ,Quad 12,9,,Quadriceps,
-strength ,Quad 13,8,,Quadriceps,
-strength ,Quad 14,6,,Quadriceps,
-strength ,Quad 15,5,,Quadriceps,
-strength ,Quad 16,4,,Quadriceps,
-strength ,Quad 17,3,,Quadriceps,
-strength ,Quad 18,2,,Quadriceps,
-strength ,Quad 19,1,,Quadriceps,
-strength ,Quad 20,1,,Quadriceps,
-strength ,Quad 21,2,,Quadriceps,
-strength ,Quad 22,3,,Quadriceps,
-strength ,Quad 23,4,,Quadriceps,
-strength ,Quad 24,5,,Quadriceps,
-strength ,Quad 25,6,,Quadriceps,
+Exercise Type,Exercise Name,Time (mins),Reps ,Muscles,Equipment,Level
+cardio,Jump Rope,30,1,Quadriceps,Other,10
+cardio,Burpee,30,1,Quadriceps,None,9
+cardio,Bicycle,30,1,Quadriceps,Other,8
+cardio,Rowing,30,1,Quadriceps,Machine,7
+cardio,Elliptical,30,1,Quadriceps,Machine,6
+cardio,StairMaster,30,1,Quadriceps,Machine,5
+cardio,Outdoor Running,30,1,Quadriceps,None,4
+cardio,Skating,30,1,Quadriceps,Other,3
+cardio,Treadmill Jog (5 mph),30,1,Quadriceps,Machine,2
+cardio,Treadmill Run (6 mph),30,1,Quadriceps,Machine,1
+cardio,Recumbent Bike,30,1,Quadriceps,Machine,10
+cardio,Butt Kicks,30,1,Quadriceps,None,9
+strength ,Single-Leg Press,45,,Quadriceps,Machine,8
+strength ,Incline Hammer Curls,45,,Biceps ,Dumbbell,7
+strength ,Pull-Ups,45,,Lats,Other,6
+strength ,Dips,45,,Triceps,None,5
+strength ,Barbell Squat,45,,Quadriceps,Barbell,4
+strength ,Wrist Curl,45,,Forearms,Barbell,3
+strength ,Romanian Deadlift,45,,Hamstrings,Dumbbell,2
+strength ,Barbell Deadlift,45,,Hamstrings,Barbell,1
+strength ,Standing Military Press,45,,Shoulders ,Barbell,10
+strength ,Plank,45,,Abdominals,None,9
+strength ,Standin Cable Lift,45,,Abdominals,Machine,8
+strength ,Quad 15,15,,Quadriceps,Machine,7
+strength ,Biceps 15,15,,Biceps ,Dumbbell,6
+strength ,Lats 15,15,,Lats,Other,5
+strength ,Triceps 15,15,,Triceps,None,4
+strength ,Forearms 15,15,,Forearms,Barbell,3
+strength ,Hamstrings 15,15,,Hamstrings,Dumbbell,2
+strength ,Shoulders 15,15,,Hamstrings,Barbell,1
+strength ,Abdominals 15,15,,Abdominals,None,10
+strength ,Quad 10,10,,Quadriceps,Machine,9
+strength ,Biceps 10,10,,Biceps ,Dumbbell,8
+strength ,Lats 10,10,,Lats,Other,7
+strength ,Triceps 10,10,,Triceps,None,6
+strength ,Forearms 10,10,,Forearms,Barbell,5
+strength ,Hamstrings 10,10,,Hamstrings,Dumbbell,4
+strength ,Shoulders 10,10,,Hamstrings,Barbell,3
+strength ,Abdominals 10,10,,Abdominals,None,2
+strength ,Quad 8,8,,Quadriceps,Machine,1
+strength ,Biceps 8,8,,Biceps ,Dumbbell,10
+strength ,Lats 8,8,,Lats,Other,9
+strength ,Triceps 8,8,,Triceps,None,8
+strength ,Forearms 8,8,,Forearms,Barbell,7
+strength ,Hamstrings 8,8,,Hamstrings,Dumbbell,6
+strength ,Shoulders 8,8,,Hamstrings,Barbell,5
+strength ,Abdominals 8,8,,Abdominals,None,4
+strength ,Quad 5,5,,Quadriceps,Machine,3
+strength ,Biceps 5,5,,Biceps ,Dumbbell,2
+strength ,Lats 5,5,,Lats,Other,1
+strength ,Triceps 5,5,,Triceps,None,10
+strength ,Forearms 5,5,,Forearms,Barbell,9
+strength ,Hamstrings 5,5,,Hamstrings,Dumbbell,8
+strength ,Shoulders 5,5,,Hamstrings,Barbell,7
+strength ,Abdominals 5,5,,Abdominals,None,6
+strength ,Quad 3,3,,Quadriceps,Machine,5
+strength ,Biceps 3,3,,Biceps ,Dumbbell,4
+strength ,Lats 3,3,,Lats,Other,3
+strength ,Triceps 3,3,,Triceps,None,2
+strength ,Forearms 3,3,,Forearms,Barbell,1
+strength ,Hamstrings 3,3,,Hamstrings,Dumbbell,10
+strength ,Shoulders 3,3,,Hamstrings,Barbell,9
+strength ,Abdominals 3,3,,Abdominals,None,8
+strength ,Lats 11,1,,Lats,,7
+strength ,Lats 12,1,,Lats,,6
+strength ,Lats 13,8,,Lats,,5
+strength ,Lats 14,8,,Lats,,4
+strength ,Lats 15,2,,Lats,,3
+strength ,Lats 16,2,,Lats,,2
+strength ,Lats 17,2,,Lats,,1
+strength ,Lats 18,2,,Lats,,10
+strength ,Lats 19,2,,Lats,,9
+strength ,Lats 20,5,,Lats,,8
+strength ,Lats 21,5,,Lats,,7
+strength ,Lats 22,5,,Lats,,6
+strength ,Lats 23,5,,Lats,,5
+strength ,Lats 24,5,,Lats,,4
+strength ,Abdominals 11,1,,Abdominals,,3
+strength ,Abdominals 12,1,,Abdominals,,2
+strength ,Abdominals 13,8,,Abdominals,,1
+strength ,Abdominals 14,8,,Abdominals,,10
+strength ,Abdominals 15,2,,Abdominals,,9
+strength ,Abdominals 16,2,,Abdominals,,8
+strength ,Abdominals 17,2,,Abdominals,,7
+strength ,Abdominals 18,2,,Abdominals,,6
+strength ,Abdominals 19,2,,Abdominals,,5
+strength ,Abdominals 20,5,,Abdominals,,4
+strength ,Abdominals 21,5,,Abdominals,,3
+strength ,Abdominals 22,5,,Abdominals,,2
+strength ,Abdominals 23,5,,Abdominals,,1
+strength ,Abdominals 24,5,,Abdominals,,10
+strength ,Triceps 11,1,,Forearms,,9
+strength ,Triceps 12,1,,Forearms,,8
+strength ,Triceps 13,8,,Forearms,,7
+strength ,Triceps 14,8,,Forearms,,6
+strength ,Triceps 15,2,,Forearms,,5
+strength ,Triceps 16,2,,Forearms,,4
+strength ,Triceps 17,2,,Forearms,,3
+strength ,Triceps 18,2,,Forearms,,2
+strength ,Triceps 19,2,,Forearms,,1
+strength ,Triceps 20,5,,Forearms,,10
+strength ,Biceps 11,5,,Forearms,,9
+strength ,Biceps 12,5,,Forearms,,8
+strength ,Biceps 13,5,,Forearms,,7
+strength ,Biceps 14,5,,Forearms,,6
+strength ,Biceps 15,1,,Forearms,,5
+strength ,Biceps 16,1,,Forearms,,4
+strength ,Biceps 17,8,,Forearms,,3
+strength ,Quad 11,8,,Quadriceps,,2
+strength ,Quad 12,9,,Quadriceps,,1
+strength ,Quad 13,8,,Quadriceps,,10
+strength ,Quad 14,6,,Quadriceps,,9
+strength ,Quad 15,5,,Quadriceps,,8
+strength ,Quad 16,4,,Quadriceps,,7
+strength ,Quad 17,3,,Quadriceps,,6
+strength ,Quad 18,2,,Quadriceps,,5
+strength ,Quad 19,1,,Quadriceps,,4
+strength ,Quad 20,1,,Quadriceps,,3
+strength ,Quad 21,2,,Quadriceps,,2
+strength ,Quad 22,3,,Quadriceps,,1
+strength ,Quad 23,4,,Quadriceps,,10
+strength ,Quad 24,5,,Quadriceps,,9
+strength ,Quad 25,6,,Quadriceps,,8
