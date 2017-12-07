@@ -8,6 +8,10 @@ from oauth2client import client
 from oauth2client import tools
 from oauth2client.file import Storage
 
+import logging
+
+logging.getLogger('googleapicliet.discovery_cache').setLevel(logging.ERROR)
+
 import datetime
 import dateutil.parser
 import calendar
@@ -68,8 +72,10 @@ def main(wake, bed, des_days, timelim, timepref,exrgl, startd, neigh):
     10 events on the user's calendar.
     """
     sleep = {'wakeup': wake, 'bedtime': bed}
+    print ("sleep", sleep)
+    print ("tp", timepref)
     #sleep = {'wakeup': '08:00:00', 'bedtime': '23:59:59'}
-    time_preferences = ['morning', 'afternoon', 'evening']
+    #time_preferences = ['morning', 'afternoon', 'evening']
     #workout_goals = ['lose weight', 'gain muscle', 'increase endurance', 'new skills']
 
 
@@ -192,6 +198,7 @@ def main(wake, bed, des_days, timelim, timepref,exrgl, startd, neigh):
     # do all this preprocessing that does not have to be in a loop
     # assign the time preference (morning, afternoon, evening)
     # fwd check the personal availability schedule
+    print ("PA", personal_avail)
     update_pers_avail = updateTimesPreference(personal_avail, timepref)
     if update_pers_avail == None:
         print ("Your schedule does not allow for workouts in the indicated time preference (morning) due to Personal availability-- break")

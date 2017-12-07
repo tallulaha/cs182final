@@ -1,6 +1,7 @@
 # import the library
 from appJar import gui
-import input_cal
+import my_calendar
+import webbrowser
 
 # handle button events
 def press(button):
@@ -18,11 +19,14 @@ def press(button):
        	wakeTime += ":00"
        	sleepTime += ":00"
 
+       	print(wakeTime, sleepTime, sessionCount, sessionTime, sessionPeriod,  sessionGoal, dateStart, neighborhood,)
 
-       	# def main(wake, bed, dayprwk, avgwkt, wktprf,exrgl, startd):
-       	input_cal.main(wakeTime,sleepTime,sessionCount,sessionTime,sessionPeriod,sessionGoal,dateStart)
+       	# def main(wake, bed, des_days, timelim, timepref,exrgl, startd, neigh):
+       	my_calendar.main(wakeTime,sleepTime,sessionCount,sessionTime,sessionPeriod,sessionGoal,dateStart, neighborhood)
 
-        print(wakeTime, sleepTime, neighborhood,sessionPeriod,sessionGoal,sessionTime,sessionCount,dateStart)
+       	webbrowser.open_new('https://calendar.google.com/')
+
+       
 
 def showDate(btn):
     print(app.getDatePicker("dp"))
@@ -46,11 +50,11 @@ app.addEntry("wakeTime")
 app.addLabel("sleep", "Sleep Time (hh:mm)")
 app.addEntry("sleepTime")
 
-app.addLabelOptionBox("neighborhood", ["Yard", "River", "Quad"])
+app.addLabelOptionBox("neighborhood", ["yard", "river", "quad"])
 
-app.addLabelOptionBox("sessionPeriod", ["Mornings - Wake to Noon", "Afternoons - Noon to 5pm", "Evenings - 5pm to Bed"])
+app.addLabelOptionBox("sessionPeriod", ["morning", "afternoon", "evening"])
 
-app.addLabelOptionBox("sessionGoal", ["Strength Training", "Cardio"])
+app.addLabelOptionBox("sessionGoal", ["strength", "cardio"])
 
 app.addLabel("sTime", "Average Session Length (min)")
 app.addNumericEntry("sessionTime")
