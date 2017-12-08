@@ -213,25 +213,33 @@ def main(wake, bed, des_days, timelim, timepref,exrgl, input_d, neigh):
     #print ("PA", personal_avail)
     update_pers_avail = updateTimesPreference(personal_avail, timepref)
     if update_pers_avail == None:
-        print ("Your schedule does not allow for workouts in the indicated time preference (morning) due to Personal availability-- break")
+        print ("Your personal schedule does not allow for workouts in the indicated time preference:", timepref)
+        print ("Please adjust your time preference")
+        return
     #print ("pre gym pref", update_pers_avail)
     # fwd check the gym hours schedule
     update_gym_avail = updateGymHoursPreference(all_days, timepref)
     if update_gym_avail == None:
-        print ("Your schedule does not allow for workouts in the indicated time preference (morning) due to Gym availability -- break")
+        print ("The available gym hours do not allow for workouts in the indicated time preference:", timepref)
+        print ("Please adjust your time preference")
+        return
     #print ("gym pref", update_gym_avail)
     # assign the time you'd like to work out for
     # fwd check the personal availability schedule
     #print ("pre times lim", update_pers_avail)
     update_pers_avail = updateTimesLimit(update_pers_avail, timelim)
     if update_pers_avail == None:
-        print ("Your schedule does not allow for workouts in the indicated workout time due to Personal availability-- break")
+        print ("Your personal schedule does not allow for workouts with the indicated workout time:", timelim)
+        print ("Please adjust your workout time")
+        return
     #print ("sort of updated")
     #print ("post", update_pers_avail)
     # fwd check the gym's hours schedule
     update_gym_avail = updateGymHoursLimit(update_gym_avail, timelim)
     if update_pers_avail == None:
-        print ("Your schedule does not allow for workouts in the indicated workout time due to Gym availability-- break")
+        print ("The available gym hours do not allow for workouts with the indicated workout time:", timelim)
+        print ("Please adjust your workout time")
+        return
     #print ("most updated")
 
     # commented out because now a parameter argument
@@ -910,4 +918,4 @@ def addWorkout(event):
     print ('Event created: %s' % (event.get('htmlLink')))
 
 if __name__ == '__main__':
-    main('08:00:00', '23:59:59', 3, 45, 'morning', 'strength', '2017-12-10', 'river')
+    main('08:00:00', '23:59:59', 3, 60, 'afternoon', 'strength', '2017-12-10', 'river')
