@@ -205,15 +205,15 @@ def main(wake, bed, des_days, timelim, timepref,exrgl, input_d, neigh):
     #print ("PA", personal_avail)
     update_pers_avail = updateTimesPreference(personal_avail, timepref)
     if update_pers_avail == None:
-        print ("Your personal schedule does not allow for workouts in the indicated time preference:", timepref)
-        print ("Please adjust your time preference")
+        print ("Your personal schedule does not allow for workouts with your given preferences") 
+        print ("Please adjust your preferences")
         return
     #print ("pre gym pref", update_pers_avail)
     # fwd check the gym hours schedule
     update_gym_avail = updateGymHoursPreference(all_days, timepref)
     if update_gym_avail == None:
-        print ("The available gym hours do not allow for workouts in the indicated time preference:", timepref)
-        print ("Please adjust your time preference")
+        print ("Your personal schedule does not allow for workouts with your given preferences") 
+        print ("Please adjust your preferences")
         return
     print ("gym pref", update_gym_avail)
     # assign the time you'd like to work out for
@@ -221,16 +221,16 @@ def main(wake, bed, des_days, timelim, timepref,exrgl, input_d, neigh):
     #print ("pre times lim", update_pers_avail)
     update_pers_avail = updateTimesLimit(update_pers_avail, timelim)
     if update_pers_avail == None:
-        print ("Your personal schedule does not allow for workouts with the indicated workout time:", timelim)
-        print ("Please adjust your workout time")
+        print ("Your personal schedule does not allow for workouts with your given preferences") 
+        print ("Please adjust your preferences")
         return
     #print ("sort of updated")
     #print ("post", update_pers_avail)
     # fwd check the gym's hours schedule
     update_gym_avail = updateGymHoursLimit(update_gym_avail, timelim)
     if update_pers_avail == None:
-        print ("The available gym hours do not allow for workouts with the indicated workout time:", timelim)
-        print ("Please adjust your workout time")
+        print ("Your personal schedule does not allow for workouts with your given preferences") 
+        print ("Please adjust your preferences")
         return
     #print ("most updated")
 
