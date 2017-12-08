@@ -157,45 +157,45 @@ def main(wake, bed, des_days, timelim, timepref,exrgl, input_d, neigh):
 
     gym_sun = {
         "MAC" : [('9:00:00', '12:00:00'), ('12:00:00', '13:00:00'), None], 
-        "Hemenway" : [None, ('14:00:00', '16:59:59'), ('17:00:00', '23:00:00')],
-        "Murr" : [('9:00:00', '12:00:00'), ('12:00:00', '16:59:59'), None],
+        "Hemenway" : [None, ('14:00:00', '17:00:00'), ('17:00:00', '23:00:00')],
+        "Murr" : [('9:00:00', '12:00:00'), ('12:00:00', '17:00:00'), None],
         "QRAC" : [None, None, None]
     }
     gym_mon = {
-        "MAC" : [('6:00:00', '12:00:00'), ('12:00:00', '16:59:59'), ('17:00:00', '22:00:00')], 
-        "Hemenway" : [('6:00:00', '12:00:00'), ('12:00:00', '16:59:59'), ('17:00:00', '23:00:00')],
-        "Murr" : [('7:00:00', '12:00:00'), ('12:00:00', '16:59:59'), ('17:00:00', '23:00:00')],
-        "QRAC" : [('8:00:00', '12:00:00'), ('12:00:00', '16:59:59'), ('17:00:00', '23:00:00')]
+        "MAC" : [('6:00:00', '12:00:00'), ('12:00:00', '17:00:00'), ('17:00:00', '22:00:00')], 
+        "Hemenway" : [('6:00:00', '12:00:00'), ('12:00:00', '17:00:00'), ('17:00:00', '23:00:00')],
+        "Murr" : [('7:00:00', '12:00:00'), ('12:00:00', '17:00:00'), ('17:00:00', '23:00:00')],
+        "QRAC" : [('8:00:00', '12:00:00'), ('12:00:00', '17:00:00'), ('17:00:00', '23:00:00')]
     }
     gym_tue = {
-        "MAC" : [('6:00:00', '12:00:00'), ('12:00:00', '16:59:59'), ('17:00:00', '22:00:00')], 
-        "Hemenway" : [('6:00:00', '12:00:00'), ('12:00:00', '16:59:59'), ('17:00:00', '23:00:00')],
-        "Murr" : [('7:00:00', '12:00:00'), ('12:00:00', '16:59:59'), ('17:00:00', '23:00:00')],
-        "QRAC" : [('8:00:00', '12:00:00'), ('12:00:00', '16:59:59'), ('17:00:00', '23:00:00')]
+        "MAC" : [('6:00:00', '12:00:00'), ('12:00:00', '17:00:00'), ('17:00:00', '22:00:00')], 
+        "Hemenway" : [('6:00:00', '12:00:00'), ('12:00:00', '17:00:00'), ('17:00:00', '23:00:00')],
+        "Murr" : [('7:00:00', '12:00:00'), ('12:00:00', '17:00:00'), ('17:00:00', '23:00:00')],
+        "QRAC" : [('8:00:00', '12:00:00'), ('12:00:00', '17:00:00'), ('17:00:00', '23:00:00')]
     }
     gym_wed = {
-        "MAC" : [('6:00:00', '12:00:00'), ('12:00:00', '16:59:59'), ('17:00:00', '22:00:00')], 
-        "Hemenway" : [('6:00:00', '12:00:00'), ('12:00:00', '16:59:59'), ('17:00:00', '23:00:00')],
-        "Murr" : [('7:00:00', '12:00:00'), ('12:00:00', '16:59:59'), ('17:00:00', '23:00:00')],
-        "QRAC" : [('8:00:00', '12:00:00'), ('12:00:00', '16:59:59'), ('17:00:00', '23:00:00')]
+        "MAC" : [('6:00:00', '12:00:00'), ('12:00:00', '17:00:00'), ('17:00:00', '22:00:00')], 
+        "Hemenway" : [('6:00:00', '12:00:00'), ('12:00:00', '17:00:00'), ('17:00:00', '23:00:00')],
+        "Murr" : [('7:00:00', '12:00:00'), ('12:00:00', '17:00:00'), ('17:00:00', '23:00:00')],
+        "QRAC" : [('8:00:00', '12:00:00'), ('12:00:00', '17:00:00'), ('17:00:00', '23:00:00')]
     }
     gym_th = {
-        "MAC" : [('6:00:00', '12:00:00'), ('12:00:00', '16:59:59'), ('17:00:00', '22:00:00')], 
-        "Hemenway" : [('6:00:00', '12:00:00'), ('12:00:00', '16:59:59'), ('17:00:00', '23:00:00')],
-        "Murr" : [('7:00:00', '12:00:00'), ('12:00:00', '16:59:59'), ('17:00:00', '23:00:00')],
-        "QRAC" : [('8:00:00', '12:00:00'), ('12:00:00', '16:59:59'), ('17:00:00', '23:00:00')]
+        "MAC" : [('6:00:00', '12:00:00'), ('12:00:00', '17:00:00'), ('17:00:00', '22:00:00')], 
+        "Hemenway" : [('6:00:00', '12:00:00'), ('12:00:00', '17:00:00'), ('17:00:00', '23:00:00')],
+        "Murr" : [('7:00:00', '12:00:00'), ('12:00:00', '17:00:00'), ('17:00:00', '23:00:00')],
+        "QRAC" : [('8:00:00', '12:00:00'), ('12:00:00', '17:00:00'), ('17:00:00', '23:00:00')]
     }
     gym_fri = {
-        "MAC" : [('6:00:00', '12:00:00'), ('12:00:00', '16:59:59'), ('17:00:00', '19:00:00')], 
-        "Hemenway" : [('6:00:00', '12:00:00'), ('12:00:00', '16:59:59'), ('17:00:00', '20:00:00')],
-        "Murr" : [('7:00:00', '12:00:00'), ('12:00:00', '16:59:59'), ('17:00:00', '22:30:00')],
-        "QRAC" : [('8:00:00', '12:00:00'), ('12:00:00', '16:59:59'), ('17:00:00', '21:00:00')]
+        "MAC" : [('6:00:00', '12:00:00'), ('12:00:00', '17:00:00'), ('17:00:00', '19:00:00')], 
+        "Hemenway" : [('6:00:00', '12:00:00'), ('12:00:00', '17:00:00'), ('17:00:00', '20:00:00')],
+        "Murr" : [('7:00:00', '12:00:00'), ('12:00:00', '17:00:00'), ('17:00:00', '22:30:00')],
+        "QRAC" : [('8:00:00', '12:00:00'), ('12:00:00', '17:00:00'), ('17:00:00', '21:00:00')]
     }
     gym_sat = {
-        "MAC" : [('9:00:00', '12:00:00'), ('12:00:00', '16:59:59'), None], 
-        "Hemenway" : [('10:00:00', '12:00:00'), ('12:00:00', '16:59:59'), ('17:00:00', '20:00:00')],
-        "Murr" : [('8:00:00', '12:00:00'), ('12:00:00', '16:59:59'), ('17:00:00', '20:00:00')],
-        "QRAC" : [None, ('12:00:00', '16:59:59'), ('17:00:00', '21:00:00')]
+        "MAC" : [('9:00:00', '12:00:00'), ('12:00:00', '17:00:00'), None], 
+        "Hemenway" : [('10:00:00', '12:00:00'), ('12:00:00', '17:00:00'), ('17:00:00', '20:00:00')],
+        "Murr" : [('8:00:00', '12:00:00'), ('12:00:00', '17:00:00'), ('17:00:00', '20:00:00')],
+        "QRAC" : [None, ('12:00:00', '17:00:00'), ('17:00:00', '21:00:00')]
     }
 
     all_days = {
@@ -214,20 +214,20 @@ def main(wake, bed, des_days, timelim, timepref,exrgl, input_d, neigh):
     update_pers_avail = updateTimesPreference(personal_avail, timepref)
     if update_pers_avail == None:
         print ("Your schedule does not allow for workouts in the indicated time preference (morning) due to Personal availability-- break")
-    print ("pre gym pref", update_pers_avail)
+    #print ("pre gym pref", update_pers_avail)
     # fwd check the gym hours schedule
     update_gym_avail = updateGymHoursPreference(all_days, timepref)
     if update_gym_avail == None:
         print ("Your schedule does not allow for workouts in the indicated time preference (morning) due to Gym availability -- break")
-    print ("gym pref", update_gym_avail)
+    #print ("gym pref", update_gym_avail)
     # assign the time you'd like to work out for
     # fwd check the personal availability schedule
-    print ("pre times lim", update_pers_avail)
+    #print ("pre times lim", update_pers_avail)
     update_pers_avail = updateTimesLimit(update_pers_avail, timelim)
     if update_pers_avail == None:
         print ("Your schedule does not allow for workouts in the indicated workout time due to Personal availability-- break")
     #print ("sort of updated")
-    print ("post", update_pers_avail)
+    #print ("post", update_pers_avail)
     # fwd check the gym's hours schedule
     update_gym_avail = updateGymHoursLimit(update_gym_avail, timelim)
     if update_pers_avail == None:
@@ -302,6 +302,33 @@ def timeToCalendarForm(time):
     time = hr + ":" + mn + ":00-05:00"
     return time
 
+def runCSP(pers_avail, gym_avail, des_time, delta, neigh):
+    # check if pers_avail is full bc if it is empty, means you can no longer assign wkts
+    if pers_avail == {} or gym_avail == {}:
+        return None
+    # select a day and a time frame from your personal avail
+    # this always returns something because of fwd checking
+    # only returns none if pers_avail is empty, but already checked
+    time_frame = selectTimeInterval(pers_avail)
+    (day, frame) = time_frame
+    time_in_frame = selectTimeInInterval(frame, des_time, delta)
+    # maybe delta causes it to be out of bounds
+    if time_in_frame == None:
+        pers_avail[day].remove(frame)
+        if pers_avail[day] == []:
+            pers_avail.pop(day,None)  
+        return runCSP(pers_avail, gym_avail, des_time, 0, neigh)
+    else:
+        st, en = time_in_frame
+        wkday = weekday(day)
+        is_gym_open = updateTimesGymHours(wkday,st,en,gym_avail)
+        # gym isnt open in this time frame
+        if is_gym_open == None:
+            return runCSP(pers_avail, gym_avail, des_time, (delta+15), neigh)
+        else:
+            assign = assignGymAndTime(is_gym_open, neigh)
+            return assign
+
 # def runCSP(pers_avail, gym_avail, des_time, delta, neigh):
 #     #print ("running ", pers_avail)
 #     day_timeivl = selectTimeInterval(pers_avail)
@@ -337,54 +364,54 @@ def timeToCalendarForm(time):
 #             return None
 #         return assignGymAndTime(new_gym_avail, neigh)
 
-def runCSP(pers_avail, gym_avail, des_time, delta, neigh):
-    #print ("running ", pers_avail)
-    day_timeivl = selectTimeInterval(pers_avail)
-    # base case
-    if day_timeivl == None:
-        #print ("daytim")
-        print ("no available days")
-        return None
-    else:
-        #print ("daytivl", day_timeivl)
-        day, time_ivl = day_timeivl
-        wkt_ivl = selectTimeInInterval(time_ivl, des_time, delta)
-        # print ("wkinterval", wkt_ivl)
-        # print ("time", time_ivl)
-        # print ("daytime", day_timeivl)
-        # print ("PADAY", pers_avail[day])
-        # if it comes back with None, means that this time_ivl is no good so remove it
-        while wkt_ivl == None:
-            #print (pers_avail[day])
-            if time_ivl in pers_avail[day]:
-                pers_avail[day].remove(time_ivl)
+# def runCSP(pers_avail, gym_avail, des_time, delta, neigh):
+#     #print ("running ", pers_avail)
+#     day_timeivl = selectTimeInterval(pers_avail)
+#     # base case
+#     if day_timeivl == None:
+#         #print ("daytim")
+#         print ("no available days")
+#         return None
+#     else:
+#         #print ("daytivl", day_timeivl)
+#         day, time_ivl = day_timeivl
+#         wkt_ivl = selectTimeInInterval(time_ivl, des_time, delta)
+#         # print ("wkinterval", wkt_ivl)
+#         # print ("time", time_ivl)
+#         # print ("daytime", day_timeivl)
+#         # print ("PADAY", pers_avail[day])
+#         # if it comes back with None, means that this time_ivl is no good so remove it
+#         while wkt_ivl == None:
+#             #print (pers_avail[day])
+#             if time_ivl in pers_avail[day]:
+#                 pers_avail[day].remove(time_ivl)
 
-            if not pers_avail[day]:
-                print ("no more time intervals in day, moving on")
-                pers_avail.pop(day, None)
-            day_timeivl = selectTimeInterval(pers_avail)
-            if day_timeivl == None:
-                return None
-            day, time_ivl = day_timeivl
-            wkt_ivl = selectTimeInInterval(time_ivl, des_time, delta)
+#             if not pers_avail[day]:
+#                 print ("no more time intervals in day, moving on")
+#                 pers_avail.pop(day, None)
+#             day_timeivl = selectTimeInterval(pers_avail)
+#             if day_timeivl == None:
+#                 return None
+#             day, time_ivl = day_timeivl
+#             wkt_ivl = selectTimeInInterval(time_ivl, des_time, delta)
 
 
-        (startwkt, endwkt) = wkt_ivl
-        wkday = weekday(day)
-        new_gym_avail = updateTimesGymHours(wkday, startwkt, endwkt, gym_avail)
-        #print ("nga", new_gym_avail)
-        # rerun with new delta if None (will always choose same day bc still least constrained)
-        # hopefully get a new interval to keep trying
-        # run on the same gym availability
+#         (startwkt, endwkt) = wkt_ivl
+#         wkday = weekday(day)
+#         new_gym_avail = updateTimesGymHours(wkday, startwkt, endwkt, gym_avail)
+#         #print ("nga", new_gym_avail)
+#         # rerun with new delta if None (will always choose same day bc still least constrained)
+#         # hopefully get a new interval to keep trying
+#         # run on the same gym availability
 
-        ## this is not fixed yet
-        if new_gym_avail == None:
-            delta += 15
-            run_ivl = runCSP(pers_avail, gym_avail, des_time, delta, neigh)
-            if run_ivl == None:
-                return None
-            return run_ivl
-        return assignGymAndTime(new_gym_avail, neigh)
+#         ## this is not fixed yet
+#         if new_gym_avail == None:
+#             delta += 15
+#             run_ivl = runCSP(pers_avail, gym_avail, des_time, delta, neigh)
+#             if run_ivl == None:
+#                 return None
+#             return run_ivl
+#         return assignGymAndTime(new_gym_avail, neigh)
 
     # you have your preferences (time) assigned
     # fwd check: eliminate all times in the personal calendar's domain that aren't consistent
@@ -445,7 +472,7 @@ def updateTimesPreference(availabledict, timepref):
                 ecutoff = datetime.strptime('12:00:00', '%H:%M:%S')
             elif timepref == 'afternoon':
                 scutoff = datetime.strptime('12:00:00', '%H:%M:%S')
-                ecutoff = datetime.strptime('16:59:59', '%H:%M:%S')
+                ecutoff = datetime.strptime('17:00:00', '%H:%M:%S')
             else:
                 scutoff = datetime.strptime('17:00:00', '%H:%M:%S')
                 ecutoff = datetime.strptime('23:59:59', '%H:%M:%S')
@@ -605,7 +632,7 @@ def selectTimeInterval(availabledict):
             max_day = day
 
     time_ivls = availabledict[max_day]
-    print ("most available time day", time_ivls)
+    #print ("most available time day", time_ivls)
 
     # you know all the time intervals are long enough for desired workout
     # you know each day has at least 1 time interval because of fwd checking
@@ -660,7 +687,7 @@ def updateTimesGymHours (day, startwork, endwork, availabledict):
     from datetime import datetime 
 
     gym_day = availabledict[day]
-    print ("gym, day", gym_day, day)
+    #print ("gym, day", gym_day, day)
     possible = {}
     spec_gym = None
     for gym, times in gym_day.iteritems():
@@ -672,7 +699,7 @@ def updateTimesGymHours (day, startwork, endwork, availabledict):
             possible[gym] = (day, times, startwork, endwork)
 
             spec_gym = gym
-    print ("possible gyms", possible)
+    #print ("possible gyms", possible)
     if len(possible) == 0:
         return None
     return possible
