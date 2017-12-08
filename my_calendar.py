@@ -119,15 +119,15 @@ def main(wake, bed, des_days, timelim, timepref,exrgl, input_d, neigh):
     print ("days?", weekdays)
 
     for day in weekdays:
-        print ("len", len(personal_avail), day)
+        #print ("len", len(personal_avail), day)
         personal_avail[day] = [(sleep['wakeup']+ '-05:00',sleep['bedtime']+ '-05:00')]
     if not events:
         print('No upcoming events found.')
-        print ("no events PA", personal_avail)
+        #print ("no events PA", personal_avail)
     else: 
         for event in events:
             #print ("event")
-            print(event['summary'])
+            #print(event['summary'])
             start = event['start'].get('dateTime', event['start'].get('date'))
             event_end = event['end'].get('dateTime', event['end'].get('date'))
             day, time = start.split("T")
@@ -136,14 +136,14 @@ def main(wake, bed, des_days, timelim, timepref,exrgl, input_d, neigh):
             personal_avail = freeConflict(day, time, time_end, personal_avail)
             print ("out")
     #if personal_avail:
-    print ("PA", personal_avail)
+    #print ("PA", personal_avail)
     for day,times in personal_avail.iteritems():
         print ("here")
         #print ("times", times)
         for time in times:
-            print ("hi")
+            #print ("hi")
             st,e = time
-        # not sure about this equal
+            # not sure about this equal
             personal_avail = breakTime(st,e,day,personal_avail)
             # dont break time until you have done all the conflicts then just pass it all in
     #print ("NEW PERSONAL", personal_avail)
@@ -370,45 +370,26 @@ def weekday(day):
     return days[getDateTimeFromISO8601String(day).weekday()]
 
 def breakTime(start,end,day,dic):
-    if (end >= '12:00:00') and (start < '12:00:00'):
-        print ("dic", dic)
-        dic[day].append((start, '12:00:00-05:00'))
-        if end >= '17:00:00':
-            dic[day].append(('12:00:00-05:00', '17:00:00-05:00'))
+    print ("whats happn")
+    temp = copy.deepcopy(dic)
+    if start < '12:00:00' and (end > '12:00:00'):
+        #print ("dic", dic)
+        temp[day].remove((start,end))
+        temp[day].append((start, '12:00:00-05:00'))
+        if end > '17:00:00':
+            temp[day].append(('12:00:00-05:00', '17:00:00-05:00'))
         else:
-            if end != '12:00:00-05:00':
-                dic[day].append(('12:00:00-05:00', end))
-    elif (end >='17:00:00') and (start < '17:00:00'):
-        dic[day].append((start, '17:00:00-05:00'))
-        if end != '17:00:00-05:00':
-            dic[day].append(('17:00:00-05:00', end))
-    else:
-        if start != end:
-            dic[day].append((start, end))
-    return dic
-
-# def alreadyConflict(day, start, end, curr_avail):
-#     #_, end = end.split("T")
-#     print("day, s, e, c", day, start, end, curr_avail)
-#     for free in curr_avail[day]:
-#         if free[0] >= start and free[1] <= end:
-#             print("all")
-#             curr_avail[day].remove(free)
-#         elif free[1] >= start and free[0] <= end:
-#             print ("endend")
-#             curr_avail[day].remove(free)
-#             if end != free[1]:
-#                 curr_avail[day].append((end,free[1]))
-#         elif free[0] <= start and free[1] >= start:
-#             print ("start,start")
-#             curr_avail[day].remove(free)
-#             if free[0] != start:
-#                 curr_avail[day].append((free[0],start))
-#         elif free[0] >= start and free[0] <= end and free[1] >= end:
-#             curr_avail[day].remove(free)
-#             if end != free[1]:
-#                 curr_avail[day].append((end,free[1]))
-#     return curr_avail
+            temp[day].append(('12:00:00-05:00', end))
+    elif (end >'17:00:00') and (start < '17:00:00'):
+        temp[day].remove((start,end))
+        temp[day].append((start, '17:00:00-05:00'))
+        temp[day].append(('17:00:00-05:00', end))
+    # would keep this if you are starting a completely new dict
+    # else:
+    #     dic[day].remove((start,end))
+    #     if start != end:
+    #         dic[day].append((start, end))
+    return temp
 
 
 # timepref is always assigned because the user chose that 
