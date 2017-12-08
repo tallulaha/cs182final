@@ -50,10 +50,10 @@ app.setLabelFg("title", "Black")
 app.setFont(12)
 app.addMessage("mess", """Please select your workout preferences for the week you'd like to schedule.""", colspan=2)
 
-app.addLabel("wake", "Wake Time (hh:mm)",2,0)
+app.addLabel("wake", "Wake Time (eg. 07:00, 24hr time)",2,0)
 app.addEntry("wakeTime",3,0)
 
-app.addLabel("sleep", "Sleep Time (hh:mm)",2,1)
+app.addLabel("sleep", "Sleep Time (eg. 22:30, 24hr time)",2,1)
 app.addEntry("sleepTime",3,1)
 
 app.addLabelOptionBox("neighborhood", ["yard", "river", "quad"],colspan=2)
