@@ -118,48 +118,40 @@ def main(wake, bed, des_days, timelim, timepref,exrgl, input_d, neigh):
         weekdays.append(newD)
     print ("days?", weekdays)
 
+    for day in weekdays:
+        #print ("len", len(personal_avail), day)
+        personal_avail[day] = [(sleep['wakeup']+ '-05:00',sleep['bedtime']+ '-05:00')]
     if not events:
         print('No upcoming events found.')
+        #print ("no events PA", personal_avail)
     else: 
         for event in events:
-            #print(event)
+            #print ("event")
+            #print(event['summary'])
             start = event['start'].get('dateTime', event['start'].get('date'))
+            event_end = event['end'].get('dateTime', event['end'].get('date'))
             day, time = start.split("T")
-            # want to get free time until bedtime
-            if et != None and ed != None:
-                if (ed != day) and (et < sleep['bedtime']):
-                    breakTime(et, sleep['bedtime']+'-05:00', ed, personal_avail)
-            if day not in personal_avail:
-                personal_avail[day] = []
-                wakeup_format = day + 'T' + sleep['wakeup']
-                if start > wakeup_format:
-                    breakTime(sleep['wakeup']+ '-05:00', time, day, personal_avail)
-            else:
-                if (last_end < start) and (ed == day):
-                    d,t = last_end.split("T")
-                    breakTime(t,time,d,personal_avail)
-            # need to check bedtime to make sure it doesnt go over
-            end = event['end'].get('dateTime', event['end'].get('date'))
-            ed, et = end.split("T")
-            last_end = end
-        breakTime(et, sleep['bedtime'], day, personal_avail)
-        #print ("this is the available time calendar")
-    #print (conflict_dict)
-    for day in weekdays:
-        if day not in personal_avail:
-            print ("len", len(personal_avail), day)
-            personal_avail[day] = []
-            breakTime(sleep['wakeup']+ '-05:00', sleep['bedtime']+ '-05:00', day, personal_avail)
-            print("len", len(personal_avail))
-    print ("PA", personal_avail)
-
-    #personal_avail = conflict_dict
-
+            print("start", start)
+            _,time_end = event_end.split("T")
+            personal_avail = freeConflict(day, time, time_end, personal_avail)
+            print ("out")
+    #if personal_avail:
+    #print ("PA", personal_avail)
+    for day,times in personal_avail.iteritems():
+        print ("here")
+        #print ("times", times)
+        for time in times:
+            #print ("hi")
+            st,e = time
+            # not sure about this equal
+            personal_avail = breakTime(st,e,day,personal_avail)
+            # dont break time until you have done all the conflicts then just pass it all in
+    #print ("NEW PERSONAL", personal_avail)
     gym_sun = {
-        "MAC" : [('9:00:00', '12:00:00'), ('12:00:00', '13:00:00'), None], 
-        "Hemenway" : [None, ('14:00:00', '17:00:00'), ('17:00:00', '23:00:00')],
-        "Murr" : [('9:00:00', '12:00:00'), ('12:00:00', '17:00:00'), None],
-        "QRAC" : [None, None, None]
+        "MAC" : [('9:00:00', '12:00:00'), ('12:00:00', '17:00:00'), ('17:00:00', '21:00:00')], 
+        "Hemenway" : [('10:00:00', '12:00:00'), ('12:00:00', '17:00:00'), ('17:00:00', '23:00:00')],
+        "Murr" : [('8:00:00', '12:00:00'), ('12:00:00', '17:00:00'), ('17:00:00', '22:00:00')],
+        "QRAC" : [None, ('12:00:00', '17:00:00'), ('17:00:00', '21:00:00')]
     }
     gym_mon = {
         "MAC" : [('6:00:00', '12:00:00'), ('12:00:00', '17:00:00'), ('17:00:00', '22:00:00')], 
@@ -223,7 +215,7 @@ def main(wake, bed, des_days, timelim, timepref,exrgl, input_d, neigh):
         print ("The available gym hours do not allow for workouts in the indicated time preference:", timepref)
         print ("Please adjust your time preference")
         return
-    #print ("gym pref", update_gym_avail)
+    print ("gym pref", update_gym_avail)
     # assign the time you'd like to work out for
     # fwd check the personal availability schedule
     #print ("pre times lim", update_pers_avail)
@@ -260,11 +252,13 @@ def main(wake, bed, des_days, timelim, timepref,exrgl, input_d, neigh):
             workout.append((gym, wkday, day, timeToCalendarForm(start), timeToCalendarForm(end)))
     if len(workout) < des_days:
         print ("Given your preferences, we were only able to schedule", len(workout), "workout(s) this week")
+    print ("this is your workout")
     print (workout)
 
     #print (generateWorkout(timelim))
     for day in workout:
         # not sure if this will give minutes
+        print ("day", day)
 
         FMT = '%H:%M:%S'
         if day[4].endswith('-05:00'):
@@ -278,8 +272,10 @@ def main(wake, bed, des_days, timelim, timepref,exrgl, input_d, neigh):
         # https://stackoverflow.com/questions/14190045/how-to-convert-datetime-timedelta-to-minutes-hours-in-python
 
         #print ("amt min", time_min)
+        print ("in main time min", time_min)
+        print ("in main timelim", timelim)
 
-        workoutdescrip = generateWorkout(time_min)
+        workoutdescrip = generateWorkout(timelim, exrgl)
         formatted_description = ""
         print ("descr", workoutdescrip)
         for (name, _, time, _) in workoutdescrip:
@@ -287,6 +283,28 @@ def main(wake, bed, des_days, timelim, timepref,exrgl, input_d, neigh):
         calWorkout = createEvent(day[2], (day[3], day[4]), ("Workout", formatted_description), day[0])
         addWorkout(calWorkout)
         print ("addedWorkout")
+
+def freeConflict(day,start_c,end_c,curr_free):
+    for free in curr_free[day]:
+        if free[0] <= start_c and start_c <= free[1]:
+            if free[0] <= end_c and end_c <= free[1]:
+                curr_free[day].remove(free)
+                if free[0] != start_c and (free[0] < start_c):
+                    curr_free[day].append((free[0],start_c))
+                if end_c != free[1] and (end_c < free[1]):
+                    curr_free[day].append((end_c,free[1]))
+                # this just breaks out of the one for loop right?
+                break
+            else:
+                curr_free[day].remove(free)
+                if end_c != free[1] and (free[0] < start_c):
+                    curr_free[day].append((free[0],start_c))
+                break
+        if free[0] <= end_c and end_c <= free[1]:
+            curr_free[day].remove(free)
+            if free[0] != start_c and (end_c < free[1]):
+                curr_free[day].append((end_c,free[1]))
+    return curr_free
 
 def strp(end,start,FMT):
     from datetime import datetime
@@ -330,103 +348,13 @@ def runCSP(pers_avail, gym_avail, des_time, delta, neigh):
         st, en = time_in_frame
         wkday = weekday(day)
         is_gym_open = updateTimesGymHours(wkday,st,en,gym_avail)
+        print ("is gym open", is_gym_open)
         # gym isnt open in this time frame
         if is_gym_open == None:
             return runCSP(pers_avail, gym_avail, des_time, (delta+15), neigh)
         else:
             assign = assignGymAndTime(is_gym_open, neigh)
             return assign
-
-# def runCSP(pers_avail, gym_avail, des_time, delta, neigh):
-#     #print ("running ", pers_avail)
-#     day_timeivl = selectTimeInterval(pers_avail)
-#     # base case
-#     if day_timeivl == None:
-#         #print ("daytim")
-#         return None
-#     else:
-#         day, time_ivl = day_timeivl
-#         wkt_ivl = selectTimeInInterval(time_ivl, des_time, delta)
-#         # if it comes back with None, means that this time_ivl is no good so remove it
-#         if wkt_ivl == None:
-#             pers_avail[day].remove(time_ivl)
-#             #print ("bef", pers_avail)
-#             if not pers_avail[day]:
-#                 pers_avail.pop(day, None)
-#                 #print ("aft", pers_avail)
-#             # need to rerun from the top to get a new interval with no delta to start with
-#             run_ivl = runCSP(pers_avail, gym_avail, des_time, 0, neigh)
-#             if run_ivl == None:
-#                 return None
-#         (startwkt, endwkt) = wkt_ivl
-#         wkday = weekday(day)
-#         new_gym_avail = updateTimesGymHours(wkday, startwkt, endwkt, gym_avail)
-#         # rerun with new delta if None (will always choose same day bc still least constrained)
-#         # hopefully get a new interval to keep trying
-#         # run on the same gym availability
-#         if new_gym_avail == None:
-#             delta += 15
-#             run_ivl = runCSP(pers_avail, gym_avail, des_time, delta, neigh)
-#             if run_ivl == None:
-#                 return None
-#             return None
-#         return assignGymAndTime(new_gym_avail, neigh)
-
-# def runCSP(pers_avail, gym_avail, des_time, delta, neigh):
-#     #print ("running ", pers_avail)
-#     day_timeivl = selectTimeInterval(pers_avail)
-#     # base case
-#     if day_timeivl == None:
-#         #print ("daytim")
-#         print ("no available days")
-#         return None
-#     else:
-#         #print ("daytivl", day_timeivl)
-#         day, time_ivl = day_timeivl
-#         wkt_ivl = selectTimeInInterval(time_ivl, des_time, delta)
-#         # print ("wkinterval", wkt_ivl)
-#         # print ("time", time_ivl)
-#         # print ("daytime", day_timeivl)
-#         # print ("PADAY", pers_avail[day])
-#         # if it comes back with None, means that this time_ivl is no good so remove it
-#         while wkt_ivl == None:
-#             #print (pers_avail[day])
-#             if time_ivl in pers_avail[day]:
-#                 pers_avail[day].remove(time_ivl)
-
-#             if not pers_avail[day]:
-#                 print ("no more time intervals in day, moving on")
-#                 pers_avail.pop(day, None)
-#             day_timeivl = selectTimeInterval(pers_avail)
-#             if day_timeivl == None:
-#                 return None
-#             day, time_ivl = day_timeivl
-#             wkt_ivl = selectTimeInInterval(time_ivl, des_time, delta)
-
-
-#         (startwkt, endwkt) = wkt_ivl
-#         wkday = weekday(day)
-#         new_gym_avail = updateTimesGymHours(wkday, startwkt, endwkt, gym_avail)
-#         #print ("nga", new_gym_avail)
-#         # rerun with new delta if None (will always choose same day bc still least constrained)
-#         # hopefully get a new interval to keep trying
-#         # run on the same gym availability
-
-#         ## this is not fixed yet
-#         if new_gym_avail == None:
-#             delta += 15
-#             run_ivl = runCSP(pers_avail, gym_avail, des_time, delta, neigh)
-#             if run_ivl == None:
-#                 return None
-#             return run_ivl
-#         return assignGymAndTime(new_gym_avail, neigh)
-
-    # you have your preferences (time) assigned
-    # fwd check: eliminate all times in the personal calendar's domain that aren't consistent
-    # fwd check: eliminate all times in the gym hours domain that aren't consistent
-    # assign a day to workout
-    # fwd check: eliminate all times that don't fit with the gym's hours that day
-    # assign a workout time 
 
 def returnDate(day, conf):
     days = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday']
@@ -442,18 +370,27 @@ def weekday(day):
     return days[getDateTimeFromISO8601String(day).weekday()]
 
 def breakTime(start,end,day,dic):
-    if (end >= '12:00:00') and (start < '12:00:00'):
-        dic[day].append((start, '12:00:00-05:00'))
-        if end >= '17:00:00':
-            dic[day].append(('12:00:00-05:00', '17:00:00-05:00'))
+    print ("whats happn")
+    temp = copy.deepcopy(dic)
+    if start < '12:00:00' and (end > '12:00:00'):
+        #print ("dic", dic)
+        temp[day].remove((start,end))
+        temp[day].append((start, '12:00:00-05:00'))
+        if end > '17:00:00':
+            temp[day].append(('12:00:00-05:00', '17:00:00-05:00'))
         else:
-            dic[day].append(('12:00:00-05:00', end))
-    elif (end >='17:00:00') and (start < '17:00:00'):
-        dic[day].append((start, '17:00:00-05:00'))
-        dic[day].append(('17:00:00-05:00', end))
-    else:
-        if start != end:
-            dic[day].append((start, end))
+            temp[day].append(('12:00:00-05:00', end))
+    elif (end >'17:00:00') and (start < '17:00:00'):
+        temp[day].remove((start,end))
+        temp[day].append((start, '17:00:00-05:00'))
+        temp[day].append(('17:00:00-05:00', end))
+    # would keep this if you are starting a completely new dict
+    # else:
+    #     dic[day].remove((start,end))
+    #     if start != end:
+    #         dic[day].append((start, end))
+    return temp
+
 
 # timepref is always assigned because the user chose that 
 # forward check: eliminate all times that aren't consistent with the timepref
@@ -471,6 +408,7 @@ def updateTimesPreference(availabledict, timepref):
         timeinpref = datetime.strptime('00:00:00', '%H:%M:%S')
         totaltime = datetime.strptime('00:00:00', '%H:%M:%S')
         for (start, end) in timelist:
+            print ("updateTimesPreference", start,end)
             startdate = datetime.strptime(start[0:8], '%H:%M:%S')
             enddate = datetime.strptime(end[0:8], '%H:%M:%S')
             time = enddate - startdate
@@ -621,7 +559,7 @@ def calcTotalTime(hour, minute, second):
 
 def selectTimeInterval(availabledict):
 
-    print ("selec avD", availabledict)
+    #print ("selec avD", availabledict)
 
     max_duration = -float("inf")
     max_day = None
@@ -679,7 +617,23 @@ def withinInterval(start, end, testst, testen):
     end = end.time()
     testst = testst.time()
     testen = testen.time()
-    
+    midnight = (datetime.strptime('00:00:00', '%H:%M:%S')).time()
+    #adjust = (datetime.strptime('23:59:59', '%H:%M:%S')).time()
+    #print ("testen", testen)
+    #print ('is it true', testen == midnight)
+    #if testen == midnight:
+        #testen = adjust
+    #print ("new testen", testen)
+    #print ("end interval", end)
+    #print ("hour", testen.hour)
+    #print ("hour test", testen.hour == midnight.hour)
+    #print ("interval start", start)
+    #print ("interval end", end)
+    #print ("testst", testst)
+    #print ("testen", testen)
+    #print ("statement", (start <= testst and testen <= end))
+    if testen.hour == midnight.hour:
+        return False
     return (start <= testst and testen <= end)
 
 # consider all times within an interval to make sure it works
@@ -702,10 +656,14 @@ def updateTimesGymHours (day, startwork, endwork, availabledict):
         (start, end) = times
         start = datetime.strptime(start[0:8], '%H:%M:%S')
         end = datetime.strptime(end[0:8], '%H:%M:%S')
+        print ("endwork", endwork)
+        #midnight = (datetime.strptime('00:00:00', '%H:%M:%S')).time()
+        #adjust = (datetime.strptime('23:59:59', '%H:%M:%S')).time()
+        #if endwork == midnight:
+            #endwork = adjust
         if (start.time() <= startwork) and (endwork <= end.time()):
         #withinInterval(start, end, startwork, endwork):
             possible[gym] = (day, times, startwork, endwork)
-
             spec_gym = gym
     #print ("possible gyms", possible)
     if len(possible) == 0:
@@ -748,7 +706,8 @@ if the muscle_group is true, you can use it, if false, then it means you have al
 musclegroups = [('legs',True), ('arms',True), ('back',True),('abdominals',True), ('chest', True), ('shoulders', True), ('glutes', True)]
 
 ## this is where we can make conditional about certain strength or cardio activities
-def generateWorkout(timelimit, goal='strength'):
+def generateWorkout(timelimit, goal):
+    print ("gen workout timelimit", timelimit)
     # 4 big muscle groups
     # if True, that muscle group has not been assigned to a workout yet, so can be chosen
     # if False, that muscle group has been assigned to a workout, so cannot be chosen again
@@ -769,6 +728,7 @@ def generateWorkout(timelimit, goal='strength'):
 def fillTime(muscgroup, timelimit, goal):
     #print ("selected muscle", muscgroup)
     print (muscgroup)
+    print ("filltime timelimit", timelimit)
 
     num_exercises = 0
     time_exercises = []
@@ -794,6 +754,7 @@ def fillTime(muscgroup, timelimit, goal):
         for row in workout_csv:
             muscle = row[4]
             #print ("time?", row[2])
+            #print (row[2])
             time = int(row[2])
             name = row[1]
             lvl = int(row[6])
@@ -814,9 +775,9 @@ def fillTime(muscgroup, timelimit, goal):
 
 #this should all be in working order
 def simulated_annealing(timelimit, num_exercises, time_exercises, lvl_exercises, name_exercises, musc_exercises):
+    print ("sim annneal timelimit", timelimit)
     cur_bag = initSolution(timelimit, num_exercises, time_exercises, lvl_exercises, name_exercises, musc_exercises)
     #values = [valTotal(cur_bag)]
-
     #for i in xrange(60000):
     ## CHANGED THIS FOR TESTING
     for i in xrange(2):
@@ -830,19 +791,21 @@ def simulated_annealing(timelimit, num_exercises, time_exercises, lvl_exercises,
         cur_bag = new_bag
       #total = valTotal(cur_bag)
       #values.append(total)
-    print (timeTotal(cur_bag))
+    print ("time total", timeTotal(cur_bag))
     return cur_bag
 
 def initSolution(timelimit, num_exercises, time_exercises, lvl_exercises, name_exercises, musc_exercises):
     cur_time = 0
     bag = []
     #print ("timeL", timelimit)
+    print ("timelimit", timelimit)
     while cur_time < timelimit:
         rand_ind = np.random.randint(0, num_exercises)
         rand_item = (name_exercises[rand_ind], lvl_exercises[rand_ind], time_exercises[rand_ind], musc_exercises[rand_ind])
         if not rand_item in bag:
           bag.append(rand_item)
         cur_time = timeTotal(bag)
+    print (bag)
     if cur_time > timelimit:
         bag.pop()
     return bag
@@ -918,4 +881,5 @@ def addWorkout(event):
     print ('Event created: %s' % (event.get('htmlLink')))
 
 if __name__ == '__main__':
-    main('08:00:00', '23:59:59', 3, 60, 'afternoon', 'strength', '2017-12-10', 'river')
+    main('08:00:00', '23:59:59', 3, 60, 'evening', 'strength', '2017-12-10', 'river')
+
