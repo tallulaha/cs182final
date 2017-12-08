@@ -72,8 +72,8 @@ def main(wake, bed, des_days, timelim, timepref,exrgl, input_d, neigh):
     10 events on the user's calendar.
     """
     sleep = {'wakeup': wake, 'bedtime': bed}
-    print ("sleep", sleep)
-    print ("tp", timepref)
+    #print ("sleep", sleep)
+    #print ("tp", timepref)
 
 
 
@@ -95,8 +95,8 @@ def main(wake, bed, des_days, timelim, timepref,exrgl, input_d, neigh):
     stopdate = stopdate.isoformat()
     stopdate, time2 = stopdate.split("T")
     stopdate = stopdate + 'T' + sleep['wakeup'] + 'Z'
-    print ("stop", stopdate)
-    print ("start", input_d)
+    #print ("stop", stopdate)
+    #print ("start", input_d)
     start = str(input_d) + 'T' + sleep['wakeup'] + 'Z'
 
     print('Getting the upcoming weeks events')
@@ -215,7 +215,7 @@ def main(wake, bed, des_days, timelim, timepref,exrgl, input_d, neigh):
         print ("Your personal schedule does not allow for workouts with your given preferences") 
         print ("Please adjust your preferences")
         return
-    print ("gym pref", update_gym_avail)
+    #print ("gym pref", update_gym_avail)
     # assign the time you'd like to work out for
     # fwd check the personal availability schedule
     #print ("pre times lim", update_pers_avail)
@@ -238,7 +238,7 @@ def main(wake, bed, des_days, timelim, timepref,exrgl, input_d, neigh):
     #des_days = 3
     workout = []
     for _ in xrange(des_days):
-        print ("passed into runCSP", update_pers_avail)
+        #print ("passed into runCSP", update_pers_avail)
         assign = runCSP(update_pers_avail, update_gym_avail, timelim, 0, neigh)
         if assign == None:
             break
@@ -252,13 +252,13 @@ def main(wake, bed, des_days, timelim, timepref,exrgl, input_d, neigh):
             workout.append((gym, wkday, day, timeToCalendarForm(start), timeToCalendarForm(end)))
     if len(workout) < des_days:
         print ("Given your preferences, we were only able to schedule", len(workout), "workout(s) this week")
-    print ("this is your workout")
-    print (workout)
+    #print ("this is your workout")
+    #print (workout)
 
     #print (generateWorkout(timelim))
     for day in workout:
         # not sure if this will give minutes
-        print ("day", day)
+        #print ("day", day)
 
         FMT = '%H:%M:%S'
         if day[4].endswith('-05:00'):
@@ -272,12 +272,12 @@ def main(wake, bed, des_days, timelim, timepref,exrgl, input_d, neigh):
         # https://stackoverflow.com/questions/14190045/how-to-convert-datetime-timedelta-to-minutes-hours-in-python
 
         #print ("amt min", time_min)
-        print ("in main time min", time_min)
-        print ("in main timelim", timelim)
+        #print ("in main time min", time_min)
+        #print ("in main timelim", timelim)
 
         workoutdescrip = generateWorkout(timelim, exrgl)
         formatted_description = ""
-        print ("descr", workoutdescrip)
+        #print ("descr", workoutdescrip)
         for (name, _, time, _) in workoutdescrip:
             formatted_description += name + ", " + str(time) + " min;"
         calWorkout = createEvent(day[2], (day[3], day[4]), ("Workout", formatted_description), day[0])
@@ -348,7 +348,7 @@ def runCSP(pers_avail, gym_avail, des_time, delta, neigh):
         st, en = time_in_frame
         wkday = weekday(day)
         is_gym_open = updateTimesGymHours(wkday,st,en,gym_avail)
-        print ("is gym open", is_gym_open)
+        #print ("is gym open", is_gym_open)
         # gym isnt open in this time frame
         if is_gym_open == None:
             return runCSP(pers_avail, gym_avail, des_time, (delta+15), neigh)
@@ -370,7 +370,7 @@ def weekday(day):
     return days[getDateTimeFromISO8601String(day).weekday()]
 
 def breakTime(start,end,day,dic):
-    print ("whats happn")
+    #print ("whats happn")
     temp = copy.deepcopy(dic)
     if start < '12:00:00' and (end > '12:00:00'):
         #print ("dic", dic)
@@ -656,7 +656,7 @@ def updateTimesGymHours (day, startwork, endwork, availabledict):
         (start, end) = times
         start = datetime.strptime(start[0:8], '%H:%M:%S')
         end = datetime.strptime(end[0:8], '%H:%M:%S')
-        print ("endwork", endwork)
+        #print ("endwork", endwork)
         #midnight = (datetime.strptime('00:00:00', '%H:%M:%S')).time()
         #adjust = (datetime.strptime('23:59:59', '%H:%M:%S')).time()
         #if endwork == midnight:
@@ -687,7 +687,7 @@ def assignGymAndTime (availabledict, nhood):
         for gym, vals in availabledict.iteritems():
             if gym == gym_pref:
                 (day, times, startwork, endwork) = vals
-                print ("assign gym", gym, day, times, startwork, endwork)
+                #print ("assign gym", gym, day, times, startwork, endwork)
                 return (gym, day, times, startwork, endwork)
 
 """
@@ -707,7 +707,7 @@ musclegroups = [('legs',True), ('arms',True), ('back',True),('abdominals',True),
 
 ## this is where we can make conditional about certain strength or cardio activities
 def generateWorkout(timelimit, goal):
-    print ("gen workout timelimit", timelimit)
+    #print ("gen workout timelimit", timelimit)
     # 4 big muscle groups
     # if True, that muscle group has not been assigned to a workout yet, so can be chosen
     # if False, that muscle group has been assigned to a workout, so cannot be chosen again
@@ -727,8 +727,8 @@ def generateWorkout(timelimit, goal):
 
 def fillTime(muscgroup, timelimit, goal):
     #print ("selected muscle", muscgroup)
-    print (muscgroup)
-    print ("filltime timelimit", timelimit)
+    #print (muscgroup)
+    #print ("filltime timelimit", timelimit)
 
     num_exercises = 0
     time_exercises = []
@@ -767,7 +767,7 @@ def fillTime(muscgroup, timelimit, goal):
                 name_exercises.append(name)
                 lvl_exercises.append(lvl)
                 musc_exercises.append(muscle)
-        print (num_exercises)
+        #print (num_exercises)
         # if that exercise is within that musclegroup
 
     return simulated_annealing(timelimit, num_exercises, time_exercises, lvl_exercises, name_exercises, musc_exercises)
@@ -775,7 +775,7 @@ def fillTime(muscgroup, timelimit, goal):
 
 #this should all be in working order
 def simulated_annealing(timelimit, num_exercises, time_exercises, lvl_exercises, name_exercises, musc_exercises):
-    print ("sim annneal timelimit", timelimit)
+    #print ("sim annneal timelimit", timelimit)
     cur_bag = initSolution(timelimit, num_exercises, time_exercises, lvl_exercises, name_exercises, musc_exercises)
     #values = [valTotal(cur_bag)]
     #for i in xrange(60000):
@@ -791,21 +791,21 @@ def simulated_annealing(timelimit, num_exercises, time_exercises, lvl_exercises,
         cur_bag = new_bag
       #total = valTotal(cur_bag)
       #values.append(total)
-    print ("time total", timeTotal(cur_bag))
+    #print ("time total", timeTotal(cur_bag))
     return cur_bag
 
 def initSolution(timelimit, num_exercises, time_exercises, lvl_exercises, name_exercises, musc_exercises):
     cur_time = 0
     bag = []
     #print ("timeL", timelimit)
-    print ("timelimit", timelimit)
+    #print ("timelimit", timelimit)
     while cur_time < timelimit:
         rand_ind = np.random.randint(0, num_exercises)
         rand_item = (name_exercises[rand_ind], lvl_exercises[rand_ind], time_exercises[rand_ind], musc_exercises[rand_ind])
         if not rand_item in bag:
           bag.append(rand_item)
         cur_time = timeTotal(bag)
-    print (bag)
+    #print (bag)
     if cur_time > timelimit:
         bag.pop()
     return bag
