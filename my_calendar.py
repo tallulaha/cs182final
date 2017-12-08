@@ -226,7 +226,7 @@ def main(wake, bed, des_days, timelim, timepref,exrgl, input_d, neigh):
         formatted_description = ""
         #print ("descr", workoutdescrip)
         for (name, _, time, _) in workoutdescrip:
-            formatted_description += name + ", " + str(time) + " min;"
+            formatted_description += name + ", " + str(time) + " min; <br>"
         calWorkout = createEvent(day[2], (day[3], day[4]), ("Workout", formatted_description), day[0])
         addWorkout(calWorkout)
         print ("addedWorkout")
@@ -652,7 +652,7 @@ def fillTime(muscgroup, timelimit, goal):
 
 def simulated_annealing(timelimit, num_exercises, time_exercises, lvl_exercises, name_exercises, musc_exercises):
     cur_bag = initSolution(timelimit, num_exercises, time_exercises, lvl_exercises, name_exercises, musc_exercises)
-    for i in xrange(2):
+    for i in xrange(50):
       temp = 1. / np.math.log10(i + 2)
       temp_bag = copy.deepcopy(cur_bag)
       new_bag = genNeighbor(temp_bag, timelimit, num_exercises, time_exercises, lvl_exercises, name_exercises, musc_exercises)
