@@ -106,7 +106,7 @@ def main(wake, bed, des_days, timelim, timepref,exrgl, input_d, neigh):
        orderBy='startTime').execute()
     events = eventsResult.get('items', [])
 
-    conflict_dict = {}
+    personal_avail = {}
     last_end = sleep['wakeup']
     ed = None
     et = None
@@ -122,38 +122,38 @@ def main(wake, bed, des_days, timelim, timepref,exrgl, input_d, neigh):
         print('No upcoming events found.')
     else: 
         for event in events:
-            #print(event)
+            print(event)
             start = event['start'].get('dateTime', event['start'].get('date'))
             day, time = start.split("T")
             # want to get free time until bedtime
             if et != None and ed != None:
                 if (ed != day) and (et < sleep['bedtime']):
-                    breakTime(et, sleep['bedtime']+'-05:00', ed, conflict_dict)
-            if day not in conflict_dict:
-                conflict_dict[day] = []
+                    breakTime(et, sleep['bedtime']+'-05:00', ed, personal_avail)
+            if day not in personal_avail:
+                personal_avail[day] = []
                 wakeup_format = day + 'T' + sleep['wakeup']
                 if start > wakeup_format:
-                    breakTime(sleep['wakeup']+ '-05:00', time, day, conflict_dict)
+                    breakTime(sleep['wakeup']+ '-05:00', time, day, personal_avail)
             else:
                 if (last_end < start) and (ed == day):
                     d,t = last_end.split("T")
-                    breakTime(t,time,d,conflict_dict)
+                    breakTime(t,time,d,personal_avail)
             # need to check bedtime to make sure it doesnt go over
             end = event['end'].get('dateTime', event['end'].get('date'))
             ed, et = end.split("T")
             last_end = end
-        breakTime(et, sleep['bedtime'], day, conflict_dict)
+        breakTime(et, sleep['bedtime'], day, personal_avail)
         #print ("this is the available time calendar")
     #print (conflict_dict)
     for day in weekdays:
-        if day not in conflict_dict:
-            print ("len", len(conflict_dict), day)
-            conflict_dict[day] = []
-            breakTime(sleep['wakeup']+ '-05:00', sleep['bedtime']+ '-05:00', day, conflict_dict)
-            print("len", len(conflict_dict))
-    #print (conflict_dict)
+        if day not in personal_avail:
+            print ("len", len(personal_avail), day)
+            personal_avail[day] = []
+            breakTime(sleep['wakeup']+ '-05:00', sleep['bedtime']+ '-05:00', day, personal_avail)
+            print("len", len(personal_avail))
+    print ("PA", personal_avail)
 
-    personal_avail = conflict_dict
+    #personal_avail = conflict_dict
 
     gym_sun = {
         "MAC" : [('9:00:00', '11:59:59'), ('12:00:00', '13:00:00'), None], 
@@ -301,39 +301,85 @@ def timeToCalendarForm(time):
     time = hr + ":" + mn + ":00-05:00"
     return time
 
+# def runCSP(pers_avail, gym_avail, des_time, delta, neigh):
+#     #print ("running ", pers_avail)
+#     day_timeivl = selectTimeInterval(pers_avail)
+#     # base case
+#     if day_timeivl == None:
+#         #print ("daytim")
+#         return None
+#     else:
+#         day, time_ivl = day_timeivl
+#         wkt_ivl = selectTimeInInterval(time_ivl, des_time, delta)
+#         # if it comes back with None, means that this time_ivl is no good so remove it
+#         if wkt_ivl == None:
+#             pers_avail[day].remove(time_ivl)
+#             #print ("bef", pers_avail)
+#             if not pers_avail[day]:
+#                 pers_avail.pop(day, None)
+#                 #print ("aft", pers_avail)
+#             # need to rerun from the top to get a new interval with no delta to start with
+#             run_ivl = runCSP(pers_avail, gym_avail, des_time, 0, neigh)
+#             if run_ivl == None:
+#                 return None
+#         (startwkt, endwkt) = wkt_ivl
+#         wkday = weekday(day)
+#         new_gym_avail = updateTimesGymHours(wkday, startwkt, endwkt, gym_avail)
+#         # rerun with new delta if None (will always choose same day bc still least constrained)
+#         # hopefully get a new interval to keep trying
+#         # run on the same gym availability
+#         if new_gym_avail == None:
+#             delta += 15
+#             run_ivl = runCSP(pers_avail, gym_avail, des_time, delta, neigh)
+#             if run_ivl == None:
+#                 return None
+#             return None
+#         return assignGymAndTime(new_gym_avail, neigh)
+
 def runCSP(pers_avail, gym_avail, des_time, delta, neigh):
     #print ("running ", pers_avail)
     day_timeivl = selectTimeInterval(pers_avail)
     # base case
     if day_timeivl == None:
         #print ("daytim")
+        print ("no available days")
         return None
     else:
+        print ("daytivl", day_timeivl)
         day, time_ivl = day_timeivl
         wkt_ivl = selectTimeInInterval(time_ivl, des_time, delta)
+        print ("wkinterval", wkt_ivl)
+        print ("time", time_ivl)
+        print ("daytime", day_timeivl)
+        print ("PADAY", pers_avail[day])
         # if it comes back with None, means that this time_ivl is no good so remove it
-        if wkt_ivl == None:
+        while wkt_ivl == None:
             pers_avail[day].remove(time_ivl)
-            #print ("bef", pers_avail)
             if not pers_avail[day]:
+                print ("no more time intervals in day, moving on")
                 pers_avail.pop(day, None)
-                #print ("aft", pers_avail)
-            # need to rerun from the top to get a new interval with no delta to start with
-            run_ivl = runCSP(pers_avail, gym_avail, des_time, 0, neigh)
-            if run_ivl == None:
-                return None
+                day_timeivl = selectTimeInterval(pers_avail)
+                if day_timeivl == None:
+                    return None
+                day, time_ivl = day_timeivl
+                wkt_ivl = selectTimeInInterval(time_ivl, des_time, delta)
+
+
         (startwkt, endwkt) = wkt_ivl
         wkday = weekday(day)
         new_gym_avail = updateTimesGymHours(wkday, startwkt, endwkt, gym_avail)
+        print ("nga", new_gym_avail)
         # rerun with new delta if None (will always choose same day bc still least constrained)
         # hopefully get a new interval to keep trying
         # run on the same gym availability
+
+        ## this is not fixed yet
         if new_gym_avail == None:
             delta += 15
             run_ivl = runCSP(pers_avail, gym_avail, des_time, delta, neigh)
             if run_ivl == None:
                 return None
-            return None
+            return run_ivl
         return assignGymAndTime(new_gym_avail, neigh)
 
     # you have your preferences (time) assigned
@@ -608,18 +654,20 @@ def updateTimesGymHours (day, startwork, endwork, availabledict):
     from datetime import datetime 
 
     gym_day = availabledict[day]
+    print ("gym, day", gym_day, day)
     possible = {}
     spec_gym = None
     for gym, times in gym_day.iteritems():
         (start, end) = times
         start = datetime.strptime(start[0:8], '%H:%M:%S')
         end = datetime.strptime(end[0:8], '%H:%M:%S')
-        if start.time() <= startwork and endwork <= end.time():
+        if (start.time() <= startwork) and (endwork <= end.time()):
         #withinInterval(start, end, startwork, endwork):
             possible[gym] = (day, times, startwork, endwork)
-            spec_gym = gym
 
-    if not possible:
+            spec_gym = gym
+    print ("po", possible)
+    if len(possible) == 0:
         return None
     return possible
 
@@ -640,6 +688,7 @@ def assignGymAndTime (availabledict, nhood):
         for gym, vals in availabledict.iteritems():
             if gym == gym_pref:
                 (day, times, startwork, endwork) = vals
+                print ("assign gym", gym, day, times, startwork, endwork)
                 return (gym, day, times, startwork, endwork)
 
 """
