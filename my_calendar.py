@@ -116,7 +116,7 @@ def main(wake, bed, des_days, timelim, timepref,exrgl, input_d, neigh):
         newD = (getDateTimeFromISO8601String(input_d) + datetime.timedelta(days=i)).isoformat()
         newD, randTime = newD.split("T")
         weekdays.append(newD)
-    print ("days?", weekdays)
+    #print ("days?", weekdays)
 
     for day in weekdays:
         #print ("len", len(personal_avail), day)
@@ -131,14 +131,14 @@ def main(wake, bed, des_days, timelim, timepref,exrgl, input_d, neigh):
             start = event['start'].get('dateTime', event['start'].get('date'))
             event_end = event['end'].get('dateTime', event['end'].get('date'))
             day, time = start.split("T")
-            print("start", start)
+            #print("start", start)
             _,time_end = event_end.split("T")
             personal_avail = freeConflict(day, time, time_end, personal_avail)
-            print ("out")
+            #print ("out")
     #if personal_avail:
     #print ("PA", personal_avail)
     for day,times in personal_avail.iteritems():
-        print ("here")
+        #print ("here")
         #print ("times", times)
         for time in times:
             #print ("hi")
@@ -408,7 +408,7 @@ def updateTimesPreference(availabledict, timepref):
         timeinpref = datetime.strptime('00:00:00', '%H:%M:%S')
         totaltime = datetime.strptime('00:00:00', '%H:%M:%S')
         for (start, end) in timelist:
-            print ("updateTimesPreference", start,end)
+            #print ("updateTimesPreference", start,end)
             startdate = datetime.strptime(start[0:8], '%H:%M:%S')
             enddate = datetime.strptime(end[0:8], '%H:%M:%S')
             time = enddate - startdate
@@ -881,5 +881,5 @@ def addWorkout(event):
     print ('Event created: %s' % (event.get('htmlLink')))
 
 if __name__ == '__main__':
-    main('08:00:00', '23:59:59', 3, 60, 'evening', 'strength', '2017-12-10', 'river')
+    main('08:00:00', '23:59:59', 3, 60, 'afternoon', 'strength', '2017-12-17', 'river')
 
