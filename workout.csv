@@ -111,62 +111,6 @@ strength ,Biceps 53,25,,Biceps,Dumbbell,5
 strength ,Biceps 54,25,,Biceps,Dumbbell,6
 strength ,Biceps 55,25,,Biceps,Dumbbell,7
 strength ,Biceps 56,25,,Biceps,Dumbbell,8
-strength ,Lats 1,3,,Lats,Other,1
-strength ,Lats 2,3,,Lats,Other,2
-strength ,Lats 3,3,,Lats,Other,3
-strength ,Lats 4,3,,Lats,Other,4
-strength ,Lats 5,3,,Lats,Other,5
-strength ,Lats 6,3,,Lats,Other,6
-strength ,Lats 7,3,,Lats,Other,7
-strength ,Lats 8,3,,Lats,Other,8
-strength ,Lats 9,5,,Lats,Other,1
-strength ,Lats 10,5,,Lats,Other,2
-strength ,Lats 11,5,,Lats,Other,3
-strength ,Lats 12,5,,Lats,Other,4
-strength ,Lats 13,5,,Lats,Other,5
-strength ,Lats 14,5,,Lats,Other,6
-strength ,Lats 15,5,,Lats,Other,7
-strength ,Lats 16,5,,Lats,Other,8
-strength ,Lats 17,8,,Lats,Other,1
-strength ,Lats 18,8,,Lats,Other,2
-strength ,Lats 19,8,,Lats,Other,3
-strength ,Lats 20,8,,Lats,Other,4
-strength ,Lats 21,8,,Lats,Other,5
-strength ,Lats 22,8,,Lats,Other,6
-strength ,Lats 23,8,,Lats,Other,7
-strength ,Lats 24,8,,Lats,Other,8
-strength ,Lats 25,10,,Lats,Other,1
-strength ,Lats 26,10,,Lats,Other,2
-strength ,Lats 27,10,,Lats,Other,3
-strength ,Lats 28,10,,Lats,Other,4
-strength ,Lats 29,10,,Lats,Other,5
-strength ,Lats 30,10,,Lats,Other,6
-strength ,Lats 31,10,,Lats,Other,7
-strength ,Lats 32,10,,Lats,Other,8
-strength ,Lats 33,15,,Lats,Other,1
-strength ,Lats 34,15,,Lats,Other,2
-strength ,Lats 35,15,,Lats,Other,3
-strength ,Lats 36,15,,Lats,Other,4
-strength ,Lats 37,15,,Lats,Other,5
-strength ,Lats 38,15,,Lats,Other,6
-strength ,Lats 39,15,,Lats,Other,7
-strength ,Lats 40,15,,Lats,Other,8
-strength ,Lats 41,20,,Lats,Other,1
-strength ,Lats 42,20,,Lats,Other,2
-strength ,Lats 43,20,,Lats,Other,3
-strength ,Lats 44,20,,Lats,Other,4
-strength ,Lats 45,20,,Lats,Other,5
-strength ,Lats 46,20,,Lats,Other,6
-strength ,Lats 47,20,,Lats,Other,7
-strength ,Lats 48,20,,Lats,Other,8
-strength ,Lats 49,25,,Lats,Other,1
-strength ,Lats 50,25,,Lats,Other,2
-strength ,Lats 51,25,,Lats,Other,3
-strength ,Lats 52,25,,Lats,Other,4
-strength ,Lats 53,25,,Lats,Other,5
-strength ,Lats 54,25,,Lats,Other,6
-strength ,Lats 55,25,,Lats,Other,7
-strength ,Lats 56,25,,Lats,Other,8
 strength ,Triceps 1,3,,Triceps,None,1
 strength ,Triceps 2,3,,Triceps,None,2
 strength ,Triceps 3,3,,Triceps,None,3
@@ -447,97 +391,6 @@ strength ,Abdominals 53,25,,Upper abdominals,None,5
 strength ,Abdominals 54,25,,Lower abdominals,None,6
 strength ,Abdominals 55,25,,Upper abdominals,None,7
 strength ,Abdominals 56,25,,Lower abdominals,None,8
-cardio,Jump Rope,30,1,Quadriceps,Other,1
-cardio,Jump Rope,25,1,Quadriceps,Other,1
-cardio,Jump Rope,20,1,Quadriceps,Other,1
-cardio,Jump Rope,15,1,Quadriceps,Other,1
-cardio,Jump Rope,10,1,Quadriceps,Other,1
-cardio,Jump Rope,5,1,Quadriceps,Other,1
-cardio,Jump Rope,1,1,Quadriceps,Other,1
-cardio,Burpee,30,1,Quadriceps,None,1
-cardio,Burpee,25,1,Quadriceps,None,1
-cardio,Burpee,20,1,Quadriceps,None,1
-cardio,Burpee,15,1,Quadriceps,None,1
-cardio,Burpee,10,1,Quadriceps,None,1
-cardio,Burpee,5,1,Quadriceps,None,1
-cardio,Burpee,1,1,Quadriceps,None,1
-cardio,Bicycle,30,1,Quadriceps,Machine,1
-cardio,Bicycle,25,1,Quadriceps,Machine,1
-cardio,Bicycle,20,1,Quadriceps,Machine,1
-cardio,Bicycle,15,1,Quadriceps,Machine,1
-cardio,Bicycle,10,1,Quadriceps,Machine,1
-cardio,Bicycle,5,1,Quadriceps,Machine,1
-cardio,Bicycle,1,1,Quadriceps,Machine,1
-cardio,Rowing,30,1,Quadriceps,Machine,1
-cardio,Rowing,25,1,Quadriceps,Machine,1
-cardio,Rowing,20,1,Quadriceps,Machine,1
-cardio,Rowing,15,1,Quadriceps,Machine,1
-cardio,Rowing,10,1,Quadriceps,Machine,1
-cardio,Rowing,5,1,Quadriceps,Machine,1
-cardio,Rowing,1,1,Quadriceps,Machine,1
-cardio,Elliptical,30,1,Quadriceps,Machine,1
-cardio,Elliptical,25,1,Quadriceps,Machine,1
-cardio,Elliptical,20,1,Quadriceps,Machine,1
-cardio,Elliptical,15,1,Quadriceps,Machine,1
-cardio,Elliptical,10,1,Quadriceps,Machine,1
-cardio,Elliptical,5,1,Quadriceps,Machine,1
-cardio,Elliptical,1,1,Quadriceps,Machine,1
-cardio,StairMaster,30,1,Quadriceps,Machine,1
-cardio,StairMaster,25,1,Quadriceps,Machine,1
-cardio,StairMaster,20,1,Quadriceps,Machine,1
-cardio,StairMaster,15,1,Quadriceps,Machine,1
-cardio,StairMaster,10,1,Quadriceps,Machine,1
-cardio,StairMaster,5,1,Quadriceps,Machine,1
-cardio,StairMaster,1,1,Quadriceps,Machine,1
-cardio,Outdoor Run,30,1,Quadriceps,None,1
-cardio,Outdoor Run,25,1,Quadriceps,None,1
-cardio,Outdoor Run,20,1,Quadriceps,None,1
-cardio,Outdoor Run,15,1,Quadriceps,None,1
-cardio,Outdoor Run,10,1,Quadriceps,None,1
-cardio,Outdoor Run,5,1,Quadriceps,None,1
-cardio,Outdoor Run,1,1,Quadriceps,None,1
-cardio,Skating,30,1,Quadriceps,Other,1
-cardio,Skating,25,1,Quadriceps,Other,1
-cardio,Skating,20,1,Quadriceps,Other,1
-cardio,Skating,15,1,Quadriceps,Other,1
-cardio,Skating,10,1,Quadriceps,Other,1
-cardio,Skating,5,1,Quadriceps,Other,1
-cardio,Skating,1,1,Quadriceps,Other,1
-cardio,Treadmill Jog (5 mph),30,1,Quadriceps,Machine,1
-cardio,Treadmill Jog (5 mph),25,1,Quadriceps,Machine,1
-cardio,Treadmill Jog (5 mph),20,1,Quadriceps,Machine,1
-cardio,Treadmill Jog (5 mph),15,1,Quadriceps,Machine,1
-cardio,Treadmill Jog (5 mph),10,1,Quadriceps,Machine,1
-cardio,Treadmill Jog (5 mph),5,1,Quadriceps,Machine,1
-cardio,Treadmill Jog (5 mph),1,1,Quadriceps,Machine,1
-cardio,Treadmill Run (6 mph),30,1,Quadriceps,Machine,1
-cardio,Treadmill Run (6 mph),25,1,Quadriceps,Machine,1
-cardio,Treadmill Run (6 mph),20,1,Quadriceps,Machine,1
-cardio,Treadmill Run (6 mph),15,1,Quadriceps,Machine,1
-cardio,Treadmill Run (6 mph),10,1,Quadriceps,Machine,1
-cardio,Treadmill Run (6 mph),5,1,Quadriceps,Machine,1
-cardio,Treadmill Run (6 mph),1,1,Quadriceps,Machine,1
-cardio,Recumbent,30,1,Quadriceps,Machine,1
-cardio,Recumbent,25,1,Quadriceps,Machine,1
-cardio,Recumbent,20,1,Quadriceps,Machine,1
-cardio,Recumbent,15,1,Quadriceps,Machine,1
-cardio,Recumbent,10,1,Quadriceps,Machine,1
-cardio,Recumbent,5,1,Quadriceps,Machine,1
-cardio,Recumbent,1,1,Quadriceps,Machine,1
-cardio,Butt Kicks,30,1,Quadriceps,None,1
-cardio,Butt Kicks,25,1,Quadriceps,None,1
-cardio,Butt Kicks,20,1,Quadriceps,None,1
-cardio,Butt Kicks,15,1,Quadriceps,None,1
-cardio,Butt Kicks,10,1,Quadriceps,None,1
-cardio,Butt Kicks,5,1,Quadriceps,None,1
-cardio,Butt Kicks,1,1,Quadriceps,None,1
-cardio,Single-Leg Press,30,1,Quadriceps,Machine,1
-cardio,Single-Leg Press,25,1,Quadriceps,Machine,1
-cardio,Single-Leg Press,20,1,Quadriceps,Machine,1
-cardio,Single-Leg Press,15,1,Quadriceps,Machine,1
-cardio,Single-Leg Press,10,1,Quadriceps,Machine,1
-cardio,Single-Leg Press,5,1,Quadriceps,Machine,1
-cardio,Single-Leg Press,1,1,Quadriceps,Machine,1
 strength ,Chest 1,3,,Pectoralis major,Barbell,1
 strength ,Chest 2,3,,Pectoralis minor,Barbell,2
 strength ,Chest 3,3,,Pectoralis major,Barbell,3
@@ -728,3 +581,557 @@ strength ,Back 75,8,,Lower back,Dumbbell,3
 strength ,Back 76,8,,Upper back,Dumbbell,4
 strength ,Back 77,8,,Lower back,Dumbbell,5
 strength ,Back 78,8,,Upper back,Dumbbell,6
+cardio ,Cardio Triceps 1,3,,Triceps,None,1
+cardio ,Cardio Triceps 2,3,,Triceps,None,2
+cardio ,Cardio Triceps 3,3,,Triceps,None,3
+cardio ,Cardio Triceps 4,3,,Triceps,None,4
+cardio ,Cardio Triceps 5,3,,Triceps,None,5
+cardio ,Cardio Triceps 6,3,,Triceps,None,6
+cardio ,Cardio Triceps 7,3,,Triceps,None,7
+cardio ,Cardio Triceps 8,3,,Triceps,None,8
+cardio ,Cardio Triceps 9,5,,Triceps,None,1
+cardio ,Cardio Triceps 10,5,,Triceps,None,2
+cardio ,Cardio Triceps 11,5,,Triceps,None,3
+cardio ,Cardio Triceps 12,5,,Triceps,None,4
+cardio ,Cardio Triceps 13,5,,Triceps,None,5
+cardio ,Cardio Triceps 14,5,,Triceps,None,6
+cardio ,Cardio Triceps 15,5,,Triceps,None,7
+cardio ,Cardio Triceps 16,5,,Triceps,None,8
+cardio ,Cardio Triceps 17,8,,Triceps,None,1
+cardio ,Cardio Triceps 18,8,,Triceps,None,2
+cardio ,Cardio Triceps 19,8,,Triceps,None,3
+cardio ,Cardio Triceps 20,8,,Triceps,None,4
+cardio ,Cardio Triceps 21,8,,Triceps,None,5
+cardio ,Cardio Triceps 22,8,,Triceps,None,6
+cardio ,Cardio Triceps 23,8,,Triceps,None,7
+cardio ,Cardio Triceps 24,8,,Triceps,None,8
+cardio ,Cardio Triceps 25,10,,Triceps,None,1
+cardio ,Cardio Triceps 26,10,,Triceps,None,2
+cardio ,Cardio Triceps 27,10,,Triceps,None,3
+cardio ,Cardio Triceps 28,10,,Triceps,None,4
+cardio ,Cardio Triceps 29,10,,Triceps,None,5
+cardio ,Cardio Triceps 30,10,,Triceps,None,6
+cardio ,Cardio Triceps 31,10,,Triceps,None,7
+cardio ,Cardio Triceps 32,10,,Triceps,None,8
+cardio ,Cardio Triceps 33,15,,Triceps,None,1
+cardio ,Cardio Triceps 34,15,,Triceps,None,2
+cardio ,Cardio Triceps 35,15,,Triceps,None,3
+cardio ,Cardio Triceps 36,15,,Triceps,None,4
+cardio ,Cardio Triceps 37,15,,Triceps,None,5
+cardio ,Cardio Triceps 38,15,,Triceps,None,6
+cardio ,Cardio Triceps 39,15,,Triceps,None,7
+cardio ,Cardio Triceps 40,15,,Triceps,None,8
+cardio ,Cardio Triceps 41,20,,Triceps,None,1
+cardio ,Cardio Triceps 42,20,,Triceps,None,2
+cardio ,Cardio Triceps 43,20,,Triceps,None,3
+cardio ,Cardio Triceps 44,20,,Triceps,None,4
+cardio ,Cardio Triceps 45,20,,Triceps,None,5
+cardio ,Cardio Triceps 46,20,,Triceps,None,6
+cardio ,Cardio Triceps 47,20,,Triceps,None,7
+cardio ,Cardio Triceps 48,20,,Triceps,None,8
+cardio ,Cardio Triceps 49,25,,Triceps,None,1
+cardio ,Cardio Triceps 50,25,,Triceps,None,2
+cardio ,Cardio Triceps 51,25,,Triceps,None,3
+cardio ,Cardio Triceps 52,25,,Triceps,None,4
+cardio ,Cardio Triceps 53,25,,Triceps,None,5
+cardio ,Cardio Triceps 54,25,,Triceps,None,6
+cardio ,Cardio Triceps 55,25,,Triceps,None,7
+cardio ,Cardio Triceps 56,25,,Triceps,None,8
+cardio ,Cardio Forearms 1,3,,Forearms,Barbell,1
+cardio ,Cardio Forearms 2,3,,Forearms,Barbell,2
+cardio ,Cardio Forearms 3,3,,Forearms,Barbell,3
+cardio ,Cardio Forearms 4,3,,Forearms,Barbell,4
+cardio ,Cardio Forearms 5,3,,Forearms,Barbell,5
+cardio ,Cardio Forearms 6,3,,Forearms,Barbell,6
+cardio ,Cardio Forearms 7,3,,Forearms,Barbell,7
+cardio ,Cardio Forearms 8,3,,Forearms,Barbell,8
+cardio ,Cardio Forearms 9,5,,Forearms,Barbell,1
+cardio ,Cardio Forearms 10,5,,Forearms,Barbell,2
+cardio ,Cardio Forearms 11,5,,Forearms,Barbell,3
+cardio ,Cardio Forearms 12,5,,Forearms,Barbell,4
+cardio ,Cardio Forearms 13,5,,Forearms,Barbell,5
+cardio ,Cardio Forearms 14,5,,Forearms,Barbell,6
+cardio ,Cardio Forearms 15,5,,Forearms,Barbell,7
+cardio ,Cardio Forearms 16,5,,Forearms,Barbell,8
+cardio ,Cardio Forearms 17,8,,Forearms,Barbell,1
+cardio ,Cardio Forearms 18,8,,Forearms,Barbell,2
+cardio ,Cardio Forearms 19,8,,Forearms,Barbell,3
+cardio ,Cardio Forearms 20,8,,Forearms,Barbell,4
+cardio ,Cardio Forearms 21,8,,Forearms,Barbell,5
+cardio ,Cardio Forearms 22,8,,Forearms,Barbell,6
+cardio ,Cardio Forearms 23,8,,Forearms,Barbell,7
+cardio ,Cardio Forearms 24,8,,Forearms,Barbell,8
+cardio ,Cardio Forearms 25,10,,Forearms,Barbell,1
+cardio ,Cardio Forearms 26,10,,Forearms,Barbell,2
+cardio ,Cardio Forearms 27,10,,Forearms,Barbell,3
+cardio ,Cardio Forearms 28,10,,Forearms,Barbell,4
+cardio ,Cardio Forearms 29,10,,Forearms,Barbell,5
+cardio ,Cardio Forearms 30,10,,Forearms,Barbell,6
+cardio ,Cardio Forearms 31,10,,Forearms,Barbell,7
+cardio ,Cardio Forearms 32,10,,Forearms,Barbell,8
+cardio ,Cardio Forearms 33,15,,Forearms,Barbell,1
+cardio ,Cardio Forearms 34,15,,Forearms,Barbell,2
+cardio ,Cardio Forearms 35,15,,Forearms,Barbell,3
+cardio ,Cardio Forearms 36,15,,Forearms,Barbell,4
+cardio ,Cardio Forearms 37,15,,Forearms,Barbell,5
+cardio ,Cardio Forearms 38,15,,Forearms,Barbell,6
+cardio ,Cardio Forearms 39,15,,Forearms,Barbell,7
+cardio ,Cardio Forearms 40,15,,Forearms,Barbell,8
+cardio ,Cardio Forearms 41,20,,Forearms,Barbell,1
+cardio ,Cardio Forearms 42,20,,Forearms,Barbell,2
+cardio ,Cardio Forearms 43,20,,Forearms,Barbell,3
+cardio ,Cardio Forearms 44,20,,Forearms,Barbell,4
+cardio ,Cardio Forearms 45,20,,Forearms,Barbell,5
+cardio ,Cardio Forearms 46,20,,Forearms,Barbell,6
+cardio ,Cardio Forearms 47,20,,Forearms,Barbell,7
+cardio ,Cardio Forearms 48,20,,Forearms,Barbell,8
+cardio ,Cardio Forearms 49,25,,Forearms,Barbell,1
+cardio ,Cardio Forearms 50,25,,Forearms,Barbell,2
+cardio ,Cardio Forearms 51,25,,Forearms,Barbell,3
+cardio ,Cardio Forearms 52,25,,Forearms,Barbell,4
+cardio ,Cardio Forearms 53,25,,Forearms,Barbell,5
+cardio ,Cardio Forearms 54,25,,Forearms,Barbell,6
+cardio ,Cardio Forearms 55,25,,Forearms,Barbell,7
+cardio ,Cardio Forearms 56,25,,Forearms,Barbell,8
+cardio ,Cardio Hamstrings 1,3,,Hamstrings,Dumbbell,1
+cardio ,Cardio Hamstrings 2,3,,Hamstrings,Dumbbell,2
+cardio ,Cardio Hamstrings 3,3,,Hamstrings,Dumbbell,3
+cardio ,Cardio Hamstrings 4,3,,Hamstrings,Dumbbell,4
+cardio ,Cardio Hamstrings 5,3,,Hamstrings,Dumbbell,5
+cardio ,Cardio Hamstrings 6,3,,Hamstrings,Dumbbell,6
+cardio ,Cardio Hamstrings 7,3,,Hamstrings,Dumbbell,7
+cardio ,Cardio Hamstrings 8,3,,Hamstrings,Dumbbell,8
+cardio ,Cardio Hamstrings 9,5,,Hamstrings,Dumbbell,1
+cardio ,Cardio Hamstrings 10,5,,Hamstrings,Dumbbell,2
+cardio ,Cardio Hamstrings 11,5,,Hamstrings,Dumbbell,3
+cardio ,Cardio Hamstrings 12,5,,Hamstrings,Dumbbell,4
+cardio ,Cardio Hamstrings 13,5,,Hamstrings,Dumbbell,5
+cardio ,Cardio Hamstrings 14,5,,Hamstrings,Dumbbell,6
+cardio ,Cardio Hamstrings 15,5,,Hamstrings,Dumbbell,7
+cardio ,Cardio Hamstrings 16,5,,Hamstrings,Dumbbell,8
+cardio ,Cardio Hamstrings 17,8,,Hamstrings,Dumbbell,1
+cardio ,Cardio Hamstrings 18,8,,Hamstrings,Dumbbell,2
+cardio ,Cardio Hamstrings 19,8,,Hamstrings,Dumbbell,3
+cardio ,Cardio Hamstrings 20,8,,Hamstrings,Dumbbell,4
+cardio ,Cardio Hamstrings 21,8,,Hamstrings,Dumbbell,5
+cardio ,Cardio Hamstrings 22,8,,Hamstrings,Dumbbell,6
+cardio ,Cardio Hamstrings 23,8,,Hamstrings,Dumbbell,7
+cardio ,Cardio Hamstrings 24,8,,Hamstrings,Dumbbell,8
+cardio ,Cardio Hamstrings 25,10,,Hamstrings,Dumbbell,1
+cardio ,Cardio Hamstrings 26,10,,Hamstrings,Dumbbell,2
+cardio ,Cardio Hamstrings 27,10,,Hamstrings,Dumbbell,3
+cardio ,Cardio Hamstrings 28,10,,Hamstrings,Dumbbell,4
+cardio ,Cardio Hamstrings 29,10,,Hamstrings,Dumbbell,5
+cardio ,Cardio Hamstrings 30,10,,Hamstrings,Dumbbell,6
+cardio ,Cardio Hamstrings 31,10,,Hamstrings,Dumbbell,7
+cardio ,Cardio Hamstrings 32,10,,Hamstrings,Dumbbell,8
+cardio ,Cardio Hamstrings 33,15,,Hamstrings,Dumbbell,1
+cardio ,Cardio Hamstrings 34,15,,Hamstrings,Dumbbell,2
+cardio ,Cardio Hamstrings 35,15,,Hamstrings,Dumbbell,3
+cardio ,Cardio Hamstrings 36,15,,Hamstrings,Dumbbell,4
+cardio ,Cardio Hamstrings 37,15,,Hamstrings,Dumbbell,5
+cardio ,Cardio Hamstrings 38,15,,Hamstrings,Dumbbell,6
+cardio ,Cardio Hamstrings 39,15,,Hamstrings,Dumbbell,7
+cardio ,Cardio Hamstrings 40,15,,Hamstrings,Dumbbell,8
+cardio ,Cardio Hamstrings 41,20,,Hamstrings,Dumbbell,1
+cardio ,Cardio Hamstrings 42,20,,Hamstrings,Dumbbell,2
+cardio ,Cardio Hamstrings 43,20,,Hamstrings,Dumbbell,3
+cardio ,Cardio Hamstrings 44,20,,Hamstrings,Dumbbell,4
+cardio ,Cardio Hamstrings 45,20,,Hamstrings,Dumbbell,5
+cardio ,Cardio Hamstrings 46,20,,Hamstrings,Dumbbell,6
+cardio ,Cardio Hamstrings 47,20,,Hamstrings,Dumbbell,7
+cardio ,Cardio Hamstrings 48,20,,Hamstrings,Dumbbell,8
+cardio ,Cardio Hamstrings 49,25,,Hamstrings,Dumbbell,1
+cardio ,Cardio Hamstrings 50,25,,Hamstrings,Dumbbell,2
+cardio ,Cardio Hamstrings 51,25,,Hamstrings,Dumbbell,3
+cardio ,Cardio Hamstrings 52,25,,Hamstrings,Dumbbell,4
+cardio ,Cardio Hamstrings 53,25,,Hamstrings,Dumbbell,5
+cardio ,Cardio Hamstrings 54,25,,Hamstrings,Dumbbell,6
+cardio ,Cardio Hamstrings 55,25,,Hamstrings,Dumbbell,7
+cardio ,Cardio Hamstrings 56,25,,Hamstrings,Dumbbell,8
+cardio ,Cardio Shoulders 1,3,,Trapezius,Barbell,1
+cardio ,Cardio Shoulders 2,3,,Deltoid,Barbell,2
+cardio ,Cardio Shoulders 3,3,,Trapezius,Barbell,3
+cardio ,Cardio Shoulders 4,3,,Deltoid,Barbell,4
+cardio ,Cardio Shoulders 5,3,,Trapezius,Barbell,5
+cardio ,Cardio Shoulders 6,3,,Deltoid,Barbell,6
+cardio ,Cardio Shoulders 7,3,,Trapezius,Barbell,7
+cardio ,Cardio Shoulders 8,3,,Deltoid,Barbell,8
+cardio ,Cardio Shoulders 9,5,,Trapezius,Barbell,1
+cardio ,Cardio Shoulders 10,5,,Deltoid,Barbell,2
+cardio ,Cardio Shoulders 11,5,,Trapezius,Barbell,3
+cardio ,Cardio Shoulders 12,5,,Deltoid,Barbell,4
+cardio ,Cardio Shoulders 13,5,,Trapezius,Barbell,5
+cardio ,Cardio Shoulders 14,5,,Deltoid,Barbell,6
+cardio ,Cardio Shoulders 15,5,,Trapezius,Barbell,7
+cardio ,Cardio Shoulders 16,5,,Deltoid,Barbell,8
+cardio ,Cardio Shoulders 17,8,,Trapezius,Barbell,1
+cardio ,Cardio Shoulders 18,8,,Deltoid,Barbell,2
+cardio ,Cardio Shoulders 19,8,,Trapezius,Barbell,3
+cardio ,Cardio Shoulders 20,8,,Deltoid,Barbell,4
+cardio ,Cardio Shoulders 21,8,,Trapezius,Barbell,5
+cardio ,Cardio Shoulders 22,8,,Deltoid,Barbell,6
+cardio ,Cardio Shoulders 23,8,,Trapezius,Barbell,7
+cardio ,Cardio Shoulders 24,8,,Deltoid,Barbell,8
+cardio ,Cardio Shoulders 25,10,,Trapezius,Barbell,1
+cardio ,Cardio Shoulders 26,10,,Deltoid,Barbell,2
+cardio ,Cardio Shoulders 27,10,,Trapezius,Barbell,3
+cardio ,Cardio Shoulders 28,10,,Deltoid,Barbell,4
+cardio ,Cardio Shoulders 29,10,,Trapezius,Barbell,5
+cardio ,Cardio Shoulders 30,10,,Deltoid,Barbell,6
+cardio ,Cardio Shoulders 31,10,,Trapezius,Barbell,7
+cardio ,Cardio Shoulders 32,10,,Deltoid,Barbell,8
+cardio ,Cardio Shoulders 33,15,,Trapezius,Barbell,1
+cardio ,Cardio Shoulders 34,15,,Deltoid,Barbell,2
+cardio ,Cardio Shoulders 35,15,,Trapezius,Barbell,3
+cardio ,Cardio Shoulders 36,15,,Deltoid,Barbell,4
+cardio ,Cardio Shoulders 37,15,,Trapezius,Barbell,5
+cardio ,Cardio Shoulders 38,15,,Deltoid,Barbell,6
+cardio ,Cardio Shoulders 39,15,,Trapezius,Barbell,7
+cardio ,Cardio Shoulders 40,15,,Deltoid,Barbell,8
+cardio ,Cardio Shoulders 41,20,,Trapezius,Barbell,1
+cardio ,Cardio Shoulders 42,20,,Deltoid,Barbell,2
+cardio ,Cardio Shoulders 43,20,,Trapezius,Barbell,3
+cardio ,Cardio Shoulders 44,20,,Deltoid,Barbell,4
+cardio ,Cardio Shoulders 45,20,,Trapezius,Barbell,5
+cardio ,Cardio Shoulders 46,20,,Deltoid,Barbell,6
+cardio ,Cardio Shoulders 47,20,,Trapezius,Barbell,7
+cardio ,Cardio Shoulders 48,20,,Deltoid,Barbell,8
+cardio ,Cardio Shoulders 49,25,,Trapezius,Barbell,1
+cardio ,Cardio Shoulders 50,25,,Deltoid,Barbell,2
+cardio ,Cardio Shoulders 51,25,,Trapezius,Barbell,3
+cardio ,Cardio Shoulders 52,25,,Deltoid,Barbell,4
+cardio ,Cardio Shoulders 53,25,,Trapezius,Barbell,5
+cardio ,Cardio Shoulders 54,25,,Deltoid,Barbell,6
+cardio ,Cardio Shoulders 55,25,,Trapezius,Barbell,7
+cardio ,Cardio Shoulders 56,25,,Deltoid,Barbell,8
+cardio ,Cardio Abdominals 1,3,,Upper abdominals,None,1
+cardio ,Cardio Abdominals 2,3,,Lower abdominals,None,2
+cardio ,Cardio Abdominals 3,3,,Upper abdominals,None,3
+cardio ,Cardio Abdominals 4,3,,Lower abdominals,None,4
+cardio ,Cardio Abdominals 5,3,,Upper abdominals,None,5
+cardio ,Cardio Abdominals 6,3,,Lower abdominals,None,6
+cardio ,Cardio Abdominals 7,3,,Upper abdominals,None,7
+cardio ,Cardio Abdominals 8,3,,Lower abdominals,None,8
+cardio ,Cardio Abdominals 9,5,,Upper abdominals,None,1
+cardio ,Cardio Abdominals 10,5,,Lower abdominals,None,2
+cardio ,Cardio Abdominals 11,5,,Upper abdominals,None,3
+cardio ,Cardio Abdominals 12,5,,Lower abdominals,None,4
+cardio ,Cardio Abdominals 13,5,,Upper abdominals,None,5
+cardio ,Cardio Abdominals 14,5,,Lower abdominals,None,6
+cardio ,Cardio Abdominals 15,5,,Upper abdominals,None,7
+cardio ,Cardio Abdominals 16,5,,Lower abdominals,None,8
+cardio ,Cardio Abdominals 17,8,,Upper abdominals,None,1
+cardio ,Cardio Abdominals 18,8,,Lower abdominals,None,2
+cardio ,Cardio Abdominals 19,8,,Upper abdominals,None,3
+cardio ,Cardio Abdominals 20,8,,Lower abdominals,None,4
+cardio ,Cardio Abdominals 21,8,,Upper abdominals,None,5
+cardio ,Cardio Abdominals 22,8,,Lower abdominals,None,6
+cardio ,Cardio Abdominals 23,8,,Upper abdominals,None,7
+cardio ,Cardio Abdominals 24,8,,Lower abdominals,None,8
+cardio ,Cardio Abdominals 25,10,,Upper abdominals,None,1
+cardio ,Cardio Abdominals 26,10,,Lower abdominals,None,2
+cardio ,Cardio Abdominals 27,10,,Upper abdominals,None,3
+cardio ,Cardio Abdominals 28,10,,Lower abdominals,None,4
+cardio ,Cardio Abdominals 29,10,,Upper abdominals,None,5
+cardio ,Cardio Abdominals 30,10,,Lower abdominals,None,6
+cardio ,Cardio Abdominals 31,10,,Upper abdominals,None,7
+cardio ,Cardio Abdominals 32,10,,Lower abdominals,None,8
+cardio ,Cardio Abdominals 33,15,,Upper abdominals,None,1
+cardio ,Cardio Abdominals 34,15,,Lower abdominals,None,2
+cardio ,Cardio Abdominals 35,15,,Upper abdominals,None,3
+cardio ,Cardio Abdominals 36,15,,Lower abdominals,None,4
+cardio ,Cardio Abdominals 37,15,,Upper abdominals,None,5
+cardio ,Cardio Abdominals 38,15,,Lower abdominals,None,6
+cardio ,Cardio Abdominals 39,15,,Upper abdominals,None,7
+cardio ,Cardio Abdominals 40,15,,Lower abdominals,None,8
+cardio ,Cardio Abdominals 41,20,,Upper abdominals,None,1
+cardio ,Cardio Abdominals 42,20,,Lower abdominals,None,2
+cardio ,Cardio Abdominals 43,20,,Upper abdominals,None,3
+cardio ,Cardio Abdominals 44,20,,Lower abdominals,None,4
+cardio ,Cardio Abdominals 45,20,,Upper abdominals,None,5
+cardio ,Cardio Abdominals 46,20,,Lower abdominals,None,6
+cardio ,Cardio Abdominals 47,20,,Upper abdominals,None,7
+cardio ,Cardio Abdominals 48,20,,Lower abdominals,None,8
+cardio ,Cardio Abdominals 49,25,,Upper abdominals,None,1
+cardio ,Cardio Abdominals 50,25,,Lower abdominals,None,2
+cardio ,Cardio Abdominals 51,25,,Upper abdominals,None,3
+cardio ,Cardio Abdominals 52,25,,Lower abdominals,None,4
+cardio ,Cardio Abdominals 53,25,,Upper abdominals,None,5
+cardio ,Cardio Abdominals 54,25,,Lower abdominals,None,6
+cardio ,Cardio Abdominals 55,25,,Upper abdominals,None,7
+cardio ,Cardio Abdominals 56,25,,Lower abdominals,None,8
+cardio ,Jump Rope,30,1,Quadriceps,Other,1
+cardio ,Jump Rope,25,1,Quadriceps,Other,2
+cardio ,Jump Rope,20,1,Quadriceps,Other,3
+cardio ,Jump Rope,15,1,Quadriceps,Other,4
+cardio ,Jump Rope,10,1,Quadriceps,Other,5
+cardio ,Jump Rope,5,1,Quadriceps,Other,6
+cardio ,Jump Rope,1,1,Quadriceps,Other,7
+cardio ,Burpee,30,1,Quadriceps,None,8
+cardio ,Burpee,25,1,Quadriceps,None,1
+cardio ,Burpee,20,1,Quadriceps,None,2
+cardio ,Burpee,15,1,Quadriceps,None,3
+cardio ,Burpee,10,1,Quadriceps,None,4
+cardio ,Burpee,5,1,Quadriceps,None,5
+cardio ,Burpee,1,1,Quadriceps,None,6
+cardio ,Bicycle,30,1,Quadriceps,Machine,7
+cardio ,Bicycle,25,1,Quadriceps,Machine,8
+cardio ,Bicycle,20,1,Quadriceps,Machine,1
+cardio ,Bicycle,15,1,Quadriceps,Machine,2
+cardio ,Bicycle,10,1,Quadriceps,Machine,3
+cardio ,Bicycle,5,1,Quadriceps,Machine,4
+cardio ,Bicycle,1,1,Quadriceps,Machine,5
+cardio ,Rowing,30,1,Quadriceps,Machine,6
+cardio ,Rowing,25,1,Quadriceps,Machine,7
+cardio ,Rowing,20,1,Quadriceps,Machine,8
+cardio ,Rowing,15,1,Quadriceps,Machine,1
+cardio ,Rowing,10,1,Quadriceps,Machine,2
+cardio ,Rowing,5,1,Quadriceps,Machine,3
+cardio ,Rowing,1,1,Quadriceps,Machine,4
+cardio ,Elliptical,30,1,Quadriceps,Machine,5
+cardio ,Elliptical,25,1,Quadriceps,Machine,6
+cardio ,Elliptical,20,1,Quadriceps,Machine,7
+cardio ,Elliptical,15,1,Quadriceps,Machine,8
+cardio ,Elliptical,10,1,Quadriceps,Machine,1
+cardio ,Elliptical,5,1,Quadriceps,Machine,2
+cardio ,Elliptical,1,1,Quadriceps,Machine,3
+cardio ,StairMaster,30,1,Quadriceps,Machine,4
+cardio ,StairMaster,25,1,Quadriceps,Machine,5
+cardio ,StairMaster,20,1,Quadriceps,Machine,6
+cardio ,StairMaster,15,1,Quadriceps,Machine,7
+cardio ,StairMaster,10,1,Quadriceps,Machine,8
+cardio ,StairMaster,5,1,Quadriceps,Machine,1
+cardio ,StairMaster,1,1,Quadriceps,Machine,2
+cardio ,Outdoor Run,30,1,Quadriceps,None,3
+cardio ,Outdoor Run,25,1,Quadriceps,None,4
+cardio ,Outdoor Run,20,1,Quadriceps,None,5
+cardio ,Outdoor Run,15,1,Quadriceps,None,6
+cardio ,Outdoor Run,10,1,Quadriceps,None,7
+cardio ,Outdoor Run,5,1,Quadriceps,None,8
+cardio ,Outdoor Run,1,1,Quadriceps,None,1
+cardio ,Skating,30,1,Quadriceps,Other,2
+cardio ,Skating,25,1,Quadriceps,Other,3
+cardio ,Skating,20,1,Quadriceps,Other,4
+cardio ,Skating,15,1,Quadriceps,Other,5
+cardio ,Skating,10,1,Quadriceps,Other,6
+cardio ,Skating,5,1,Quadriceps,Other,7
+cardio ,Skating,1,1,Quadriceps,Other,8
+cardio ,Treadmill Jog (5 mph),30,1,Quadriceps,Machine,1
+cardio ,Treadmill Jog (5 mph),25,1,Quadriceps,Machine,2
+cardio ,Treadmill Jog (5 mph),20,1,Quadriceps,Machine,3
+cardio ,Treadmill Jog (5 mph),15,1,Quadriceps,Machine,4
+cardio ,Treadmill Jog (5 mph),10,1,Quadriceps,Machine,5
+cardio ,Treadmill Jog (5 mph),5,1,Quadriceps,Machine,6
+cardio ,Treadmill Jog (5 mph),1,1,Quadriceps,Machine,7
+cardio ,Treadmill Run (6 mph),30,1,Quadriceps,Machine,8
+cardio ,Treadmill Run (6 mph),25,1,Quadriceps,Machine,1
+cardio ,Treadmill Run (6 mph),20,1,Quadriceps,Machine,2
+cardio ,Treadmill Run (6 mph),15,1,Quadriceps,Machine,3
+cardio ,Treadmill Run (6 mph),10,1,Quadriceps,Machine,4
+cardio ,Treadmill Run (6 mph),5,1,Quadriceps,Machine,5
+cardio ,Treadmill Run (6 mph),1,1,Quadriceps,Machine,6
+cardio ,Recumbent Bike,30,1,Quadriceps,Machine,7
+cardio ,Recumbent Bike,25,1,Quadriceps,Machine,8
+cardio ,Recumbent Bike,20,1,Quadriceps,Machine,1
+cardio ,Recumbent Bike,15,1,Quadriceps,Machine,2
+cardio ,Recumbent Bike,10,1,Quadriceps,Machine,3
+cardio ,Recumbent Bike,5,1,Quadriceps,Machine,4
+cardio ,Recumbent Bike,1,1,Quadriceps,Machine,5
+cardio ,Butt Kicks,30,1,Quadriceps,None,6
+cardio ,Butt Kicks,25,1,Quadriceps,None,7
+cardio ,Butt Kicks,20,1,Quadriceps,None,8
+cardio ,Butt Kicks,15,1,Quadriceps,None,1
+cardio ,Butt Kicks,10,1,Quadriceps,None,2
+cardio ,Butt Kicks,5,1,Quadriceps,None,3
+cardio ,Butt Kicks,1,1,Quadriceps,None,4
+cardio ,Cardio Chest 1,3,,Pectoralis major,Barbell,4
+cardio ,Cardio Chest 2,3,,Pectoralis minor,Barbell,5
+cardio ,Cardio Chest 3,3,,Pectoralis major,Barbell,6
+cardio ,Cardio Chest 4,3,,Pectoralis minor,Barbell,7
+cardio ,Cardio Chest 5,3,,Pectoralis major,Barbell,8
+cardio ,Cardio Chest 6,3,,Pectoralis minor,Barbell,6
+cardio ,Cardio Chest 7,3,,Pectoralis major,Barbell,7
+cardio ,Cardio Chest 8,3,,Pectoralis minor,Barbell,8
+cardio ,Cardio Chest 9,5,,Pectoralis major,Barbell,1
+cardio ,Cardio Chest 10,5,,Pectoralis minor,Barbell,2
+cardio ,Cardio Chest 11,5,,Pectoralis major,Barbell,3
+cardio ,Cardio Chest 12,5,,Pectoralis minor,Barbell,4
+cardio ,Cardio Chest 13,5,,Pectoralis major,Barbell,5
+cardio ,Cardio Chest 14,5,,Pectoralis minor,Barbell,6
+cardio ,Cardio Chest 15,5,,Pectoralis major,Barbell,7
+cardio ,Cardio Chest 16,5,,Pectoralis minor,Barbell,8
+cardio ,Cardio Chest 17,8,,Pectoralis major,Barbell,1
+cardio ,Cardio Chest 18,8,,Pectoralis minor,Barbell,2
+cardio ,Cardio Chest 19,8,,Pectoralis major,Barbell,3
+cardio ,Cardio Chest 20,8,,Pectoralis minor,Barbell,4
+cardio ,Cardio Chest 21,8,,Pectoralis major,Barbell,5
+cardio ,Cardio Chest 22,8,,Pectoralis minor,Barbell,6
+cardio ,Cardio Chest 23,8,,Pectoralis major,Barbell,7
+cardio ,Cardio Chest 24,8,,Pectoralis minor,Barbell,8
+cardio ,Cardio Chest 25,10,,Pectoralis major,Barbell,1
+cardio ,Cardio Chest 26,10,,Pectoralis minor,Barbell,2
+cardio ,Cardio Chest 27,10,,Pectoralis major,Barbell,3
+cardio ,Cardio Chest 28,10,,Pectoralis minor,Barbell,4
+cardio ,Cardio Chest 29,10,,Pectoralis major,Barbell,5
+cardio ,Cardio Chest 30,10,,Pectoralis minor,Barbell,6
+cardio ,Cardio Chest 31,10,,Pectoralis major,Barbell,7
+cardio ,Cardio Chest 32,10,,Pectoralis minor,Barbell,8
+cardio ,Cardio Chest 33,15,,Pectoralis major,Barbell,1
+cardio ,Cardio Chest 34,15,,Pectoralis minor,Barbell,2
+cardio ,Cardio Chest 35,15,,Pectoralis major,Barbell,3
+cardio ,Cardio Chest 36,15,,Pectoralis minor,Barbell,4
+cardio ,Cardio Chest 37,15,,Pectoralis major,Barbell,5
+cardio ,Cardio Chest 38,15,,Pectoralis minor,Barbell,6
+cardio ,Cardio Chest 39,15,,Pectoralis major,Barbell,7
+cardio ,Cardio Chest 40,15,,Pectoralis minor,Barbell,8
+cardio ,Cardio Chest 41,20,,Pectoralis major,Barbell,1
+cardio ,Cardio Chest 42,20,,Pectoralis minor,Barbell,2
+cardio ,Cardio Chest 43,20,,Pectoralis major,Barbell,3
+cardio ,Cardio Chest 44,20,,Pectoralis minor,Barbell,4
+cardio ,Cardio Chest 45,20,,Pectoralis major,Barbell,5
+cardio ,Cardio Chest 46,20,,Pectoralis minor,Barbell,6
+cardio ,Cardio Chest 47,20,,Pectoralis major,Barbell,7
+cardio ,Cardio Chest 48,20,,Pectoralis minor,Barbell,8
+cardio ,Cardio Chest 49,25,,Pectoralis major,Barbell,1
+cardio ,Cardio Chest 50,25,,Pectoralis minor,Barbell,2
+cardio ,Cardio Chest 51,25,,Pectoralis major,Barbell,3
+cardio ,Cardio Chest 52,25,,Pectoralis minor,Barbell,4
+cardio ,Cardio Chest 53,25,,Pectoralis major,Barbell,5
+cardio ,Cardio Chest 54,25,,Pectoralis minor,Barbell,6
+cardio ,Cardio Chest 55,25,,Pectoralis major,Barbell,7
+cardio ,Cardio Chest 56,25,,Pectoralis minor,Barbell,8
+cardio ,Cardio Glutes 1,3,,Gluteus maximus,Dumbbell,1
+cardio ,Cardio Glutes 2,3,,Gluteus minimus,Dumbbell,2
+cardio ,Cardio Glutes 3,3,,Gluteus maximus,Dumbbell,3
+cardio ,Cardio Glutes 4,3,,Gluteus minimus,Dumbbell,4
+cardio ,Cardio Glutes 5,3,,Gluteus maximus,Dumbbell,5
+cardio ,Cardio Glutes 6,3,,Gluteus minimus,Dumbbell,6
+cardio ,Cardio Glutes 7,3,,Gluteus maximus,Dumbbell,7
+cardio ,Cardio Glutes 8,3,,Gluteus minimus,Dumbbell,8
+cardio ,Cardio Glutes 9,5,,Gluteus maximus,Dumbbell,1
+cardio ,Cardio Glutes 10,5,,Gluteus minimus,Dumbbell,2
+cardio ,Cardio Glutes 11,5,,Gluteus maximus,Dumbbell,3
+cardio ,Cardio Glutes 12,5,,Gluteus minimus,Dumbbell,4
+cardio ,Cardio Glutes 13,5,,Gluteus maximus,Dumbbell,5
+cardio ,Cardio Glutes 14,5,,Gluteus minimus,Dumbbell,6
+cardio ,Cardio Glutes 15,5,,Gluteus maximus,Dumbbell,7
+cardio ,Cardio Glutes 16,5,,Gluteus minimus,Dumbbell,8
+cardio ,Cardio Glutes 17,8,,Gluteus maximus,Dumbbell,1
+cardio ,Cardio Glutes 18,8,,Gluteus minimus,Dumbbell,2
+cardio ,Cardio Glutes 19,8,,Gluteus maximus,Dumbbell,3
+cardio ,Cardio Glutes 20,8,,Gluteus minimus,Dumbbell,4
+cardio ,Cardio Glutes 21,8,,Gluteus maximus,Dumbbell,5
+cardio ,Cardio Glutes 22,8,,Gluteus minimus,Dumbbell,6
+cardio ,Cardio Glutes 23,8,,Gluteus maximus,Dumbbell,7
+cardio ,Cardio Glutes 24,8,,Gluteus minimus,Dumbbell,8
+cardio ,Cardio Glutes 25,10,,Gluteus maximus,Dumbbell,1
+cardio ,Cardio Glutes 26,10,,Gluteus minimus,Dumbbell,2
+cardio ,Cardio Glutes 27,10,,Gluteus maximus,Dumbbell,3
+cardio ,Cardio Glutes 28,10,,Gluteus minimus,Dumbbell,4
+cardio ,Cardio Glutes 29,10,,Gluteus maximus,Dumbbell,5
+cardio ,Cardio Glutes 30,10,,Gluteus minimus,Dumbbell,6
+cardio ,Cardio Glutes 31,10,,Gluteus maximus,Dumbbell,7
+cardio ,Cardio Glutes 32,10,,Gluteus minimus,Dumbbell,8
+cardio ,Cardio Glutes 33,15,,Gluteus maximus,Dumbbell,1
+cardio ,Cardio Glutes 34,15,,Gluteus minimus,Dumbbell,2
+cardio ,Cardio Glutes 35,15,,Gluteus maximus,Dumbbell,3
+cardio ,Cardio Glutes 36,15,,Gluteus minimus,Dumbbell,4
+cardio ,Cardio Glutes 37,15,,Gluteus maximus,Dumbbell,5
+cardio ,Cardio Glutes 38,15,,Gluteus minimus,Dumbbell,6
+cardio ,Cardio Glutes 39,15,,Gluteus maximus,Dumbbell,7
+cardio ,Cardio Glutes 40,15,,Gluteus minimus,Dumbbell,8
+cardio ,Cardio Glutes 41,20,,Gluteus maximus,Dumbbell,1
+cardio ,Cardio Glutes 42,20,,Gluteus minimus,Dumbbell,2
+cardio ,Cardio Glutes 43,20,,Gluteus maximus,Dumbbell,3
+cardio ,Cardio Glutes 44,20,,Gluteus minimus,Dumbbell,4
+cardio ,Cardio Glutes 45,20,,Gluteus maximus,Dumbbell,5
+cardio ,Cardio Glutes 46,20,,Gluteus minimus,Dumbbell,6
+cardio ,Cardio Glutes 47,20,,Gluteus maximus,Dumbbell,7
+cardio ,Cardio Glutes 48,20,,Gluteus minimus,Dumbbell,8
+cardio ,Cardio Glutes 49,25,,Gluteus maximus,Dumbbell,1
+cardio ,Cardio Glutes 50,25,,Gluteus minimus,Dumbbell,2
+cardio ,Cardio Glutes 51,25,,Gluteus maximus,Dumbbell,3
+cardio ,Cardio Glutes 52,25,,Gluteus minimus,Dumbbell,4
+cardio ,Cardio Glutes 53,25,,Gluteus maximus,Dumbbell,5
+cardio ,Cardio Glutes 54,25,,Gluteus minimus,Dumbbell,6
+cardio ,Cardio Glutes 55,25,,Gluteus maximus,Dumbbell,7
+cardio ,Cardio Glutes 56,25,,Gluteus minimus,Dumbbell,8
+cardio ,Cardio Back 1,3,,Upper back,Barbell,1
+cardio ,Cardio Back 2,3,,Lower back,Barbell,2
+cardio ,Cardio Back 3,3,,Upper back,Barbell,3
+cardio ,Cardio Back 4,3,,Lower back,Barbell,4
+cardio ,Cardio Back 5,3,,Upper back,Barbell,5
+cardio ,Cardio Back 6,3,,Lower back,Barbell,6
+cardio ,Cardio Back 7,3,,Upper back,Barbell,7
+cardio ,Cardio Back 8,3,,Lower back,Barbell,8
+cardio ,Cardio Back 9,5,,Upper back,Barbell,1
+cardio ,Cardio Back 10,5,,Lower back,Barbell,2
+cardio ,Cardio Back 11,5,,Upper back,Barbell,3
+cardio ,Cardio Back 12,5,,Lower back,Barbell,4
+cardio ,Cardio Back 13,5,,Upper back,Barbell,5
+cardio ,Cardio Back 14,5,,Lower back,Barbell,6
+cardio ,Cardio Back 15,5,,Upper back,Barbell,7
+cardio ,Cardio Back 16,5,,Lower back,Barbell,8
+cardio ,Cardio Back 17,8,,Upper back,Barbell,1
+cardio ,Cardio Back 18,8,,Lower back,Barbell,2
+cardio ,Cardio Back 19,8,,Upper back,Barbell,3
+cardio ,Cardio Back 20,8,,Lower back,Barbell,4
+cardio ,Cardio Back 21,8,,Upper back,Barbell,5
+cardio ,Cardio Back 22,8,,Lower back,Barbell,6
+cardio ,Cardio Back 23,8,,Upper back,Barbell,7
+cardio ,Cardio Back 24,8,,Lower back,Barbell,8
+cardio ,Cardio Back 25,10,,Upper back,Barbell,1
+cardio ,Cardio Back 26,10,,Lower back,Barbell,2
+cardio ,Cardio Back 27,10,,Upper back,Barbell,3
+cardio ,Cardio Back 28,10,,Lower back,Barbell,4
+cardio ,Cardio Back 29,10,,Upper back,Barbell,5
+cardio ,Cardio Back 30,10,,Lower back,Barbell,6
+cardio ,Cardio Back 31,10,,Upper back,Barbell,7
+cardio ,Cardio Back 32,10,,Lower back,Barbell,8
+cardio ,Cardio Back 33,15,,Upper back,Barbell,1
+cardio ,Cardio Back 34,15,,Upper back,Barbell,2
+cardio ,Cardio Back 35,15,,Lower back,Barbell,3
+cardio ,Cardio Back 36,15,,Upper back,Barbell,4
+cardio ,Cardio Back 37,15,,Lower back,Barbell,5
+cardio ,Cardio Back 38,15,,Upper back,Barbell,6
+cardio ,Cardio Back 39,15,,Lower back,Barbell,7
+cardio ,Cardio Back 40,15,,Upper back,Barbell,8
+cardio ,Cardio Back 41,20,,Lower back,Barbell,1
+cardio ,Cardio Back 42,20,,Upper back,Barbell,2
+cardio ,Cardio Back 43,20,,Lower back,Barbell,3
+cardio ,Cardio Back 44,20,,Upper back,Barbell,4
+cardio ,Cardio Back 45,20,,Lower back,Barbell,5
+cardio ,Cardio Back 46,20,,Upper back,Barbell,6
+cardio ,Cardio Back 47,20,,Lower back,Barbell,7
+cardio ,Cardio Back 48,20,,Upper back,Barbell,8
+cardio ,Cardio Back 49,25,,Upper back,Barbell,1
+cardio ,Cardio Back 50,25,,Lower back,Barbell,2
+cardio ,Cardio Back 51,25,,Upper back,Barbell,3
+cardio ,Cardio Back 52,25,,Lower back,Barbell,4
+cardio ,Cardio Back 53,25,,Upper back,Barbell,5
+cardio ,Cardio Back 54,25,,Lower back,Barbell,6
+cardio ,Cardio Back 55,25,,Upper back,Barbell,7
+cardio ,Cardio Back 56,25,,Lower back,Barbell,8
+cardio ,Cardio Back 57,3,,Upper back,Dumbbell,1
+cardio ,Cardio Back 58,3,,Lower back,Dumbbell,2
+cardio ,Cardio Back 59,3,,Upper back,Dumbbell,3
+cardio ,Cardio Back 60,3,,Lower back,Dumbbell,4
+cardio ,Cardio Back 61,3,,Upper back,Dumbbell,5
+cardio ,Cardio Back 62,3,,Lower back,Dumbbell,6
+cardio ,Cardio Back 63,3,,Upper back,Dumbbell,7
+cardio ,Cardio Back 64,3,,Lower back,Dumbbell,8
+cardio ,Cardio Back 65,5,,Upper back,Dumbbell,1
+cardio ,Cardio Back 66,5,,Lower back,Dumbbell,2
+cardio ,Cardio Back 67,5,,Upper back,Dumbbell,3
+cardio ,Cardio Back 68,5,,Lower back,Dumbbell,4
+cardio ,Cardio Back 69,5,,Upper back,Dumbbell,5
+cardio ,Cardio Back 70,5,,Lower back,Dumbbell,6
+cardio ,Cardio Back 71,5,,Upper back,Dumbbell,7
+cardio ,Cardio Back 72,5,,Lower back,Dumbbell,8
+cardio ,Cardio Back 73,8,,Upper back,Dumbbell,1
+cardio ,Cardio Back 74,8,,Upper back,Dumbbell,2
+cardio ,Cardio Back 75,8,,Lower back,Dumbbell,3
+cardio ,Cardio Back 76,8,,Upper back,Dumbbell,4
+cardio ,Cardio Back 77,8,,Lower back,Dumbbell,5
+cardio ,Cardio Back 78,8,,Upper back,Dumbbell,6

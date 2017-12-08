@@ -279,7 +279,7 @@ def main(wake, bed, des_days, timelim, timepref,exrgl, input_d, neigh):
 
         #print ("amt min", time_min)
 
-        workoutdescrip = generateWorkout(time_min)
+        workoutdescrip = generateWorkout(time_min, exrgl)
         formatted_description = ""
         print ("descr", workoutdescrip)
         for (name, _, time, _) in workoutdescrip:
@@ -748,7 +748,7 @@ if the muscle_group is true, you can use it, if false, then it means you have al
 musclegroups = [('legs',True), ('arms',True), ('back',True),('abdominals',True), ('chest', True), ('shoulders', True), ('glutes', True)]
 
 ## this is where we can make conditional about certain strength or cardio activities
-def generateWorkout(timelimit, goal='strength'):
+def generateWorkout(timelimit, goal):
     # 4 big muscle groups
     # if True, that muscle group has not been assigned to a workout yet, so can be chosen
     # if False, that muscle group has been assigned to a workout, so cannot be chosen again
@@ -794,6 +794,7 @@ def fillTime(muscgroup, timelimit, goal):
         for row in workout_csv:
             muscle = row[4]
             #print ("time?", row[2])
+            #print (row[2])
             time = int(row[2])
             name = row[1]
             lvl = int(row[6])
@@ -918,4 +919,4 @@ def addWorkout(event):
     print ('Event created: %s' % (event.get('htmlLink')))
 
 if __name__ == '__main__':
-    main('08:00:00', '23:59:59', 3, 60, 'afternoon', 'strength', '2017-12-10', 'river')
+    main('08:00:00', '23:59:59', 3, 60, 'evening', 'cardio', '2017-12-10', 'quad')
