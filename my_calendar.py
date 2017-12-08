@@ -348,9 +348,10 @@ def runCSP(pers_avail, gym_avail, des_time, delta, neigh):
     else:
         #print ("daytivl", day_timeivl)
         day, time_ivl = day_timeivl
+        print ("csp", delta)
         wkt_ivl = selectTimeInInterval(time_ivl, des_time, delta)
         # print ("wkinterval", wkt_ivl)
-        # print ("time", time_ivl)
+        print ("time", time_ivl)
         # print ("daytime", day_timeivl)
         # print ("PADAY", pers_avail[day])
         # if it comes back with None, means that this time_ivl is no good so remove it
@@ -372,6 +373,10 @@ def runCSP(pers_avail, gym_avail, des_time, delta, neigh):
         (startwkt, endwkt) = wkt_ivl
         wkday = weekday(day)
         new_gym_avail = updateTimesGymHours(wkday, startwkt, endwkt, gym_avail)
+
+        # want to return next open gym time 
+        # if that time is equal to or after end of interval then move to the next interval
+
         #print ("nga", new_gym_avail)
         # rerun with new delta if None (will always choose same day bc still least constrained)
         # hopefully get a new interval to keep trying
@@ -586,7 +591,7 @@ def calcTotalTime(hour, minute, second):
 
 def selectTimeInterval(availabledict):
 
-    print ("selec avD", availabledict)
+    #print ("selec avD", availabledict)
 
     max_duration = -float("inf")
     max_day = None
@@ -614,8 +619,8 @@ def selectTimeInterval(availabledict):
     max_ivl = time_ivls[0]
     for (start, end) in time_ivls:
         duration = calcDuration(start, end)
-        if duration > max_duration:
-            max_duration = duration
+        if duration > max_dur:
+            max_dur = duration
             max_ivl = (start, end)
 
     return (max_day, max_ivl)
@@ -623,6 +628,7 @@ def selectTimeInterval(availabledict):
 def selectTimeInInterval(max_ivl, des_time, delta):
     from datetime import datetime
     import datetime as dt
+    print ("delta", delta)
     # pick a time interval within that interval 
     (start, end) = max_ivl
     starttime = datetime.strptime(start[0:8], '%H:%M:%S') + dt.timedelta(minutes=delta)
@@ -630,7 +636,7 @@ def selectTimeInInterval(max_ivl, des_time, delta):
     start = datetime.strptime(start[0:8], '%H:%M:%S')
     end = datetime.strptime(end[0:8], '%H:%M:%S')
     if withinInterval(start, end, starttime, endtime):
-        #print (max_day, starttime.time(), endtime.time())
+        print ("time frame", starttime.time(), endtime.time())
         return (starttime.time(), endtime.time())
     else:
         return None
@@ -667,7 +673,7 @@ def updateTimesGymHours (day, startwork, endwork, availabledict):
         (start, end) = times
         start = datetime.strptime(start[0:8], '%H:%M:%S')
         end = datetime.strptime(end[0:8], '%H:%M:%S')
-        if (start.time() <= startwork) and (endwork <= end.time()):
+        if (start.time() <= startwork) and (end.time() >= endwork):
         #withinInterval(start, end, startwork, endwork):
             possible[gym] = (day, times, startwork, endwork)
 
