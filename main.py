@@ -43,30 +43,30 @@ app = gui("When2Werk", "600x700")
 app.setFont(18)
 
 # add & configure widgets - widgets get a name, to help referencing them later
-app.addLabel("title", "Welcome to When2Werk")
+app.addLabel("title", "Welcome to When2Werk", colspan=2)
 #app.setLabelBg("title", "white")
 app.setLabelFg("title", "Black")
 
 app.setFont(12)
-app.addMessage("mess", """Please select your workout preferences for the week you'd like to schedule.""")
+app.addMessage("mess", """Please select your workout preferences for the week you'd like to schedule.""", colspan=2)
 
-app.addLabel("wake", "Wake Time (hh:mm)")
-app.addEntry("wakeTime")
+app.addLabel("wake", "Wake Time (hh:mm)",2,0)
+app.addEntry("wakeTime",3,0)
 
-app.addLabel("sleep", "Sleep Time (hh:mm)")
-app.addEntry("sleepTime")
+app.addLabel("sleep", "Sleep Time (hh:mm)",2,1)
+app.addEntry("sleepTime",3,1)
 
-app.addLabelOptionBox("neighborhood", ["yard", "river", "quad"])
+app.addLabelOptionBox("neighborhood", ["yard", "river", "quad"],colspan=2)
 
-app.addLabelOptionBox("sessionPeriod", ["morning", "afternoon", "evening"])
+app.addLabelOptionBox("sessionPeriod", ["morning", "afternoon", "evening"],colspan=2)
 
-app.addLabelOptionBox("sessionGoal", ["strength", "cardio"])
+app.addLabelOptionBox("sessionGoal", ["strength", "cardio"],colspan=2)
 
-app.addLabel("sTime", "Average Session Length (min)")
-app.addNumericEntry("sessionTime")
+app.addLabel("sTime", "Average Session Length (min)",7,0)
+app.addNumericEntry("sessionTime",8,0)
 
-app.addLabel("sCount", "Desired Sessions per Week")
-app.addNumericEntry("sessionCount")
+app.addLabel("sCount", "Desired Sessions per Week",7,1)
+app.addNumericEntry("sessionCount",8,1)
 
 
 app.addDatePicker("dateStart")
@@ -75,7 +75,7 @@ app.setDatePickerRange("dateStart", 1900, 2100)
 app.setDatePicker("dateStart")
 
 # link the buttons to the function called press
-app.addButtons(["Submit", "Cancel"], press)
+app.addButtons(["Submit", "Cancel"], press, colspan=2)
 
 
 # start the GUI
