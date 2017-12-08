@@ -15,9 +15,15 @@ def press(button):
         sessionGoal = app.getOptionBox("sessionGoal")
         sessionTime = int(app.getEntry("sessionTime"))
         sessionCount = int(app.getEntry("sessionCount"))
-       	dateStart = app.getDatePicker("dateStart")
+       	dateStart = str(app.getDatePicker("dateStart"))
        	wakeTime += ":00"
        	sleepTime += ":00"
+
+        
+
+        print ("date start: ", dateStart)
+
+        #2017-mm-dd
 
        	print(wakeTime, sleepTime, sessionCount, sessionTime, sessionPeriod,  sessionGoal, dateStart, neighborhood,)
 
@@ -32,7 +38,7 @@ def showDate(btn):
     print(app.getDatePicker("dp"))
 
 # create a GUI variable called app
-app = gui("Login Window", "600x700")
+app = gui("When2Werk", "600x700")
 #app.setBg("white")
 app.setFont(18)
 
