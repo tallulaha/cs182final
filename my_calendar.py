@@ -122,7 +122,7 @@ def main(wake, bed, des_days, timelim, timepref,exrgl, input_d, neigh):
         print('No upcoming events found.')
     else: 
         for event in events:
-            print(event)
+            #print(event)
             start = event['start'].get('dateTime', event['start'].get('date'))
             day, time = start.split("T")
             # want to get free time until bedtime
@@ -156,45 +156,45 @@ def main(wake, bed, des_days, timelim, timepref,exrgl, input_d, neigh):
     #personal_avail = conflict_dict
 
     gym_sun = {
-        "MAC" : [('9:00:00', '11:59:59'), ('12:00:00', '13:00:00'), None], 
+        "MAC" : [('9:00:00', '12:00:00'), ('12:00:00', '13:00:00'), None], 
         "Hemenway" : [None, ('14:00:00', '16:59:59'), ('17:00:00', '23:00:00')],
-        "Murr" : [('9:00:00', '11:59:59'), ('12:00:00', '16:59:59'), None],
+        "Murr" : [('9:00:00', '12:00:00'), ('12:00:00', '16:59:59'), None],
         "QRAC" : [None, None, None]
     }
     gym_mon = {
-        "MAC" : [('6:00:00', '11:59:59'), ('12:00:00', '16:59:59'), ('17:00:00', '22:00:00')], 
-        "Hemenway" : [('6:00:00', '11:59:59'), ('12:00:00', '16:59:59'), ('17:00:00', '23:00:00')],
-        "Murr" : [('7:00:00', '11:59:59'), ('12:00:00', '16:59:59'), ('17:00:00', '23:00:00')],
-        "QRAC" : [('8:00:00', '11:59:59'), ('12:00:00', '16:59:59'), ('17:00:00', '23:00:00')]
+        "MAC" : [('6:00:00', '12:00:00'), ('12:00:00', '16:59:59'), ('17:00:00', '22:00:00')], 
+        "Hemenway" : [('6:00:00', '12:00:00'), ('12:00:00', '16:59:59'), ('17:00:00', '23:00:00')],
+        "Murr" : [('7:00:00', '12:00:00'), ('12:00:00', '16:59:59'), ('17:00:00', '23:00:00')],
+        "QRAC" : [('8:00:00', '12:00:00'), ('12:00:00', '16:59:59'), ('17:00:00', '23:00:00')]
     }
     gym_tue = {
-        "MAC" : [('6:00:00', '11:59:59'), ('12:00:00', '16:59:59'), ('17:00:00', '22:00:00')], 
-        "Hemenway" : [('6:00:00', '11:59:59'), ('12:00:00', '16:59:59'), ('17:00:00', '23:00:00')],
-        "Murr" : [('7:00:00', '11:59:59'), ('12:00:00', '16:59:59'), ('17:00:00', '23:00:00')],
-        "QRAC" : [('8:00:00', '11:59:59'), ('12:00:00', '16:59:59'), ('17:00:00', '23:00:00')]
+        "MAC" : [('6:00:00', '12:00:00'), ('12:00:00', '16:59:59'), ('17:00:00', '22:00:00')], 
+        "Hemenway" : [('6:00:00', '12:00:00'), ('12:00:00', '16:59:59'), ('17:00:00', '23:00:00')],
+        "Murr" : [('7:00:00', '12:00:00'), ('12:00:00', '16:59:59'), ('17:00:00', '23:00:00')],
+        "QRAC" : [('8:00:00', '12:00:00'), ('12:00:00', '16:59:59'), ('17:00:00', '23:00:00')]
     }
     gym_wed = {
-        "MAC" : [('6:00:00', '11:59:59'), ('12:00:00', '16:59:59'), ('17:00:00', '22:00:00')], 
-        "Hemenway" : [('6:00:00', '11:59:59'), ('12:00:00', '16:59:59'), ('17:00:00', '23:00:00')],
-        "Murr" : [('7:00:00', '11:59:59'), ('12:00:00', '16:59:59'), ('17:00:00', '23:00:00')],
-        "QRAC" : [('8:00:00', '11:59:59'), ('12:00:00', '16:59:59'), ('17:00:00', '23:00:00')]
+        "MAC" : [('6:00:00', '12:00:00'), ('12:00:00', '16:59:59'), ('17:00:00', '22:00:00')], 
+        "Hemenway" : [('6:00:00', '12:00:00'), ('12:00:00', '16:59:59'), ('17:00:00', '23:00:00')],
+        "Murr" : [('7:00:00', '12:00:00'), ('12:00:00', '16:59:59'), ('17:00:00', '23:00:00')],
+        "QRAC" : [('8:00:00', '12:00:00'), ('12:00:00', '16:59:59'), ('17:00:00', '23:00:00')]
     }
     gym_th = {
-        "MAC" : [('6:00:00', '11:59:59'), ('12:00:00', '16:59:59'), ('17:00:00', '22:00:00')], 
-        "Hemenway" : [('6:00:00', '11:59:59'), ('12:00:00', '16:59:59'), ('17:00:00', '23:00:00')],
-        "Murr" : [('7:00:00', '11:59:59'), ('12:00:00', '16:59:59'), ('17:00:00', '23:00:00')],
-        "QRAC" : [('8:00:00', '11:59:59'), ('12:00:00', '16:59:59'), ('17:00:00', '23:00:00')]
+        "MAC" : [('6:00:00', '12:00:00'), ('12:00:00', '16:59:59'), ('17:00:00', '22:00:00')], 
+        "Hemenway" : [('6:00:00', '12:00:00'), ('12:00:00', '16:59:59'), ('17:00:00', '23:00:00')],
+        "Murr" : [('7:00:00', '12:00:00'), ('12:00:00', '16:59:59'), ('17:00:00', '23:00:00')],
+        "QRAC" : [('8:00:00', '12:00:00'), ('12:00:00', '16:59:59'), ('17:00:00', '23:00:00')]
     }
     gym_fri = {
-        "MAC" : [('6:00:00', '11:59:59'), ('12:00:00', '16:59:59'), ('17:00:00', '19:00:00')], 
-        "Hemenway" : [('6:00:00', '11:59:59'), ('12:00:00', '16:59:59'), ('17:00:00', '20:00:00')],
-        "Murr" : [('7:00:00', '11:59:59'), ('12:00:00', '16:59:59'), ('17:00:00', '22:30:00')],
-        "QRAC" : [('8:00:00', '11:59:59'), ('12:00:00', '16:59:59'), ('17:00:00', '21:00:00')]
+        "MAC" : [('6:00:00', '12:00:00'), ('12:00:00', '16:59:59'), ('17:00:00', '19:00:00')], 
+        "Hemenway" : [('6:00:00', '12:00:00'), ('12:00:00', '16:59:59'), ('17:00:00', '20:00:00')],
+        "Murr" : [('7:00:00', '12:00:00'), ('12:00:00', '16:59:59'), ('17:00:00', '22:30:00')],
+        "QRAC" : [('8:00:00', '12:00:00'), ('12:00:00', '16:59:59'), ('17:00:00', '21:00:00')]
     }
     gym_sat = {
-        "MAC" : [('9:00:00', '11:59:59'), ('12:00:00', '16:59:59'), None], 
-        "Hemenway" : [('10:00:00', '11:59:59'), ('12:00:00', '16:59:59'), ('17:00:00', '20:00:00')],
-        "Murr" : [('8:00:00', '11:59:59'), ('12:00:00', '16:59:59'), ('17:00:00', '20:00:00')],
+        "MAC" : [('9:00:00', '12:00:00'), ('12:00:00', '16:59:59'), None], 
+        "Hemenway" : [('10:00:00', '12:00:00'), ('12:00:00', '16:59:59'), ('17:00:00', '20:00:00')],
+        "Murr" : [('8:00:00', '12:00:00'), ('12:00:00', '16:59:59'), ('17:00:00', '20:00:00')],
         "QRAC" : [None, ('12:00:00', '16:59:59'), ('17:00:00', '21:00:00')]
     }
 
@@ -214,30 +214,31 @@ def main(wake, bed, des_days, timelim, timepref,exrgl, input_d, neigh):
     update_pers_avail = updateTimesPreference(personal_avail, timepref)
     if update_pers_avail == None:
         print ("Your schedule does not allow for workouts in the indicated time preference (morning) due to Personal availability-- break")
-    #print (update_pers_avail)
+    print ("pre gym pref", update_pers_avail)
     # fwd check the gym hours schedule
     update_gym_avail = updateGymHoursPreference(all_days, timepref)
     if update_gym_avail == None:
         print ("Your schedule does not allow for workouts in the indicated time preference (morning) due to Gym availability -- break")
-    #print (update_gym_avail)
+    print ("gym pref", update_gym_avail)
     # assign the time you'd like to work out for
     # fwd check the personal availability schedule
+    print ("pre times lim", update_pers_avail)
     update_pers_avail = updateTimesLimit(update_pers_avail, timelim)
     if update_pers_avail == None:
         print ("Your schedule does not allow for workouts in the indicated workout time due to Personal availability-- break")
     #print ("sort of updated")
-    #print (update_pers_avail)
+    print ("post", update_pers_avail)
     # fwd check the gym's hours schedule
     update_gym_avail = updateGymHoursLimit(update_gym_avail, timelim)
     if update_pers_avail == None:
         print ("Your schedule does not allow for workouts in the indicated workout time due to Gym availability-- break")
     #print ("most updated")
-    #print (update_pers_avail)
 
     # commented out because now a parameter argument
     #des_days = 3
     workout = []
     for _ in xrange(des_days):
+        print ("passed into runCSP", update_pers_avail)
         assign = runCSP(update_pers_avail, update_gym_avail, timelim, 0, neigh)
         if assign == None:
             break
@@ -345,30 +346,33 @@ def runCSP(pers_avail, gym_avail, des_time, delta, neigh):
         print ("no available days")
         return None
     else:
-        print ("daytivl", day_timeivl)
+        #print ("daytivl", day_timeivl)
         day, time_ivl = day_timeivl
         wkt_ivl = selectTimeInInterval(time_ivl, des_time, delta)
-        print ("wkinterval", wkt_ivl)
-        print ("time", time_ivl)
-        print ("daytime", day_timeivl)
-        print ("PADAY", pers_avail[day])
+        # print ("wkinterval", wkt_ivl)
+        # print ("time", time_ivl)
+        # print ("daytime", day_timeivl)
+        # print ("PADAY", pers_avail[day])
         # if it comes back with None, means that this time_ivl is no good so remove it
         while wkt_ivl == None:
-            pers_avail[day].remove(time_ivl)
+            #print (pers_avail[day])
+            if time_ivl in pers_avail[day]:
+                pers_avail[day].remove(time_ivl)
+
             if not pers_avail[day]:
                 print ("no more time intervals in day, moving on")
                 pers_avail.pop(day, None)
-                day_timeivl = selectTimeInterval(pers_avail)
-                if day_timeivl == None:
-                    return None
-                day, time_ivl = day_timeivl
-                wkt_ivl = selectTimeInInterval(time_ivl, des_time, delta)
+            day_timeivl = selectTimeInterval(pers_avail)
+            if day_timeivl == None:
+                return None
+            day, time_ivl = day_timeivl
+            wkt_ivl = selectTimeInInterval(time_ivl, des_time, delta)
 
 
         (startwkt, endwkt) = wkt_ivl
         wkday = weekday(day)
         new_gym_avail = updateTimesGymHours(wkday, startwkt, endwkt, gym_avail)
-        print ("nga", new_gym_avail)
+        #print ("nga", new_gym_avail)
         # rerun with new delta if None (will always choose same day bc still least constrained)
         # hopefully get a new interval to keep trying
         # run on the same gym availability
@@ -404,16 +408,17 @@ def weekday(day):
 
 def breakTime(start,end,day,dic):
     if (end >= '12:00:00') and (start < '12:00:00'):
-        dic[day].append((start, '11:59:59-05:00'))
+        dic[day].append((start, '12:00:00-05:00'))
         if end >= '17:00:00':
-            dic[day].append(('12:00:00-05:00', '16:59:59-05:00'))
+            dic[day].append(('12:00:00-05:00', '17:00:00-05:00'))
         else:
             dic[day].append(('12:00:00-05:00', end))
     elif (end >='17:00:00') and (start < '17:00:00'):
-        dic[day].append((start, '16:59:59-05:00'))
+        dic[day].append((start, '17:00:00-05:00'))
         dic[day].append(('17:00:00-05:00', end))
     else:
-        dic[day].append((start, end))
+        if start != end:
+            dic[day].append((start, end))
 
 # timepref is always assigned because the user chose that 
 # forward check: eliminate all times that aren't consistent with the timepref
@@ -437,7 +442,7 @@ def updateTimesPreference(availabledict, timepref):
             if timepref == 'morning':
                 # should be wake time
                 scutoff = datetime.strptime('05:00:00', '%H:%M:%S')
-                ecutoff = datetime.strptime('11:59:59', '%H:%M:%S')
+                ecutoff = datetime.strptime('12:00:00', '%H:%M:%S')
             elif timepref == 'afternoon':
                 scutoff = datetime.strptime('12:00:00', '%H:%M:%S')
                 ecutoff = datetime.strptime('16:59:59', '%H:%M:%S')
@@ -581,7 +586,7 @@ def calcTotalTime(hour, minute, second):
 
 def selectTimeInterval(availabledict):
 
-    #print (availabledict)
+    print ("selec avD", availabledict)
 
     max_duration = -float("inf")
     max_day = None
@@ -600,6 +605,7 @@ def selectTimeInterval(availabledict):
             max_day = day
 
     time_ivls = availabledict[max_day]
+    print ("most available time day", time_ivls)
 
     # you know all the time intervals are long enough for desired workout
     # you know each day has at least 1 time interval because of fwd checking
@@ -666,7 +672,7 @@ def updateTimesGymHours (day, startwork, endwork, availabledict):
             possible[gym] = (day, times, startwork, endwork)
 
             spec_gym = gym
-    print ("po", possible)
+    print ("possible gyms", possible)
     if len(possible) == 0:
         return None
     return possible
